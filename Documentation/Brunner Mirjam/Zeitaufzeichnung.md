@@ -19,6 +19,6 @@
 |29.08.2025|3|ja|Programmierkurs: Fortsetzung des Kurses. Javascript: kleine Projekte, Javascript in Verwendung mit HTML, Sounds einfügen, Eingabe auf der Tastatur in Javascript aufrufen, etc.|
 |31.08.2025|1|ja|Programmierkurs: Fortsetzung des Kurses. Javascript: Sounds und Animationen einfügen, "Callbacks and how to respond to Events" |
 |10.09.2025|5 - bis jetzt insg.: 46|ja|Programmierkurs: Fortsetzung des Kurses. Node.js: Node installiert und erste Schritte in Verbindung mit Javascript über Terminal.|
-|10.09.2025|.|ja|Programmierkurs: Fortsetzung des Kurses. |
+|11.09.2025|5|nein|Zwei Stunden: Projektmanagement Einführung von Frau Fuchs. Drei Stunden: erste Diplomarbeitsstunden seit Schulbeginn - 5. Jahrgang.|
 
 
