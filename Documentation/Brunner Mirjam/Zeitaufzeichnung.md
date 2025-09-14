@@ -18,5 +18,9 @@
 |18.08.2025|3|ja|Programmierkurs: Fortsetzung des Kurses. Javascript: kleine Projekte, Javascript in Verwendung mit HTML, etc.|
 |29.08.2025|3|ja|Programmierkurs: Fortsetzung des Kurses. Javascript: kleine Projekte, Javascript in Verwendung mit HTML, Sounds einfügen, Eingabe auf der Tastatur in Javascript aufrufen, etc.|
 |31.08.2025|1|ja|Programmierkurs: Fortsetzung des Kurses. Javascript: Sounds und Animationen einfügen, "Callbacks and how to respond to Events" |
-|10.09.2025|5 - bis jetzt insg.: 46|ja|Programmierkurs: Fortsetzung des Kurses. Node.js: Node installiert und erste Schritte in Verbindung mit Javascript über Terminal.|
+|10.09.2025|5|ja|Programmierkurs: Fortsetzung des Kurses. Node.js: Node installiert und erste Schritte in Verbindung mit Javascript über Terminal.|
+|11.09.2025|5|nein|Zwei Stunden: Projektmanagement Einführung von Frau Fuchs. Drei Stunden: erste Diplomarbeitsstunden seit Schulbeginn - 5. Jahrgang.|
+|12.09.2025|4 - bis jetzt insg.: 50|ja|Programmierkurs: Fortsetzung des Kurses. Node.js: NPM Packages verwenden - QR Codes erstellen, arbeiten bzw. programmieren mit packages|
+|12.09.2025|9 - bis jetzt insg.: 59|ja|Programmierkurs: Fortsetzung des Kurses. Node.js mit Express: Prototypen entworfen für Diplomarbeit: Medienwoche, Übungen abgeschlossen --> POST, GET, etc., Login mit Javascript und HTML|
+
 
