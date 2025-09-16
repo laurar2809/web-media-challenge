@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hallo! Willkommen bei Fotochallenge!</h1>
+   
+    <p>Hast du bereits ein Fototeam? Wenn ja, gib den Gruppennamen ein!</p>
+    <form action="/fotochallenges/challenges" method="POST">
+       <label for="gruppe">Gruppenname:</label>
+        <input type="text" id="gruppe" name="gruppe" required>
+        <br><br><input type="submit" value="Bestätigen">
+    </form><br><br>
+
+    <p>Du hast dein Fototeam noch nicht bekannt gegeben?</p>
+
+    <form action="/fototeam" method="POST">
+        <input type="submit" value="Erstelle Fototeam!">
+    </form>
+   
+</html>
