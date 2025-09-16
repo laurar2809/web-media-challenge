@@ -22,6 +22,7 @@
 |11.09.2025|5|nein|Zwei Stunden: Projektmanagement Einführung von Frau Fuchs. Drei Stunden: erste Diplomarbeitsstunden seit Schulbeginn - 5. Jahrgang.|
 |12.09.2025|4 - bis jetzt insg.: 50|ja|Programmierkurs: Fortsetzung des Kurses. Node.js: NPM Packages verwenden - QR Codes erstellen, arbeiten bzw. programmieren mit packages|
 |13.09.2025|9|ja|Programmierkurs: Fortsetzung des Kurses. Node.js mit Express: Prototypen entworfen für Diplomarbeit: Medienwoche, Übungen abgeschlossen --> POST, GET, etc., Login mit Javascript und HTML|
-|14.09.2025|4 - bis jetzt insg.: 63|ja|Programmierkurs: Fortsetzung des Kurses. EJS: Übungen abgeschlossen, Erste Schritte mit EJS (Embedded Javascript)|
+|14.09.2025|4|ja|Programmierkurs: Fortsetzung des Kurses. EJS: Übungen abgeschlossen, Erste Schritte mit EJS (Embedded Javascript)|
+|14.09.2025|3 - bis jetzt insg.: 66|ja|Programmierkurs: Fortsetzung des Kurses. EJS: Übungen mit EJS, javascript Code in index.ejs ausgeben, Übungen dazu.|
 
 
