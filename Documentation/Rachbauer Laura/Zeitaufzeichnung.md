@@ -14,4 +14,4 @@
 |11.09.2025|5|Nein|Ersten beiden Einheiten: Projektmanagement mit Frau Fuchs, Besprechen der Anforderungen. 3., 4. und 5. Einheit: Besprechen der Aufteilung, Fertigstellung des ABA Portals (nach Zurückweisung) und zeitliche Planung.
 |13.09.2025|1|Ja|Herunterladen der ersten Tabler.io Datein und durchlesen/verstehen der ersten Codes.|
 |14.09.2025|2|Ja|Erste Designideen auf Adobe XD anfertigen.|
-|16.09.2025|4|Ja|Weiterführen und Fertigstellung des Website-Prototypen auf XD.|
+|16.09.2025|4|Ja|Weiterführen und Fertigstellung des Website-Prototypen auf XD (Schülerversion).|
