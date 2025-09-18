@@ -27,3 +27,19 @@ Es gibt mehrere Kategorien, wobei es mehrere Werke gibt. In den Werken können m
 
 
 ![Bild](img/SQL_Datenbank_Anfang.png)
+
+--- 
+###  Categories:
+In "Categories" werden alle Kategorien angelegt. Es gibt mehrere Kategorien wie zum Beispiel Video, Foto, 3D Modellierung und Audio.
+
+### Works:
+In "Works" werden die einzelnen Aufgaben angelegt, die zu erledigen sind. Zum Beispiel bei Foto: 1. Oneshot, 2. Himmel,... 
+
+### Media:
+In "Media" werden alle Medien von den Usern angelegt. Es können mehrere Medien in Arbeiten (Works) hochgeladen werden.
+
+### Users:
+In "Users" werden alle User angelegt. Darunter zählen Schüler, Lehrer und Admin. User können Medien in Arbeiten hochladen. 
+
+### Work_category
+In "Work_category" werden alle Medien und Arbeiten angelegt. Dabei können alle Medien in mehrere Arbeiten zugeteilt werden.
