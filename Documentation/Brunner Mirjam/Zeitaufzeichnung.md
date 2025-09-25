@@ -24,6 +24,10 @@
 |13.09.2025|9|ja|Programmierkurs: Fortsetzung des Kurses. Node.js mit Express: Prototypen entworfen für Diplomarbeit: Medienwoche, Übungen abgeschlossen --> POST, GET, etc., Login mit Javascript und HTML|
 |14.09.2025|4|ja|Programmierkurs: Fortsetzung des Kurses. EJS: Übungen abgeschlossen, Erste Schritte mit EJS (Embedded Javascript)|
 |14.09.2025|3|ja|Programmierkurs: Fortsetzung des Kurses. EJS: Übungen mit EJS, javascript Code in index.ejs ausgeben, Übungen dazu.|
-|14.09.2025|1 - bis jetzt insg.: 67|ja|Programmierkurs: Fortsetzung des Kurses. EJS: EJS in Verbindung mit Javascript und CSS. Direkte Anwendung an vorgefertigte Website.|
+|15.09.2025|1|ja|Programmierkurs: Fortsetzung des Kurses. EJS: EJS in Verbindung mit Javascript und CSS. Direkte Anwendung an vorgefertigte Website.|
+|17.09.2025|1|ja|Prototypen von HTML auf EJS umgeändert.|
+|21.09.2025|3|ja|Programmierkurs Fortsetzung: Create a Web application -> "Projekt" um Blogs posten zu können. Löschen möglich. Ohne Datenbank, nur mit Array.|
+|21.09.2025|1 - bis jetzt insg.: 72|ja|"Projekt" um Blogs posten zu können. Löschen möglich. Ohne Datenbank, nur mit Array. --> weitergearbeitet|
+
 
 
