@@ -42,4 +42,4 @@ In "Media" werden alle Medien von den Usern angelegt. Es können mehrere Medien 
 In "Users" werden alle User angelegt. Darunter zählen Schüler, Lehrer und Admin. User können Medien in Arbeiten hochladen. 
 
 ### Work_category
-In "Work_category" werden alle Medien und Arbeiten angelegt. Dabei können alle Medien in mehrere Arbeiten zugeteilt werden.
+In "Work_category" werden alle Medien und Arbeiten angelegt. Dabei können alle Medien in mehrere Kategorien zugeteilt werden.
