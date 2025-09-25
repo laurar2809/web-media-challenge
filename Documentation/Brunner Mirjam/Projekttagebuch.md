@@ -1,18 +1,5 @@
 # Projekttagebuch
 
-
-## Montag,07.07.2025
-
-**Jede Woche ist von jeder/m ein Bericht über die Ergebnisse zu erstellen.**
-
-Keine reine Beschreibung, was gemacht wurde. Festhalten der Ergebnisse inklusive:
-
-- Quellen
-- Prototypen
-- Probleme, die aufgetaucht sin
-- Quelltext
-- **Bilder**
-
 ## Donnerstag, 18.09.2025
 
 ### ABA-Portal:
@@ -112,7 +99,7 @@ Umgang mit API und JSON erlernen:
 
 ### AXIOS:
 
-Mit Axios kann man besser und mit weniger Code mit eigenen Server mit API auf Daten eines anderen Servers zugreifen.
+Mit Axios kann man besser und in Verwendung von weniger Code mit eigenen Server mit Hilfe von API auf Daten eines anderen Servers zugreifen.
 Mit Axios holt man sich die Daten, die man dann auch weiterverwenden kann. 
 
 ##### Wichtige Befehle:
@@ -124,7 +111,7 @@ Mit Axios holt man sich die Daten, die man dann auch weiterverwenden kann.
  - etc.
 
 Anwendung von AXIOS (Codeausschnitt):
-- Es werden Daten von Einem Server geholt
+- Es werden Daten von einem Server geholt
 - Falls ein Fehler auftritt oder die Daten nicht vorhanden sind wird eine Fehlermeldung ausgegeben
 - (Code von Beispielübung erlernt --> Udemy)
  ```
@@ -146,12 +133,12 @@ Anwendung von AXIOS (Codeausschnitt):
 - 2: API Key Authorisation --> dem Benutzer ist es nur erlaubt, den Server mti API Key zu nutzen
 - 3: Token Based Authentication --> Identitätsbestätigung & Autorisierung
 
-![Bild](img/Token.jpg)
+![Bild](img/Token_miro.jpg)
 (gestaltet mit Miro --> https://miro.com/app/board/uXjVJDb5gaY=/)
 
+
+
 ### JSON
-
-
 #### JSON -> Javascript Datei
 ```
 const data = JSON.parse(data);
@@ -165,7 +152,7 @@ const jsonData = JSON.stringfy(data);
 #### Übersichtlichere JSON Datei:
 JSON Dateien übersichtlicher darstellen mit https://jsonviewer.stack.hu/
 
-Beispiel: Von diesesm Code... (Code von Beispielübung -> Udemy)
+Beispiel: Bei diesesm Code... (Code von Beispielübung -> Udemy)
 ```
 [
   {
