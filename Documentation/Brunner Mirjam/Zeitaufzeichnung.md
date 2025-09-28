@@ -27,7 +27,7 @@
 |15.09.2025|1|ja|Programmierkurs: Fortsetzung des Kurses. EJS: EJS in Verbindung mit Javascript und CSS. Direkte Anwendung an vorgefertigte Website.|
 |17.09.2025|1|ja|Prototypen von HTML auf EJS umgeändert.|
 |21.09.2025|3|ja|Programmierkurs Fortsetzung: Create a Web application -> "Projekt" um Blogs posten zu können. Löschen möglich. Ohne Datenbank, nur mit Array.|
-|22.09.2025|1 - bis jetzt insg.: 72|ja|"Projekt" um Blogs posten zu können. Löschen möglich. Ohne Datenbank, nur mit Array. --> weitergearbeitet|
-
+|22.09.2025|1|ja|"Projekt" um Blogs posten zu können. Löschen möglich. Ohne Datenbank, nur mit Array. --> weitergearbeitet|
+|28.09.2025|1 - bis jetzt insg.: 73|ja| Programmierkurs Fortsetzung: API's. Mit APIs arbeiten --> Übungen abgeschlossen|
 
 
