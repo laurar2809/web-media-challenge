@@ -18,12 +18,12 @@ wie zum Beispiel:
 
 ## Aufbau Datenbank
 Um die Medien in verschiedene Werke speichern zu können, legt man eine extra Tabelle an. Zum Beispiel:
-- partOf
+- Work_category
 
 ### Vorgang
 Es gibt mehrere Kategorien, wobei es mehrere Werke gibt. In den Werken können mehrere Medien von Usern gespeichert werden. Übersicht: 
 
-- User --> Kategorien --> Werke/Projekte --> Medien
+- User: Kategorien --> Werke/Projekte --> Medien
 
 
 ![Bild](img/SQL_Datenbank_Anfang.png)
