@@ -14,4 +14,10 @@
 |11.09.2025|5|Nein|Ersten beiden Einheiten: Projektmanagement mit Frau Fuchs, Besprechen der Anforderungen. 3., 4. und 5. Einheit: Besprechen der Aufteilung, Fertigstellung des ABA Portals (nach Zurückweisung) und zeitliche Planung.
 |13.09.2025|1|Ja|Herunterladen der ersten Tabler.io Datein und durchlesen/verstehen der ersten Codes.|
 |14.09.2025|2|Ja|Erste Designideen auf Adobe XD anfertigen.|
-|16.09.2025|4 (21)|Ja|Weiterführen und Fertigstellung des Website-Prototypen auf XD (Schülerversion).|
+|16.09.2025|4|Ja|Weiterführen und Fertigstellung des ersten Website-Prototypen auf XD (Schülerversion).|
+|18.09.2025|10|Nein|Einreichen des ABA Portals. Beginn zweiter Website-Prototyp, nach Absprache mit Herrn Hanl. Inspirationen bei TablerIO einholen.|
+|26.09.2025|2|Ja|Weiterführen des zweiten Website-Prototypen. Design detailierter machen.|
+|30.09.2025|1|Ja|Updaten der Exeltabelle für die Jahresplanung für Frau Fuchs auf Teams.|
+|01.10.2025|2 |Ja|Weiterführen und Fertigstellung des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
+
+#### (Freizeit: 26 h; ges. 47 h)
