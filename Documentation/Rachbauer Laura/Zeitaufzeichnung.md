@@ -18,6 +18,6 @@
 |18.09.2025|10|Nein|Einreichen des ABA Portals. Beginn zweiter Website-Prototyp, nach Absprache mit Herrn Hanl. Inspirationen bei TablerIO einholen.|
 |26.09.2025|2|Ja|Weiterführen des zweiten Website-Prototypen. Design detailierter machen.|
 |30.09.2025|1|Ja|Updaten der Exeltabelle für die Jahresplanung für Frau Fuchs auf Teams.|
-|01.10.2025|2 |Ja|Weiterführen und Fertigstellung des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
+|01.10.2025|1|Ja|Weiterführen und des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
 
-#### (Freizeit: 26 h; ges. 47 h)
+#### (Freizeit: 25 h; ges. 46 h)
