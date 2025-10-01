@@ -8,7 +8,43 @@
 ### Datenbank:
 
 #### Datenbankstruktur:
-- Entwurf mit: https://dbdiagram.io/d
+- Entwurf mit: https://dbdiagram.io/d 
+- Code Für Website:
+
+```sql
+Table users {
+  user_id int [pk, increment]
+  username varchar(255) [not null]
+  password varchar(255) [not null]
+  role enum('Administrator', 'Schüler', 'Lehrer') [not null]
+}
+
+Table works {
+  work_id int [pk, increment]
+  title varchar(255) [not null]
+  description text
+  created_by int [ref: > users.user_id]
+}
+
+Table media {
+  media_id int [pk, increment]
+  work_id int [ref: > works.work_id]
+  media_type enum('Audio', 'Video', 'Foto') [not null]
+  file_path varchar(255) [not null]
+  created_at timestamp [default: 'CURRENT_TIMESTAMP']
+}
+
+Table categories {
+  category_id int [pk, increment]
+  name varchar(255) [not null]
+}
+
+Table work_category {
+  work_id int [ref: > works.work_id]
+  category_id int [ref: > categories.category_id]
+  primary key(work_id, category_id)
+}
+```
 
 ![bild](img/dbdiagramm.png)
 
@@ -17,13 +53,13 @@
 
 #### Datenbank erstellen
 Erste Schritte von Chat GPT erstellen lassen - Anforderungen an Chat GPT:
-```
+```txt 
 Ich möchte ein Datenbankdesign für eine relationale Datenbank machen. Verschiedene Benutzer haben verschiedene Rollen, wie zum Beispiel Administrator, Schüler oder Lehrer. Alle Benutzer können Werke anlegen. Ein Werk kann aus mehreren Medien bestehen. Die Werke lassen sich in Kategorien, wie zb Audio, Video oder Fotografie einteilen.
 ```
 
-Code von Chat GPT:
+Code von Chat GPT: SQL Code
 
-```
+```sql
 CREATE TABLE Users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
@@ -114,7 +150,8 @@ Anwendung von AXIOS (Codeausschnitt):
 - Es werden Daten von einem Server geholt
 - Falls ein Fehler auftritt oder die Daten nicht vorhanden sind wird eine Fehlermeldung ausgegeben
 - (Code von Beispielübung erlernt --> Udemy)
- ```
+
+ ```javascript
   try {
     const response = await axios.get("https://bored-api.appbrewery.com/random");
     const result = response.data;
@@ -140,12 +177,12 @@ Anwendung von AXIOS (Codeausschnitt):
 
 ### JSON
 #### JSON -> Javascript Datei
-```
+```javascript
 const data = JSON.parse(data);
 ```
 
 #### Javascript Datei -> JSON
-```
+```javascript
 const jsonData = JSON.stringfy(data);
 ```
 
@@ -153,7 +190,7 @@ const jsonData = JSON.stringfy(data);
 JSON Dateien übersichtlicher darstellen mit https://jsonviewer.stack.hu/
 
 Beispiel: Bei diesesm Code... (Code von Beispielübung -> Udemy)
-```
+```javascript
 [
   {
     "id": "0001",
