@@ -150,65 +150,99 @@ INSERT INTO Work_Category (work_id, category_id) VALUES
 (7, 1);  -- Werk 7 gehört zu Audio
 ```
 
-
-### Aufgabe 1.1
-Wähle alle Einträge aus der Tabelle, deren Kalorienwert höher als 250 ist.
+## Beispielhafte Befehle:
+### SELECT
+Wähle User mit der ID 1 aus.
 ```sql
-SELECT * FROM `ksn_01_nutrition` WHERE kcal > 250;
+SELECT username FROM `users` WHERE user_id=1;
+```
+
+Finde alle Schüler in der User-Tabelle und zeige ihre ID's und Usernamen.
+```sql
+SELECT username,user_id FROM `users` WHERE role='Schüler';
+```
+Zeige ein Werk eines bestimmten Schülers:
+```sql
+SELECT 
+    w.work_id,
+    w.title,
+    w.description,
+    u.username
+FROM Works w
+JOIN Users u ON w.created_by = u.user_id
+WHERE u.username = 'schueler1';
+```
+Zeige Werke aller Schüler:
+```sql
+SELECT 
+    w.work_id,
+    w.title,
+    w.description,
+    u.username
+FROM Works w
+JOIN Users u ON w.created_by = u.user_id
+WHERE u.role = 'Schüler';
+```
+Zeige alle Schüler an, die Fotos hochgeladen haben:
+```sql
+SELECT DISTINCT
+    u.username,
+    u.role
+FROM Users u
+JOIN Works w ON u.user_id = w.created_by
+JOIN Media m ON w.work_id = m.work_id
+WHERE u.role = 'Schüler'
+AND m.media_type = 'Foto';
+```
+
+### UPDATE
+
+Ändere den Titel von einem bestimmten Werk:
+```sql
+UPDATE Works 
+SET title = 'Neuer Titel Name' 
+WHERE work_id = 2;
+```
+
+Ändere den Titel eines Werks basierend auf Schüler-Username.
+```sql
+UPDATE Works 
+SET title = 'Neuer Titel für Schüler1' 
+WHERE created_by = (SELECT user_id FROM Users WHERE username = 'schueler1')
+AND work_id = 2;
+```
+
+Ändere den Titel und Beschreibung eines Werks.
+```sql
+UPDATE Works 
+SET title = 'Aktualisierter Titel', 
+    description = 'Neue Beschreibung des Werks' 
+WHERE work_id = 5;
+```
+
+Ändere den Medientyp basierend auf die Medien-ID. 
+```sql
+UPDATE media SET media_type='Audio' WHERE media_id=1;
+```
+
+Ändere den Pfad von einer bestimmten Datei.
+```sql
+UPDATE media SET file_path='/path/to/animation1.zip' WHERE media_id=1;
+```
+
+### ALTER
+Ändere die Tabellenstruktur von der Tabelle Media und füge zusätzlich Animation zu Foto, Video und Audio hinzu.
+```sql
+ALTER TABLE media MODIFY COLUMN media_type ENUM('Audio', 'Video', 'Foto', 'Animation') NOT NULL;
 ```
 
 
-### Aufgabe 1.2
-Finde alle Getränke in der Tabelle und zeige ihre Namen und Kalorienwerte an.
+### INSERT 
+Füge einen neuen Schüler mit dem Usernamen "schueler15" und Passwort "123456" hinzu und.
 
 ```sql
-SELECT bezeichnung,kcal FROM `ksn_01_nutrition` WHERE art='Trinken';
+INSERT INTO users (username,password,role) VALUES ('schueler15','123456','Schüler');
 ```
 
 
-### Aufgabe 1.3
-Aktualisiere den Kalorienwert des Lebensmittels Leberkässemmel auf 550 kcal.
-
-```sql
-UPDATE `ksn_01_nutrition` SET kcal=550  WHERE bezeichnung ='Leberkässemmel';
-```
-
-
-### Aufgabe 1.4
-Füge einen neuen Eintrag mit dem Namen Salat, der Art Essen, einer Menge Schüssel und einem Kalorienwert von 350 kcal hinzu.
-```sql
-INSERT INTO ksn_01_nutrition (bezeichnung, menge, art, kcal) VALUES ('Salat', 'Schüssel', 'Essen', 350);
-```
-
-
-### Aufgabe 1.5
-Lösche den Eintrag mit der niedrigsten Kalorienanzahl aus der Tabelle.
-```sql
-DELETE FROM ksn_01_nutrition WHERE kcal = (SELECT min_kcal FROM ( SELECT MIN(kcal) as min_kcal FROM ksn_01_nutrition ) AS temp);
-```
-
-
-### Aufgabe 1.6
-Zeige den Durchschnitt der Kalorien aller Lebensmittel an.
-```sql
-SELECT AVG(kcal) FROM ksn_01_nutrition;
-```
-
-### Aufgabe 1.7
-Wähle den Namen und die Menge der Einträge aus, die mehr als 500 Kalorien haben.
-```sql
-SELECT bezeichnung,menge FROM `ksn_01_nutrition` WHERE kcal>500;
-```
-
-### Aufgabe 1.8
-Zähle, wie viele Einträge in der Tabelle der Kategorie Essen zugeordnet sind.
-```sql
-SELECT COUNT(art='Essen') FROM ksn_01_nutrition;
-```
-
-### Aufgabe 1.9
-Wähle den Eintrag mit der höchsten Kalorienanzahl aus und zeige seinen Namen und Kalorienwert an.
-
-### Aufgabe 1.10
-Ändere die Bezeichnung von Weißbier zu Hefeweizen und aktualisiere den Kalorienwert auf 240 kcal.
 
