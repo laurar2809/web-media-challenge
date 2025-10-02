@@ -154,128 +154,6 @@ DROP TABLE users;
 ``` 
 ```sql
 -- Einträge in Tabelle
--- 1. Zuerst Users (wegen FOREIGN KEY Constraints)
-INSERT INTO Users (username, password, role) VALUES
-('admin1', 'password123', 'Administrator'),
-('schueler1', 'password123', 'Schüler'),
-('lehrer1', 'password123', 'Lehrer'),
-('admin2', 'adminpassword', 'Administrator'),
-('schueler2', 'pass1234', 'Schüler'),
-('lehrer2', 'securepassword', 'Lehrer'),
-('schueler3', 'testpassword', 'Schüler');
-
--- 2. Dann Categories
-INSERT INTO Categories (name) VALUES
-('Audio'),
-('Video'),
-('Fotografie'),
-('Dokumente'),
-('Illustrationen');
-
--- 3. Dann Works (benötigt Users)
-INSERT INTO Works (title, description, created_by) VALUES
-('Werk 1', 'Beschreibung von Werk 1', 1),
-('Werk 2', 'Beschreibung von Werk 2', 2),
-('Werk 3', 'Beschreibung von Werk 3', 3),
-('Werk 4', 'Beschreibung von Werk 4', 4),
-('Werk 5', 'Beschreibung von Werk 5', 5),
-('Werk 6', 'Beschreibung von Werk 6', 6),
-('Werk 7', 'Beschreibung von Werk 7', 7);
-
--- 4. Dann Media (benötigt Works)
-INSERT INTO Media (work_id, media_type, file_path) VALUES
-(1, 'Audio', '/path/to/audio1.mp3'),
-(1, 'Video', '/path/to/video1.mp4'),
-(2, 'Foto', '/path/to/photo1.jpg'),
-(2, 'Audio', '/path/to/audio2.mp3'),
-(3, 'Video', '/path/to/video2.mp4'),
-(3, 'Foto', '/path/to/photo2.jpg'),
-(4, 'Audio', '/path/to/audio3.mp3'),
-(5, 'Foto', '/path/to/photo3.jpg'),
-(6, 'Video', '/path/to/video3.mp4'),
-(7, 'Audio', '/path/to/audio4.mp3');
-
--- 5. Dann Work_Category (benötigt Works und Categories) - KORRIGIERT
-INSERT INTO Work_Category (work_id, category_id) VALUES
-(1, 1), (1, 2), (2, 3), (2, 1), (3, 2), (3, 3),
-(4, 1), (5, 3), (6, 2), (7, 1);
-
-
--- Groups Tabelle befüllen
-INSERT INTO Groups (group_name, description, category_id, created_by, max_members) VALUES
-('Foto-Team Alpha', 'Gruppe für Fotografie-Projekte', 3, 3, 3),
-('Audio-Produzenten', 'Gruppe für Audio-Aufnahmen', 1, 6, 2),
-('Video-Crew', 'Gruppe für Video-Produktion', 2, 3, 3),
-('Kreative Köpfe', 'Allrounder-Gruppe für verschiedene Medien', 4, 2, 3);
-
--- Group_Members Tabelle befüllen (Wer ist in welcher Gruppe)
-INSERT INTO Group_Members (group_id, user_id, is_leader) VALUES
--- Foto-Team Alpha (Gruppe 1)
-(1, 2, TRUE),   -- schueler1 ist Leader
-(1, 5, FALSE),  -- schueler2 ist Mitglied
-(1, 7, FALSE),  -- schueler3 ist Mitglied
-
--- Audio-Produzenten (Gruppe 2)
-(2, 5, TRUE),   -- schueler2 ist Leader
-(2, 2, FALSE),  -- schueler1 ist Mitglied
-
--- Video-Crew (Gruppe 3)
-(3, 7, TRUE),   -- schueler3 ist Leader
-(3, 5, FALSE),  -- schueler2 ist Mitglied
-
--- Kreative Köpfe (Gruppe 4)
-(4, 2, TRUE),   -- schueler1 ist Leader
-(4, 7, FALSE);  -- schueler3 ist Mitglied
-
--- Group_Works Tabelle befüllen (Welche Werke gehören zu welcher Gruppe)
-INSERT INTO Group_Works (group_id, work_id) VALUES
--- Foto-Team Alpha arbeitet an diesen Werken
-(1, 2),  -- Werk 2 (schueler1 - Fotos)
-(1, 5),  -- Werk 5 (schueler2 - Fotos)
-
--- Audio-Produzenten arbeiten an diesen Werken
-(2, 4),  -- Werk 4 (admin2 - Audio)
-(2, 7),  -- Werk 7 (schueler3 - Audio)
-
--- Video-Crew arbeitet an diesen Werken
-(3, 6),  -- Werk 6 (lehrer2 - Video)
-
--- Kreative Köpfe arbeiten an diesen Werken
-(4, 2),  -- Werk 2 (schueler1 - Fotos)
-(4, 7);  -- Werk 7 (schueler3 - Audio)
-```
-
-
-```sql
--- Einträge von Tabellen löschen
--- FOREIGN KEY Constraints deaktivieren
-SET FOREIGN_KEY_CHECKS = 0;
-
--- Mit DELETE leeren (langsamer aber sicher)
-DELETE FROM group_works;
-DELETE FROM group_members;
-DELETE FROM groups;
-DELETE FROM media;
-DELETE FROM work_category;
-DELETE FROM works;
-DELETE FROM categories;
-DELETE FROM users;
-
--- AUTO_INCREMENT zurücksetzen
-ALTER TABLE group_works AUTO_INCREMENT = 1;
-ALTER TABLE group_members AUTO_INCREMENT = 1;
-ALTER TABLE groups AUTO_INCREMENT = 1;
-ALTER TABLE media AUTO_INCREMENT = 1;
-ALTER TABLE work_category AUTO_INCREMENT = 1;
-ALTER TABLE works AUTO_INCREMENT = 1;
-ALTER TABLE categories AUTO_INCREMENT = 1;
-ALTER TABLE users AUTO_INCREMENT = 1;
-
--- FOREIGN KEY Constraints wieder aktivieren
-SET FOREIGN_KEY_CHECKS = 1;
-```
-
-```sql
 -- Korrigierte Daten einfügen (Lehrer, Admin nicht in Gruppen vorhanden)
 -- 1. Users
 INSERT INTO Users (username, password, role) VALUES
@@ -342,6 +220,38 @@ INSERT INTO Group_Works (group_id, work_id) VALUES
 (2, 2), (2, 5),   -- Audio-Produzenten arbeitet an Werk 2 & 5
 (3, 3), (3, 6);   -- Video-Crew arbeitet an Werk 3 & 6
 ```
+
+
+```sql
+-- Einträge von Tabellen löschen
+-- FOREIGN KEY Constraints deaktivieren
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Mit DELETE leeren (langsamer aber sicher)
+DELETE FROM group_works;
+DELETE FROM group_members;
+DELETE FROM groups;
+DELETE FROM media;
+DELETE FROM work_category;
+DELETE FROM works;
+DELETE FROM categories;
+DELETE FROM users;
+
+-- AUTO_INCREMENT zurücksetzen
+ALTER TABLE group_works AUTO_INCREMENT = 1;
+ALTER TABLE group_members AUTO_INCREMENT = 1;
+ALTER TABLE groups AUTO_INCREMENT = 1;
+ALTER TABLE media AUTO_INCREMENT = 1;
+ALTER TABLE work_category AUTO_INCREMENT = 1;
+ALTER TABLE works AUTO_INCREMENT = 1;
+ALTER TABLE categories AUTO_INCREMENT = 1;
+ALTER TABLE users AUTO_INCREMENT = 1;
+
+-- FOREIGN KEY Constraints wieder aktivieren
+SET FOREIGN_KEY_CHECKS = 1;
+```
+
+
 
 ## Beispielhafte Befehle:
 ### SELECT
