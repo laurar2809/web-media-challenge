@@ -318,9 +318,118 @@ Beispiel: Bei diesesm Code... (Code von Beispielübung -> Udemy)
 - https://secrets-api.appbrewery.com/ 
 - https://bored-api.appbrewery.com/
 
+## Donnerstag, 02.10.2025
 
+### Aktualisierung der Datenbank: Gruppen/Teams hinzugefügt:
+Datenbank-Übersicht mit dbdiagram.io (https://dbdiagram.io/d):
+```sql
+// Einfache Version für dbdiagram.io
 
+Table users {
+  user_id int [primary key]
+  username varchar(255)
+  password varchar(255)
+  role varchar(50)
+}
 
+Table categories {
+  category_id int [primary key]
+  name varchar(255)
+}
+
+Table works {
+  work_id int [primary key]
+  title varchar(255)
+  description text
+  created_by int
+}
+
+Table media {
+  media_id int [primary key]
+  work_id int
+  media_type varchar(50)
+  file_path varchar(255)
+  created_at datetime
+}
+
+Table work_category {
+  work_id int
+  category_id int
+}
+
+Table groups {
+  group_id int [primary key]
+  group_name varchar(255)
+  description text
+  category_id int
+  created_by int
+  created_at datetime
+  max_members int
+}
+
+Table group_members {
+  group_id int
+  user_id int
+  joined_at datetime
+  is_leader bool
+}
+
+Table group_works {
+  group_work_id int [primary key]
+  group_id int
+  work_id int
+  assigned_at datetime
+}
+
+// Relationships
+Ref: works.created_by > users.user_id
+Ref: media.work_id > works.work_id
+Ref: work_category.work_id > works.work_id
+Ref: work_category.category_id > categories.category_id
+Ref: groups.category_id > categories.category_id
+Ref: groups.created_by > users.user_id
+Ref: group_members.group_id > groups.group_id
+Ref: group_members.user_id > users.user_id
+Ref: group_works.group_id > groups.group_id
+Ref: group_works.work_id > works.work_id
+```
+
+SQL-Code -> Gruppen werden hinzugefügt mit nötige Funktionen:
+```sql
+-- 6. Groups Tabelle (NEU) 
+CREATE TABLE Groups (
+    group_id INT PRIMARY KEY AUTO_INCREMENT,
+    group_name VARCHAR(255) NOT NULL,
+    description TEXT,
+    category_id INT,
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    max_members INT DEFAULT 3,
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id),
+    FOREIGN KEY (created_by) REFERENCES Users(user_id)
+);
+
+-- 7. Group_Members Tabelle (NEU)
+CREATE TABLE Group_Members (
+    group_id INT,
+    user_id INT,
+    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_leader BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (group_id, user_id),
+    FOREIGN KEY (group_id) REFERENCES Groups(group_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+-- 8. Group_Works Tabelle (NEU)
+CREATE TABLE Group_Works (
+    group_work_id INT PRIMARY KEY AUTO_INCREMENT,
+    group_id INT,
+    work_id INT,
+    assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (group_id) REFERENCES Groups(group_id),
+    FOREIGN KEY (work_id) REFERENCES Works(work_id)
+);
+```
 
 
 
