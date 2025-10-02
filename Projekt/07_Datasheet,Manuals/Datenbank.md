@@ -20,6 +20,16 @@ wie zum Beispiel:
 Um die Medien in verschiedene Werke speichern zu können, legt man eine extra Tabelle an. Zum Beispiel:
 - Work_category
 
+## Datenbankerweiterung: Gruppen/Teams
+Bei den Kategorien Foto und Video werden Gruppen erstellt. 
+Foto:
+- max. 3 Teilnehmer
+- max. 6 Teilhehmer
+
+
+![Bild](img/SQL_Datenbank_Erweiterung_Gruppen.png)
+![Bild](img/Datenbank_Erweiterung_Gruppen.png)
+
 ### Vorgang
 Es gibt mehrere Kategorien, wobei es mehrere Werke gibt. In den Werken können mehrere Medien von Usern gespeichert werden. Übersicht: 
 
@@ -43,6 +53,16 @@ In "Users" werden alle User angelegt. Darunter zählen Schüler, Lehrer und Admi
 
 ### Work_category
 In "Work_category" werden alle Medien und Arbeiten angelegt. Dabei können alle Medien in mehrere Kategorien zugeteilt werden.
+
+### Groups
+In "Groups" werden alle Gruppen angezeigt mit den jeweiligen Gruppennamen und der jeweiligen Teilnehmeranzahl.
+
+### Group_members
+Unter "Group_members" werden werden die User zu Gruppen zugeteilt. Dies wird durch die User-ID und durch die Gruppen-ID ermöglicht. Dabei wrid immer der erste hinzugefügte Schüler als "Leader" bezeichnet. Er hat die Berechtigung, Fotos, Videos, etc. hochzuladen.
+
+### Group_works
+Unter "Group_works" werden die Arbeiten der einzelnen Gruppen gespeichert. 
+
 
 
 # Datenbank Befehle: Multi Media Challenge
@@ -243,6 +263,7 @@ Füge einen neuen Schüler mit dem Usernamen "schueler15" und Passwort "123456" 
 ```sql
 INSERT INTO users (username,password,role) VALUES ('schueler15','123456','Schüler');
 ```
+
 
 
 
