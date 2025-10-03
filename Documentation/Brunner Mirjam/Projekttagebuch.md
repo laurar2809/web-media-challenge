@@ -393,6 +393,7 @@ Ref: group_members.user_id > users.user_id
 Ref: group_works.group_id > groups.group_id
 Ref: group_works.work_id > works.work_id
 ```
+![Bild](img/Datenbank_Erweiterung_Gruppen.png)
 
 SQL-Code -> Gruppen werden hinzugefügt mit nötige Funktionen:
 ```sql
@@ -431,8 +432,73 @@ CREATE TABLE Group_Works (
 );
 ```
 
+![Bild](img/SQL_Datenbank_Erweiterung_Gruppen.png)
+
+### Erster Versuch: die Daten der Datenbank am Frontend anzeigen lassen
+Es werden alle Gruppen angezeigt, die bis jetzt in der Datenbank gespeichert wurden. Dabei werden noch zusätzlich die Mitgliederanzahl und der "Leader" des Teams angezeigt.
+
+![Bild](img/Gruppen_anzeigen_lassen.png)
+
+Andere Version mit Anzeige der einzelnen Teilnehmern:
+![Bild](img/Gruppen_anzeigen_lassen_mit_user.png)
 
 
+## Änderungen:
 
+Datenbankaufbau bis jetzt zu komplex! Wir konzentrieren sich jetzt auch einen einfacheren Aufbau.
+Unser Fokus liegt jetzt auf eine einzelne Datenbank die auf mehreren Schritte beruht:
+- 1. Challenges
+Es wird erstmal NUR möglich gemacht, dass Challenges hochgeladen werden.
+- 2. Kategorien
+Der zweite Schritt ist die Kategorien festzulegen, wobei die Challenges zugeordnet werden.
+- 3. Workshops
 
+Datenbankstruktur:
+```sql
+CREATE DATABASE multimedia_challenge;
+USE multimedia_challenge;
 
+-- Kategorien Tabelle
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    symbol VARCHAR(50),
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    reference VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Challenges Tabelle
+CREATE TABLE challenges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    example_images JSON, -- Speichert Pfade zu Beispielbildern
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+);
+```
+Einträge:
+```sql
+USE multimedia_challenge;
+
+-- Standard-Kategorien einfügen
+INSERT INTO multimedia_challenge.categories (symbol, name, description, reference) VALUES
+('📷', 'Foto', 'Fotografie Challenges', 'FOT-01'),
+('🎥', 'Video', 'Video Production Challenges', 'VID-01'),
+('⚙️', 'Metall', 'Metallbearbeitung Challenges', 'MET-01'),
+('🎬', 'Animation', 'Animation und Motion Graphics', 'ANIM-01'),
+('🎵', 'Audio', 'Audio Production Challenges', 'AUD-01');
+
+-- Beispiel-Challenges einfügen
+INSERT INTO multimedia_challenge.challenges (category_id, name, description, example_images) VALUES
+(1, 'Porträt Fotografie', 'Erstelle ausdrucksstarke Porträtaufnahmen', '["/images/portrait1.jpg", "/images/portrait2.jpg"]'),
+(1, 'Landschaftsfotografie', 'Fange die Schönheit der Natur ein', '["/images/landscape1.jpg", "/images/landscape2.jpg"]'),
+(2, 'Kurzfilm Challenge', 'Erstelle einen 3-minütigen Kurzfilm', '["/videos/shortfilm1.mp4"]'),
+(3, 'Metall Skulptur', 'Gestalte eine künstlerische Metallskulptur', '["/images/sculpture1.jpg"]'),
+(4, '2D Animation', 'Animierte eine kurze 2D Geschichte', '["/animations/2d-sample.mp4"]'),
+(5, 'Sound Design', 'Designe den Sound für eine Filmszene', '["/audio/sample1.mp3"]');
+```
