@@ -19,6 +19,6 @@
 |26.09.2025|2|Ja|Weiterführen des zweiten Website-Prototypen. Design detailierter machen.|
 |30.09.2025|1|Ja|Updaten der Exeltabelle für die Jahresplanung für Frau Fuchs auf Teams.|
 |01.10.2025|2|Ja|Weiterführen und des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
-|02.10.2025||Nein|Weiterführen und Fertigstellung des zweiten Website Prototypen auf XD|
+|02.10.2025|10|Nein|Weiterführen und Fertigstellung des zweiten Website Prototypen auf XD. Brainstorming über Designideen und besprechen mit Herrn Hanl. Rechereche auf Bootstrap und TablerIO. Scribbles erstellen (für Challenges und Kategorien) und Start mit Website Prototype 03.|
 
-#### (Freizeit: 26 h; ges. 47 h)
+#### (Freizeit: 26 h; ges. 57 h)
