@@ -48,11 +48,11 @@
 
  - Erweiterung der Teams und Challenge Seiten
 
- > ![alt text](Images/image.png)
+ > ![alt text](Images/imageChallenges.png)
 
- > ![alt text](Images/image-1.png)
+ > ![alt text](Images/imageChallenges01.png)
 
- > ![alt text](Images/image-2.png)
+ > ![alt text](Images/imageTeams.png)
 
 ### Brainstorming der Designideen
 
@@ -60,11 +60,11 @@
 
  - Recherche und Inspiration durch Bootstrap und Tabler.IO
 
- > ![alt text](Images/image.png)
+ > ![alt text](Images/imageBootstrap01.png)
 
- > ![alt text](Images/image-1.png)
+ > ![alt text](Images/imageBootstrap02.png)
 
- > ![alt text](Images/image-2.png)
+ > ![alt text](Images/imageBootstrap03.png)
 
 ### Start mit drittem Website Prototypen
 
@@ -72,9 +72,9 @@
 
  - Start mit Website Prototyp 03 auf XD mithilfe von Bootstrap Inspirationen
 
- > ![alt text](Images/image.png)
+ > ![alt text](Images/imageXD.png)
 
- > ![alt text](Images/image-1.png)
+ > ![alt text](Images/imageXD1.png)
 
- > ![alt text](Images/image-2.png)
+ > ![alt text](Images/imageXD2.png)
 
