@@ -30,6 +30,7 @@
 |22.09.2025|1|ja|"Projekt" um Blogs posten zu können. Löschen möglich. Ohne Datenbank, nur mit Array. --> weitergearbeitet|
 |25.09.2025|8|nein|Videokurs Fortsetzung: API, (private, öffentliche, etc.)|
 |28.09.2025|1|ja| Programmierkurs Fortsetzung: API's. Mit APIs arbeiten --> Übungen abgeschlossen|
-|30.09.2025|4 - bis jetzt insg.: 77|ja| Programmierkurs Fortsetzung: API's. Umgang mit öffentlicher API.|
+|30.09.2025|4|ja| Programmierkurs Fortsetzung: API's. Umgang mit öffentlicher API.|
 |02.10.2025|10|nein| Datenbank umstrukturieren -> nur Kategorien und Challenges|
+|30.09.2025|2 - bis jetzt insg.: 79|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Löschen und Hinzufügen einer Kategorie ist schon möglich.|
 
