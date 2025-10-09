@@ -32,5 +32,5 @@
 |28.09.2025|1|ja| Programmierkurs Fortsetzung: API's. Mit APIs arbeiten --> Übungen abgeschlossen|
 |30.09.2025|4|ja| Programmierkurs Fortsetzung: API's. Umgang mit öffentlicher API.|
 |02.10.2025|10|nein| Datenbank umstrukturieren -> nur Kategorien und Challenges|
-|06.10.2025|2 - bis jetzt insg.: 79|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Löschen und Hinzufügen einer Kategorie ist schon möglich.|
-
+|06.10.2025|2|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Löschen und Hinzufügen einer Kategorie ist schon möglich.|
+|09.10.2025|5 - bis jetzt insg.: 84|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Prototypen von Herr Hanl als Vorlage. Veruch: Erstellen eines neuen Repositorys --> hat nicht funktioniert.|
