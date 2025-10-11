@@ -21,5 +21,8 @@
 |01.10.2025|2|Ja|Weiterführen und des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
 |02.10.2025|10|Nein|Weiterführen und Fertigstellung des zweiten Website Prototypen auf XD. Brainstorming über Designideen und besprechen mit Herrn Hanl. Rechereche auf Bootstrap und TablerIO. Scribbles erstellen (für Challenges und Kategorien) und Start mit Website Prototype 03.|
 |08.10.2025|1|Ja|Weiterführen des dritten Website Prototypen auf XD.|
+|09.10.2025|6|Nein|Weiterarbeit am dritten Website-Prototypen. Vorbereitung für den Start des Frontend-Programmierens und Einarbeitung in den vorhandenen Code von Herrn Hanl, Anpassung der Icons.|
+|10.10.2025|3|Ja|Fortsetzung der Frontend-Arbeiten: Erstellung der Challenge-Seite und Anpassung der Navigationsleiste. (HTML u. CSS)|
+|11.10.2025|1|Ja|Protokolierungsarbeiten für die Diplomarbeit. (Jahresplanung, Projekttagebuch, Zeitaufzeichnung, etc., ...)|
 
-#### (Freizeit: 27 h; ges. 58 h)
+#### (Freizeit: 31 h; ges. 72 h)

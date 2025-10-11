@@ -5,12 +5,15 @@
 ### ABA Portal
 
  - Fertigstellung des ABA Portals
+
  - Einreichung abgeschlossen
 
 ### Website Prototyp mit TablerIO
 
   - Erstellung zweiter Website Prototype mithilfe von Tabler.Io
+
   - Klare Seitenstruktur (Navigation, Startseite, Unterseiten)
+
   - Erste visuelle Umsetzung des geplanten Designs
 
 ### Eigene Designs:
@@ -36,7 +39,10 @@
  ### Quellen
 
   - https://tabler.io/ 
+
   - https://fonts.google.com/icons
+
+  - https://www.pexels.com/de-de/
 
 ## Donnerstag 25.09.2025
 
@@ -78,3 +84,54 @@
 
  > ![alt text](Images/imageXD2.png)
 
+### Quellen
+
+ - https://tabler.io/ 
+
+ - https://getbootstrap.com/
+
+ - https://www.pexels.com/de-de/
+
+## Donnerstag 09.10.2025
+ 
+### Weiterarbeiten am dritten Website-Prototypen auf XD
+
+ - Erstellen der Seiten (Bearbeiten, Detail, Neu,...)
+
+ - Verbindungen zwischen den einzelnen Seiten erstellen
+
+ > ![alt text](Images/proto1.png)
+
+ > ![alt text](Images/proto2.png)
+
+ > ![alt text](Images/proto3.png)
+
+ > ![alt text](Images/proto4.png)
+
+ > ![alt text](Images/proto5.png)
+
+ > ![alt text](Images/verbindungen.png)
+
+ ### Einarbeiten in vorgegeben Code und Vorbereitung auf erstmaliges Programmieren
+
+ - Erklärung von Herrn Hanl
+
+ - Einarbeiten in den Code - erste Versuche
+
+ - Änderung der Icons
+
+ > ![alt text](Images/ordnerStruktur.png)
+
+ > ![alt text](Images/code1.png)
+
+ > ![alt text](Images/code2.png)
+
+ > ![alt text](Images/icons.png)
+
+ ### Quellen
+
+ - https://getbootstrap.com/
+
+ - https://www.pexels.com/de-de/
+
+ - https://tabler.io/ 
