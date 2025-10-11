@@ -464,7 +464,6 @@ CREATE TABLE categories (
     symbol VARCHAR(50),
     name VARCHAR(100) NOT NULL UNIQUE,
     description TEXT,
-    reference VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -477,8 +476,7 @@ CREATE TABLE challenges (
     description TEXT,
     example_images JSON, -- Speichert Pfade zu Beispielbildern
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 ```
 Einträge:
@@ -502,3 +500,55 @@ INSERT INTO multimedia_challenge.challenges (category_id, name, description, exa
 (4, '2D Animation', 'Animierte eine kurze 2D Geschichte', '["/animations/2d-sample.mp4"]'),
 (5, 'Sound Design', 'Designe den Sound für eine Filmszene', '["/audio/sample1.mp3"]');
 ```
+
+## Donnerstag, 18.09.2025
+
+### Fortsetzung von der Erstellung eines Prototyps:
+Admin Ansicht:
+- Kategorie
+- Challenge
+
+### Erste Erfolge:
+
+Startseite:
+![Bild](img/Prototyp_startseite.png)
+
+Kategorien:
+![Bild](img/Prototyp_kategorien.png)
+
+Kategorien bearbeiten:
+![Bild](img/Prototyp_kategorien_bearbeiten.png)
+
+Neue Kategorie:
+![Bild](img/Prototyp_kategorien_neu.png)
+
+Challenges:
+![Bild](img/Prototyp_challenges.png)
+
+Neue Challenge:
+![Bild](img/Prototyp_challenges_neu.png)
+
+### Datenbank und Programmierung:
+Durch mysql2 kann man auf die Datenbank zugreifen. Die Website läuft Local auf dem Rechner und kann per "nodemon index.js" gestartet werden. Es ist Grundlegend eine sehr einfache Website, die die Funktionen klar und deutlich darstellen soll: Kategorien und Challenges verwalten.
+- Datenbank: mysql2
+- Programmierung: Node.js, Express.js, etc.
+
+### Neuer Prototyp - Erstellt von Herr Hanl
+Der Prototyp, den uns Herr Hanl zur verfügung gestellt hat bringt folgende Funktionen mit sich:
+- Kategorie Ansicht
+- Kategorie hinzufügen
+- Kategorie bearbeiten
+- Kategorie löschen
+
+Der nächste Schritt ist, die Funktionen der Challenges hinzuzufügen. Im Grunde werden dort die gleichen Funktionen wie bei den Kategorien möglich sein: Bearbeiten, löschen, hinzufügen.
+
+Ansicht der Kategorien:
+![Bild](img/Hanl_Prototyp.png)
+
+
+Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen: https://sqliteviz.com/app/#/workspace
+
+- 1. data.sqlite einfügen
+- 2. Tabellen werden angezeigt
+
+![Bild](img/Datenbankstruktur_Prototyp.png)
