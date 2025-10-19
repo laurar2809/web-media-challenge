@@ -35,4 +35,5 @@
 |06.10.2025|2|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Löschen und Hinzufügen einer Kategorie ist schon möglich.|
 |09.10.2025|7|nein| Weiterarbeit an Prototypen.|
 |09.10.2025|5|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Prototypen von Herr Hanl als Vorlage. Veruch: Erstellen eines neuen Repositorys --> hat nicht funktioniert.|
-|11.10.2025|1 - bis jetzt insg.: 85|ja|Forstsetzung Videokurs: Build your own API. Arbeit mit Postman.|
+|11.10.2025|1|ja|Forstsetzung Videokurs: Build your own API. Arbeit mit Postman.|
+|18.10.2025|1 - bis jetzt insg.: 86|ja|Repository erstellt für Prototypen. Gemeinsames Arbeiten an Prototypen ermöglicht.|

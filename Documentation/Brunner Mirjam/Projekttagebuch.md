@@ -434,6 +434,7 @@ CREATE TABLE Group_Works (
 
 ![Bild](img/SQL_Datenbank_Erweiterung_Gruppen.png)
 
+
 ### Erster Versuch: die Daten der Datenbank am Frontend anzeigen lassen
 Es werden alle Gruppen angezeigt, die bis jetzt in der Datenbank gespeichert wurden. Dabei werden noch zusätzlich die Mitgliederanzahl und der "Leader" des Teams angezeigt.
 
@@ -501,7 +502,7 @@ INSERT INTO multimedia_challenge.challenges (category_id, name, description, exa
 (5, 'Sound Design', 'Designe den Sound für eine Filmszene', '["/audio/sample1.mp3"]');
 ```
 
-## Donnerstag, 18.09.2025
+## Donnerstag, 09.10.2025
 
 ### Fortsetzung von der Erstellung eines Prototyps:
 Admin Ansicht:
@@ -552,3 +553,7 @@ Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen:
 - 2. Tabellen werden angezeigt
 
 ![Bild](img/Datenbankstruktur_Prototyp.png)
+
+## Donnerstag, 17.10.2025
+
+### *Krank*
