@@ -24,5 +24,6 @@
 |09.10.2025|6|Nein|Weiterarbeit am dritten Website-Prototypen. Vorbereitung für den Start des Frontend-Programmierens und Einarbeitung in den vorhandenen Code von Herrn Hanl, Anpassung der Icons.|
 |10.10.2025|3|Ja|Fortsetzung der Frontend-Arbeiten: Erstellung der Challenge-Seite und Anpassung der Navigationsleiste. (HTML u. CSS)|
 |11.10.2025|1|Ja|Protokolierungsarbeiten für die Diplomarbeit. (Jahresplanung, Projekttagebuch, Zeitaufzeichnung, etc., ...)|
+|13.10.2025|2|Ja|Weiterarbeiten an den Frotend-Arbeiten: Funktionalität der Challenge-Seite und erstellen einer neuen Challenge. (Dropdown Fenster)
 
-#### (Freizeit: 31 h; ges. 72 h)
+#### (Freizeit: 33 h; ges. 74 h)
