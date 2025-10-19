@@ -556,4 +556,4 @@ Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen:
 
 ## Donnerstag, 17.10.2025
 
-### *Krank*
+### *Freigestellt wegen Abslovierung eines Leistungsabzeichen*
