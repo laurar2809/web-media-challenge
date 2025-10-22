@@ -36,5 +36,6 @@
 |09.10.2025|7|nein| Weiterarbeit an Prototypen.|
 |09.10.2025|5|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Prototypen von Herr Hanl als Vorlage. Veruch: Erstellen eines neuen Repositorys --> hat nicht funktioniert.|
 |11.10.2025|1|ja|Forstsetzung Videokurs: Build your own API. Arbeit mit Postman.|
-|18.10.2025|1 - bis jetzt insg.: 86|ja|Repository erstellt für Prototypen. Gemeinsames Arbeiten an Prototypen ermöglicht.|
-|19.10.2025|2 - bis jetzt insg.: 88|ja|Challenge Tabelle in Datenbank hinzugefügt. Hinzufügen einer Challenge ist bereits möglich.|
+|18.10.2025|1 |ja|Repository erstellt für Prototypen. Gemeinsames Arbeiten an Prototypen ermöglicht.|
+|19.10.2025|2 |ja|Challenge Tabelle in Datenbank hinzugefügt. Hinzufügen einer Challenge ist bereits möglich.|
+|22.10.2025|2 - bis jetzt insg.: 90|ja|Challenges können jetzt gelöscht werden. Das hinzufügen von Kategorien ist auch wieder möglich.|
