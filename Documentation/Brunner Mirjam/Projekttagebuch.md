@@ -557,3 +557,52 @@ Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen:
 ## Donnerstag, 17.10.2025
 
 ### *Freigestellt wegen Abslovierung eines Leistungsabzeichens*
+
+## Donnerstag, 23.10.2025
+
+### Versuch: Von sqlite Datenbank zur mysql Datenbank
+#### Aktueller Stand:
+Da wir die sqlite Datenbank verwenden befindet sich diese jeweils lokal auf dem Computer. Das ist ein großer Nachteil, da man diese nicht gemeinsam verwenden kann. 
+
+#### Lösung:
+Verwendung der mysql-Datenbank:
+- Es ist neue Datenbank erstellt worden
+- Neuer Coding-Space: https://media-challenge.coding-space.at/
+
+#### Erste Versuche:
+Ich habe versucht, die Daten (Tabellen, etc.) der sqlite Datenbank auf die mysql Datenbank zu übertragen. Ich habe ebenfalls die Daten der Datenbank in .env erweitert. 
+
+#### Probleme:
+
+Es traten folgende Probleme auf:
+- Es konnte keine Verbindung hergestellt werden
+- Es wurde Datenbank nicht gefunden
+- Anscheinend ist Port 3306 noch nicht freigegeben
+- Konnte Programm nicht mehr starten, da nur Fehler angezeigt wurden
+- War nicht genau klar, welchen Host ich angeben muss:
+  - 1. media-challenge.coding-space.at
+  - 2. 10.244.21.7
+- Beispielhafte Fehlermeldung:
+```terminal
+DB init error: Error: connect ECONNREFUSED 89.58.21.6:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '89.58.21.6',
+  port: 3306,
+  fatal: true
+}
+```
+
+#### Lösung des Problems
+Ich habe das Projekt auf die vorherige Version zurückgesetzt, wo es noch funktioniert hat.
+
+```terminal
+# Zur Version vor MySQL Problemen
+--> git checkout d2ee646
+```
+
+
+
+
