@@ -595,7 +595,7 @@ DB init error: Error: connect ECONNREFUSED 89.58.21.6:3306
 }
 ```
 
-#### Lösung des Problems
+#### Lösung des Problems:
 Ich habe das Projekt auf die vorherige Version zurückgesetzt, wo es noch funktioniert hat.
 
 ```terminal
@@ -603,6 +603,12 @@ Ich habe das Projekt auf die vorherige Version zurückgesetzt, wo es noch funkti
 --> git checkout d2ee646
 ```
 
+#### SQL Datenbank -> Tabellen hinzugefügt:
+![Bild](img/neue_Datenbank.png)
 
+
+#### Zukunftspläne:
+- Datenbank mit Projekt verbinden
+- statt sqlite auf sql Datenbank zugreifen
 
 
