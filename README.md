@@ -4,61 +4,42 @@ Diplomarbeit im Schuljahr 2025/26
 
 ## Git-Branch erstellen:
 
-### 1. Haupt-Branch schützen
-
+### 1. Stelle sicher, dass du auf dem aktuellen Haupt-Branch bist
 - git checkout main
-    - Stelle sicher, dass du auf dem aktuellen Haupt-Branch bist
+
+### 2. Hol dir die neuesten Änderungen vom Server
 - git pull origin main
-    - Hol dir die neuesten Änderungen vom Server
 
+### 3. Erstelle einen neuen Branch für deine Aufgabe
+- git checkout -b fix/activepage-error
 
-### 2. Neuen Feature-Branch erstellen
-
-- git checkout -b feature/mein-feature
-    - Erstelle einen neuen Branch für deine Aufgabe
-
+### 4. Mache deine Code-Änderungen (z.B. activePage Fehler beheben)
 ```
-    Mache deine Code-Änderungen (z.B. activePage Fehler beheben)
-    ...hier arbeitest du in deinem Editor...
+... hier arbeitest du in deinem Editor ...
 ```
 
-### 3. Arbeiten & Committen
-
+### 5. Füge alle geänderten Dateien zur Staging-Area hinzu
 - git add .
-    - Füge alle geänderten Dateien zur Staging-Area hinzu
-- git commit -m "Beschreibung was gemacht wurde"
-    - Erstelle einen Commit mit einer beschreibenden Nachricht
 
-### 4. Regelmäßig von main aktualisieren
+### 6. Erstelle einen Commit mit einer beschreibenden Nachricht
+- git commit -m "Fix: activePage Fehler in layout.ejs behoben"
 
-- git checkout main
-- git pull origin main
-- git checkout feature/mein-feature
-- git merge main
+### 7. Lade deinen Branch zum GitHub Server hoch
+- git push origin fix/activepage-error
 
-### 5. Fertig? Push & Pull Request
-
-- git push origin feature/mein-feature
-    - Lade deinen Branch zum GitHub Server hoch
-### → Dann Pull Request auf GitHub erstellen
-
+### 8. Gehe auf GitHub und erstelle einen Pull Request
 ```
-Gehe auf GitHub und erstelle einen Pull Request
- (Das machst du im Browser auf github.com)
- ```
+(Das machst du im Browser auf github.com)
+```
 
- ```
-Nachdem der Pull Request gemerged wurde:
+### 9. Nachdem der Pull Request gemerged wurde:
+```
 Zurück zum Haupt-Branch wechseln
----> git checkout main
+```
+- git checkout main
 
-Neueste Änderungen holen
----> git pull origin main
+### 10. Neueste Änderungen holen
+- git pull origin main
 
-Alten Branch lokal löschen (optional)
----> git branch -d fix/activepage-error
- ```
-
-### 6. Nach Merge: Branch löschen
-
-- git branch -d feature/mein-feature
+### 11. Alten Branch lokal löschen (optional)
+- git branch -d fix/activepage-error
