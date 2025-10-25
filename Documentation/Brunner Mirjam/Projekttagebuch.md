@@ -618,4 +618,159 @@ Rückmeldung von Deepseek:
 - Datenbank mit Projekt verbinden
 - statt sqlite auf sql Datenbank zugreifen
 
+## Samstag, 25.10.2025
+### Datenbank
+- Umstieg von sqlite auf MySQL
+
+- Datenbank ist auf [coding-space.at](https://coding-space.at/)
+
+### Problem
+```
+Verbindung kann nicht hergestellt werden! Ich habe eine extra "test-mysql.js" Datei erstellt, um alleine die Verbindung testen zu können. Die Verbindung kann nicht hergestellt werden, wegen folgenden Gründen:
+
+- Die IP 10.244.21.7 ist eine interne Netzwerk-IP
+- Sie ist nur aus dem internen Netzwerk erreichbar
+- Meine Node.js App (die lokal läuft) kann sie nicht erreichen
+```
+
+### Lösung des Problems:
+
+Ich habe die richtigen Serverdaten bekommen
+
+- Die Server-URL für die Datenbank: 
+  - DB_HOST: **mysql1507.netcup.net**
+
+
+
+
+### Vorgang:
+1. .env-Daten geändert: mySQL
+```bash
+# Server
+PORT=3000
+SESSION_SECRET=hcS4CyzKZmdqfPM5BL3d  #random Passwort
+
+#MySQL Database
+DB_CLIENT=mysql
+DB_HOST=mysql1507.netcup.net
+DB_USER=k312467_media-challenge
+DB_PASS=rCX7u7Gc@*pr0tzx
+DB_NAME=k312467_media-challenge
+DB_PORT=3306
+
+# DB_CLIENT=sqlite
+# DB_FILE=./data.sqlite
+```
+
+2.  SQL-Verbindung testen
+
+
+Aufruf mit: **node test-mysql.js**
+``` javascript
+// test-mysql.js
+require('dotenv').config();
+const { db, init } = require('./db');
+
+async function test() {
+  try {
+    console.log('Teste MySQL-Verbindung...');
+    console.log('Host:', process.env.DB_HOST);
+    console.log('Database:', process.env.DB_NAME);
+    
+    await init();
+    
+    // Teste Tabellen-Zugriff
+    const items = await db('items').select('*');
+    const challenges = await db('challenges').select('*');
+    
+    console.log('ERFOLG! MySQL funktioniert!');
+    console.log(`Items: ${items.length} Datensätze`);
+    console.log(`Challenges: ${challenges.length} Datensätze`);
+    
+  } catch (error) {
+    console.log('Fehler:', error.message);
+    
+    if (error.code === 'ER_ACCESS_DENIED_ERROR') {
+      console.log('Zugriff verweigert - User/Passwort prüfen');
+    } else if (error.code === 'ER_BAD_DB_ERROR') {
+      console.log('Datenbank existiert nicht');
+    } else if (error.code === 'ECONNREFUSED') {
+      console.log('Verbindung verweigert - Host/Port prüfen');
+    }
+  }
+}
+
+test();
+```
+
+3. Datensätze hinzufügen
+
+
+Aufruf mit **insertDb.js**
+```js
+// insertDb.js
+require('dotenv').config();
+const { db } = require('./db');
+
+const originalItems = [
+  {
+    title: "Audio",
+    description: "Erstellen von Musikstücken", 
+    icon: "/uploads/icon-1759473920639-542278451.svg"
+  },
+  {
+    title: "Foto", 
+    description: "Digitale Fotografie",
+    icon: "/uploads/icon-1759473910957-54510130.svg"
+  },
+  {
+    title: "Metallbearbeitung",
+    description: "Kreatives Gestalten mit Metall",
+    icon: "/uploads/icon-1760006525514-978243190.svg"
+  },
+  {
+    title: "Produktdesign", 
+    description: "Konzept, Entwurf und 3D-Druck eines Produkts",
+    icon: "/uploads/icon-1759473901074-37705088.svg"
+  },
+  {
+    title: "Video",
+    description: "Idee, Drehbuch, Dreh und Schnitt eines Kurzfilms", 
+    icon: "/uploads/icon-1759474004292-461811549.svg"
+  },
+  {
+    title: "Animation",
+    description: "Erstellen von 2D/3D Animationen und Motion Graphics", 
+    icon: "/uploads/icon-1760006701694-865921878.svg"
+  }
+];
+
+async function restoreOriginalItems() {
+  try {
+    console.log('Stelle originale Kategorien wieder her...');
+    
+    // Erst alle vorhandenen Items löschen
+    await db('items').del();
+    console.log('Alte Items gelöscht');
+    
+    // Neue Items einfügen
+    for (const item of originalItems) {
+      await db('items').insert(item);
+      console.log(`"${item.title}" hinzugefügt`);
+    }
+    
+    console.log('Originale Kategorien erfolgreich wiederhergestellt!');
+    console.log('Insgesamt 5 Kategorien angelegt');
+    
+  } catch (error) {
+    console.error('Fehler:', error);
+  } finally {
+    process.exit();
+  }
+}
+
+restoreOriginalItems();
+```
+
+
 

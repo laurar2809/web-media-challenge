@@ -40,9 +40,9 @@
 |19.10.2025|2 |ja|Challenge Tabelle in Datenbank hinzugefügt. Hinzufügen einer Challenge ist bereits möglich.|
 |22.10.2025|2|ja|Challenges können jetzt gelöscht werden. Das hinzufügen von Kategorien ist auch wieder möglich.|
 |23.10.2025|10|nein|MySQL: Versuch, Prototypen mit MySQL statt sqlite Datenbank zu verbinden. Hat leider nicht funkioniert. Zurück auf funktionierenden Prototypen: sqlite|
-|25.10.2025|3 - bis jetzt insg.: 93|ja|Fortsetzung des Udemykurses: SQL Datenbank. --- Weiterer Versuch: Prototypen mit MySQL Datenbank verbinden. Verbindung leider nicht möglich, es kann nicht darauf zugegriffen werden. Warte auf Rückmeldung von Herr Hanl.|
+|25.10.2025|4 - bis jetzt insg.: 94|ja|Fortsetzung des Udemykurses: SQL Datenbank. --- Weiterer Versuch: Prototypen mit MySQL Datenbank verbinden. Hat zuerst nicht funktioniert --> hatte noch nicht richtige Server-Daten. Herr Hanl gab mir richtige Server-Daten --> hat funkioniert! Datensätze hinzugefügt|
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|93|40|133|
+|94|40|133|
