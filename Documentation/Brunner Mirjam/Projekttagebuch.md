@@ -772,5 +772,27 @@ async function restoreOriginalItems() {
 restoreOriginalItems();
 ```
 
+### Aktuelle Website:
+### Kategorien
+**Kategorien:**
+![Bild](img/website_neue_datenbank.png)
+
+**Neue Kategorie hinzufügen:**
+![Bild](img/neue_kategorie.png)
+
+**Kategorie bearbeiten:**
+![Bild](img/kategorie_bearbeiten.png)
+
+### Challenges
+
+**Challenges:**
+![Bild](img/Website_neue_datenbank_2.png)
+
+**Neue Challenge hinzufügen:**
+![Bild](img/neue_challenge.png)
+
+**Challenge bearbeiten:**
+![Bild](img/challenge_bearbeiten.png)
+
 
 
