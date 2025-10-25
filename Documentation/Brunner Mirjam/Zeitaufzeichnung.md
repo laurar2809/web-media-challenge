@@ -38,4 +38,11 @@
 |11.10.2025|1|ja|Forstsetzung Videokurs: Build your own API. Arbeit mit Postman.|
 |18.10.2025|1 |ja|Repository erstellt für Prototypen. Gemeinsames Arbeiten an Prototypen ermöglicht.|
 |19.10.2025|2 |ja|Challenge Tabelle in Datenbank hinzugefügt. Hinzufügen einer Challenge ist bereits möglich.|
-|22.10.2025|2 - bis jetzt insg.: 90|ja|Challenges können jetzt gelöscht werden. Das hinzufügen von Kategorien ist auch wieder möglich.|
+|22.10.2025|2|ja|Challenges können jetzt gelöscht werden. Das hinzufügen von Kategorien ist auch wieder möglich.|
+|23.10.2025|10|nein|MySQL: Versuch, Prototypen mit MySQL statt sqlite Datenbank zu verbinden. Hat leider nicht funkioniert. Zurück auf funktionierenden Prototypen: sqlite|
+|22.10.2025|3 - bis jetzt insg.: 93|ja|Fortsetzung des Udemykurses: SQL Datenbank. --- Weiterer Versuch: Prototypen mit MySQL Datenbank verbinden. Verbindung leider nicht möglich, es kann nicht darauf zugegriffen werden. Warte auf Rückmeldung von Herr Hanl.|
+---
+
+|Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
+|--|--|--|
+|93|40|133|

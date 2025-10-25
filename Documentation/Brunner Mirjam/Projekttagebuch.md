@@ -547,10 +547,12 @@ Ansicht der Kategorien:
 ![Bild](img/Hanl_Prototyp.png)
 
 
-Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen: https://sqliteviz.com/app/#/workspace
+Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen: 
+- https://sqliteviz.com/app/#/workspace
+- (https://sqliteonline.com/)
 
-- 1. data.sqlite einfügen
-- 2. Tabellen werden angezeigt
+  - 1. data.sqlite einfügen
+  - 2. Tabellen werden angezeigt
 
 ![Bild](img/Datenbankstruktur_Prototyp.png)
 
@@ -600,7 +602,12 @@ Ich habe das Projekt auf die vorherige Version zurückgesetzt, wo es noch funkti
 
 ```terminal
 # Zur Version vor MySQL Problemen
---> git checkout d2ee646
+--> $ git checkout -b main-funktiuniert de3c551
+```
+```
+Rückmeldung von Deepseek: 
+
+"Die MySQL Database unter 10.244.21.7 ist nicht von deinem Netzwerk aus erreichbar."
 ```
 
 #### SQL Datenbank -> Tabellen hinzugefügt:
