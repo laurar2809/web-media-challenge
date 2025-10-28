@@ -795,4 +795,169 @@ restoreOriginalItems();
 ![Bild](img/challenge_bearbeiten.png)
 
 
+## Dienstag, 28.10.2025
+
+### Neue Funktionen:
+
+- Filtern der Challenges nach Kategorien
+- Suchfunktion: Challenges finden
+
+#### Filtern der Challenges nach Kategorien
+
+![Bild](img/Challenges_filtern.png)
+
+
+Es ist möglich, dass man die Challenges nach Kategorien filtern kann. Es erzielt eine bessere Übersicht der einzelnen Challenges und verbessert die Benutzerfreundlichkeit.
+
+
+server.js:
+```js
+// ----- Challenge Filter nach Kategorie -----
+app.get('/challenges/filter/:kategorie', async (req, res) => {
+  try {
+    const kategorie = req.params.kategorie;
+    
+    // Alle Challenges der gewählten Kategorie
+    const challenges = await db('challenges')
+      .where({ kategorie: kategorie })
+      .orderBy('title', 'asc');
+    
+    // Alle Kategorien für das Dropdown
+    const kategorien = await db('items').select('*').orderBy('title', 'asc');
+    
+    res.render('challenges', { 
+      challenges: challenges,
+      kategorien: kategorien,
+      activeKategorie: kategorie,
+      activePage: 'challenges'
+      
+    });
+    
+  } catch (error) {
+    console.error("Fehler beim Filtern:", error);
+    req.flash('error', 'Fehler beim Filtern der Challenges');
+    res.redirect('/challenges');
+  }
+});
+```
+
+challenges.ejs:
+```html
+<!-- Filter Dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        <% if (locals.activeKategorie) { %>
+          Kategorie: <%= locals.activeKategorie %>
+        <% } else { %>
+          Alle Kategorien
+        <% } %>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/challenges">Alle Kategorien</a></li>
+        <li><hr class="dropdown-divider"></li>
+        
+        <!-- KATEGORIEN LISTE - VEREINFACHT -->
+        <% if (locals.kategorien && locals.kategorien.length > 0) { %>
+          <% locals.kategorien.forEach(kat => { %>
+            <li>
+              <a class="dropdown-item <%= locals.activeKategorie === kat.title ? 'active' : '' %>" 
+                 href="/challenges/filter/<%= encodeURIComponent(kat.title) %>">
+                 <%= kat.title %>
+              </a>
+            </li>
+          <% }) %>
+        <% } else { %>
+          <li><a class="dropdown-item text-muted" href="#">Keine Kategorien vorhanden</a></li>
+        <% } %>
+      </ul>
+    </div>
+    
+    <!-- Aktive Filter anzeigen -->
+    <% if (locals.activeKategorie) { %>
+      <span class="badge bg-primary d-flex align-items-center">
+        <%= locals.activeKategorie %>
+        <a href="/challenges" class="text-white ms-2 text-decoration-none">×</a>
+      </span>
+    <% } %>
+```
+
+
+#### Suchfunktion: Challenges finden
+
+Man kann ab jetzt nach Challenges suchen. 
+- Wenn man nach einer Challenge sucht, werden bereits schon zutreffende Ergebnisse vorgeschlagen. (Bild 1) 
+- Wenn man die Challenge auswählt, wird sie alleine auf der Challenge-Seite angezeigt.(Bild 2)
+- Man kann endtweder nach Namen oder Beschreibung suchen. Kategorie kann man nicht suchen, da man dafür die Filterfunktion benutzt.
+
+Um die Funktion zu ermöglichen, habe ich nicht nur im server.js gearbeitet, sondern auch direkt im challenges.ejs mit Javascript-Code <"script">. 
+
+**1. Gesuchte Challenge wird bereits vorgeschlagen**
+
+![Bild](img/suchen_vorgang_challenges.png)
+
+```js
+// ----- Challenge Search API -----
+app.get('/api/challenges/search', async (req, res) => {
+  try {
+    const searchTerm = req.query.q;
+    
+    if (!searchTerm || searchTerm.length < 2) {
+      return res.json([]);
+    }
+
+    const challenges = await db('challenges')
+      .where('title', 'like', `%${searchTerm}%`)
+      .orWhere('description', 'like', `%${searchTerm}%`)
+      .orWhere('kategorie', 'like', `%${searchTerm}%`)
+      .select('*')
+      .limit(10);
+
+    res.json(challenges);
+    
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).json({ error: 'Search failed' });
+  }
+});
+```
+
+**2. Gesuchte Challenge wird angezeigt**
+
+![Bild](img/challenge_suche_gefunden.png)
+
+- Problem:
+  - Ich habe es für längere Zeit nicht geschafft, nur die gesuchte Challenge anzeigen zu lassen.
+
+- Lösung des Problems:
+  - server.js Code abgeändert
+
+```js
+// Challenge Detail Route (server.js)
+app.get('/challenges/:id', async (req, res) => {
+  try {
+    const challenge = await db('challenges').where({ id: req.params.id }).first();
+    
+    if (!challenge) {
+      req.flash('error', 'Challenge nicht gefunden.');
+      return res.redirect('/challenges');
+    }
+    
+    // Einfache Detailansicht - später ein eigenes Template erstellen (ev.)
+    const kategorien = await db('items').select('*').orderBy('title', 'asc');
+    
+    res.render('challenges', { 
+      challenges: [challenge], // Nur diese eine Challenge anzeigen
+      kategorien: kategorien,
+      activePage: 'challenges',
+      searchHighlight: true
+    });
+    
+  } catch (error) {
+    console.error("Fehler:", error);
+    req.flash('error', 'Fehler beim Laden der Challenge.');
+    res.redirect('/challenges');
+  }
+});
+
+```
 
