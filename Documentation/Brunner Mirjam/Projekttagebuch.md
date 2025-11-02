@@ -961,3 +961,64 @@ app.get('/challenges/:id', async (req, res) => {
 
 ```
 
+
+## Freitag, 31.10.2025
+
+### Detail-Seite erstellt
+- Um eine Gute Übersicht über eine Challenge zu bewahren, gibt es eine Detail-Ansicht. Dort steht noch einmal die Beschreibung und das Beispielbild wird dort angezeigt. Man kann es noch einmal bearbeiten, wenn man möchte, oder wieder zur Startseite zurückkehren. 
+
+
+![Bild](img/detail_ansicht_ohne_foto.png)
+
+- Man erkennt auf diesem Bild, dass das Beispielfoto zwar schon im Code integriert ist, es kann jedoch nicht angezeigt werden. Im nächsten Schritt wird erklärt, wie die Bilder verwaltet und angezeigt werden können.
+
+### Bilder werden angezeigt
+
+#### Ordner-Struktur geändert
+- Unter dem Ordner "uploads" gibt es jetzt einen **challenges** und einen **categories** Ordner, worin alle Bilder gespeichert werden, die beim Erstellen einer Challenges hochgeladen werden. Diese werden wiederum, wenn man die Detail-Ansicht öffnet, auf der Seite angezeigt.
+
+![Bild](img/Details_ansicht.jpg)
+
+```js
+// Storage für Challenges
+const challengeStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const dir = path.join(uploadDir, 'challenges');
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    cb(null, dir);
+  },
+  filename: (req, file, cb) => {
+    const ext = mime.extension(file.mimetype) || 'bin';
+    const unique = Date.now() + '-' + Math.round(Math.random()*1e9);
+    cb(null, `challenge-${unique}.${ext}`);
+  }
+});
+
+// Storage für Kategorien
+const categoryStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const dir = path.join(uploadDir, 'categories');
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    cb(null, dir);
+  },
+  filename: (req, file, cb) => {
+    const ext = mime.extension(file.mimetype) || 'bin';
+    const unique = Date.now() + '-' + Math.round(Math.random()*1e9);
+    cb(null, `category-${unique}.${ext}`);
+  }
+});
+
+const uploadChallenge = multer({ storage: challengeStorage });
+const uploadCategory = multer({ storage: categoryStorage });
+
+```
+
+Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem ob bei Challenge oder Kategorie), die Ordner erstellt. Die Bilder werden jeweils in den richtigen Ordnern gespeichert.
+- challenges
+- categories
+
+## Weitere/Mögliche Änderungen
+
+- Mehrere Beispielbilder pro Seite hochladen können
+- Genauere Beschreibung zusätzlich verfassen können für Detailseite (unter Bearbeiten bzw. Erstellen einer Challenges angeben)
+  - Wird nur auf Details-Seite angezeigt

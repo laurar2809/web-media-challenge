@@ -42,6 +42,7 @@
 |23.10.2025|10|nein|MySQL: Versuch, Prototypen mit MySQL statt sqlite Datenbank zu verbinden. Hat leider nicht funkioniert. Zurück auf funktionierenden Prototypen: sqlite|
 |25.10.2025|5 - bis jetzt insg.: 95|ja|Fortsetzung des Udemykurses: SQL Datenbank. --- Weiterer Versuch: Prototypen mit MySQL Datenbank verbinden. Hat zuerst nicht funktioniert --> hatte noch nicht richtige Server-Daten. Herr Hanl gab mir richtige Server-Daten --> hat funkioniert! Datensätze hinzugefügt|
 |28.10.2025|4 - bis jetzt insg.: 99|ja|Folgende Funktionen umgesetzt: Filtern nach Kategorien der Challenges; Suchfunktion --> Challenges finden; Burgermenü bei Handyansicht|
+|31.10.2025|2 - bis jetzt insg.: 101|ja|Detail-Ansicht erstellt. Bilder hochladen ermöglicht, wird auf der Detailseite angezeigt.|
 
 
 
@@ -50,4 +51,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|99|40|-|
+|101|40|-|
