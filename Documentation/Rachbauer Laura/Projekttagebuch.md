@@ -1,6 +1,6 @@
 # Projekttagebuch
 
-## Donnerstag 18.09.2025
+## KW 38
  
 ### ABA Portal
 
@@ -44,11 +44,11 @@
 
   - https://www.pexels.com/de-de/
 
-## Donnerstag 25.09.2025
+## KW 39
 
  - Krank!
 
-## Donnerstag 02.10.2025
+## KW 40
 
 ### Fertigstellung zweiter Website Prototype
 
@@ -92,7 +92,7 @@
 
  - https://www.pexels.com/de-de/
 
-## Donnerstag 09.10.2025
+## KW 41
  
 ### Weiterarbeiten am dritten Website-Prototypen auf XD
 
@@ -136,4 +136,72 @@
 
  - https://tabler.io/ 
 
- ## Donnerstag 16.10.2025
+ ## KW 42
+
+ ### Weiterarbeit der Frontentarbeiten auf der Website
+
+ - Weiterführung der Frontend Arbeiten
+
+ - Speichern u. Abbrechen Buttons
+
+ - Dropdownbutton für Kategorien
+
+
+### Details und Bearbeiten Links hinzufügen
+
+### Quellen
+
+ - https://getbootstrap.com/
+
+## KW 43
+### Versuch die Detail Seite funktionell zu machen
+
+ - Probleme bei der Programmierung
+
+ - Fehlersuche
+
+### Designideen recherieren 
+
+ - Bootstrap Ideen sammeln
+
+### Quellen
+
+ - https://getbootstrap.com/
+
+ - https://chat.deepseek.com/
+
+## KW 44
+
+### Eigene Branch erstellen
+
+> ![alt text](![alt text](Images/image.png))
+
+### Beginn vom Design der Challenge Seite 
+
+- Schriften und Buttons zentrieren
+
+- Recherche auf Bootstrap
+
+### Quellen
+
+- https://getbootstrap.com/
+
+- https://chat.deepseek.com/
+
+
+## KW 45
+
+### Farbanpassung auf der Website
+
+ - Anpassung der Farben auf der Menüleisten und der Buttons. 
+
+### "Foto hochladen" Funktion
+
+ - Beim Hochladen der Fotos sollen sie gespeichert werden - ist nun funktionell 
+
+### Kleinere Funktionell Dinge
+
+ - Dateinamen speichern, Kategorien Name wurden nicht angezeigt, etc...
+
+ - Filterfenster weg, ...
+ 
