@@ -174,7 +174,7 @@
 
 ### Eigene Branch erstellen
 
-> ![alt text](![alt text](image.png))
+> ![alt text](![alt text](Images/image.png))
 
 ### Beginn vom Design der Challenge Seite 
 
