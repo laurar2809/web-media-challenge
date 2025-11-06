@@ -1020,5 +1020,5 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
 ## Weitere/Mögliche Änderungen
 
 - Mehrere Beispielbilder pro Seite hochladen können
-- Genauere Beschreibung zusätzlich verfassen können für Detailseite (unter Bearbeiten bzw. Erstellen einer Challenges angeben)
+- Genauere Beschreibung zusätzlich verfassen können für Detailseite (unter Bearbeiten bzw. Erstellen einer Challenge angeben)
   - Wird nur auf Details-Seite angezeigt
