@@ -434,6 +434,7 @@ CREATE TABLE Group_Works (
 
 ![Bild](img/SQL_Datenbank_Erweiterung_Gruppen.png)
 
+
 ### Erster Versuch: die Daten der Datenbank am Frontend anzeigen lassen
 Es werden alle Gruppen angezeigt, die bis jetzt in der Datenbank gespeichert wurden. Dabei werden noch zusätzlich die Mitgliederanzahl und der "Leader" des Teams angezeigt.
 
@@ -501,7 +502,7 @@ INSERT INTO multimedia_challenge.challenges (category_id, name, description, exa
 (5, 'Sound Design', 'Designe den Sound für eine Filmszene', '["/audio/sample1.mp3"]');
 ```
 
-## Donnerstag, 18.09.2025
+## Donnerstag, 09.10.2025
 
 ### Fortsetzung von der Erstellung eines Prototyps:
 Admin Ansicht:
@@ -546,9 +547,478 @@ Ansicht der Kategorien:
 ![Bild](img/Hanl_Prototyp.png)
 
 
-Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen: https://sqliteviz.com/app/#/workspace
+Auf die Datenbankstruktur der Website kann man durch folgende Website zugreifen: 
+- https://sqliteviz.com/app/#/workspace
+- (https://sqliteonline.com/)
 
-- 1. data.sqlite einfügen
-- 2. Tabellen werden angezeigt
+  - 1. data.sqlite einfügen
+  - 2. Tabellen werden angezeigt
 
 ![Bild](img/Datenbankstruktur_Prototyp.png)
+
+## Donnerstag, 17.10.2025
+
+### *Freigestellt wegen Abslovierung eines Leistungsabzeichens*
+
+## Donnerstag, 23.10.2025
+
+### Versuch: Von sqlite Datenbank zur mysql Datenbank
+#### Aktueller Stand:
+Da wir die sqlite Datenbank verwenden befindet sich diese jeweils lokal auf dem Computer. Das ist ein großer Nachteil, da man diese nicht gemeinsam verwenden kann. 
+
+#### Lösung:
+Verwendung der mysql-Datenbank:
+- Es ist neue Datenbank erstellt worden
+- Neuer Coding-Space: https://media-challenge.coding-space.at/
+
+#### Erste Versuche:
+Ich habe versucht, die Daten (Tabellen, etc.) der sqlite Datenbank auf die mysql Datenbank zu übertragen. Ich habe ebenfalls die Daten der Datenbank in .env erweitert. 
+
+#### Probleme:
+
+Es traten folgende Probleme auf:
+- Es konnte keine Verbindung hergestellt werden
+- Es wurde Datenbank nicht gefunden
+- Anscheinend ist Port 3306 noch nicht freigegeben
+- Konnte Programm nicht mehr starten, da nur Fehler angezeigt wurden
+- War nicht genau klar, welchen Host ich angeben muss:
+  - 1. media-challenge.coding-space.at
+  - 2. 10.244.21.7
+- Beispielhafte Fehlermeldung:
+```terminal
+DB init error: Error: connect ECONNREFUSED 89.58.21.6:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '89.58.21.6',
+  port: 3306,
+  fatal: true
+}
+```
+
+#### Lösung des Problems:
+Ich habe das Projekt auf die vorherige Version zurückgesetzt, wo es noch funktioniert hat.
+
+```terminal
+# Zur Version vor MySQL Problemen
+--> $ git checkout -b main-funktiuniert de3c551
+```
+```
+Rückmeldung von Deepseek: 
+
+"Die MySQL Database unter 10.244.21.7 ist nicht von deinem Netzwerk aus erreichbar."
+```
+
+#### SQL Datenbank -> Tabellen hinzugefügt:
+![Bild](img/neue_Datenbank.png)
+
+
+#### Zukunftspläne:
+- Datenbank mit Projekt verbinden
+- statt sqlite auf sql Datenbank zugreifen
+
+## Samstag, 25.10.2025
+### Datenbank
+- Umstieg von sqlite auf MySQL
+
+- Datenbank ist auf [coding-space.at](https://coding-space.at/)
+
+### Problem
+```
+Verbindung kann nicht hergestellt werden! Ich habe eine extra "test-mysql.js" Datei erstellt, um alleine die Verbindung testen zu können. Die Verbindung kann nicht hergestellt werden, wegen folgenden Gründen:
+
+- Die IP 10.244.21.7 ist eine interne Netzwerk-IP
+- Sie ist nur aus dem internen Netzwerk erreichbar
+- Meine Node.js App (die lokal läuft) kann sie nicht erreichen
+```
+
+### Lösung des Problems:
+
+Ich habe die richtigen Serverdaten bekommen
+
+- Die Server-URL für die Datenbank: 
+  - DB_HOST: **mysql1507.netcup.net**
+
+
+
+
+### Vorgang:
+1. .env-Daten geändert: mySQL
+```bash
+# Server
+PORT=3000
+SESSION_SECRET=hcS4CyzKZmdqfPM5BL3d  #random Passwort
+
+#MySQL Database
+DB_CLIENT=mysql
+DB_HOST=mysql1507.netcup.net
+DB_USER=k312467_media-challenge
+DB_PASS=rCX7u7Gc@*pr0tzx
+DB_NAME=k312467_media-challenge
+DB_PORT=3306
+
+# DB_CLIENT=sqlite
+# DB_FILE=./data.sqlite
+```
+
+2.  SQL-Verbindung testen
+
+
+Aufruf mit: **node test-mysql.js**
+``` javascript
+// test-mysql.js
+require('dotenv').config();
+const { db, init } = require('./db');
+
+async function test() {
+  try {
+    console.log('Teste MySQL-Verbindung...');
+    console.log('Host:', process.env.DB_HOST);
+    console.log('Database:', process.env.DB_NAME);
+    
+    await init();
+    
+    // Teste Tabellen-Zugriff
+    const items = await db('items').select('*');
+    const challenges = await db('challenges').select('*');
+    
+    console.log('ERFOLG! MySQL funktioniert!');
+    console.log(`Items: ${items.length} Datensätze`);
+    console.log(`Challenges: ${challenges.length} Datensätze`);
+    
+  } catch (error) {
+    console.log('Fehler:', error.message);
+    
+    if (error.code === 'ER_ACCESS_DENIED_ERROR') {
+      console.log('Zugriff verweigert - User/Passwort prüfen');
+    } else if (error.code === 'ER_BAD_DB_ERROR') {
+      console.log('Datenbank existiert nicht');
+    } else if (error.code === 'ECONNREFUSED') {
+      console.log('Verbindung verweigert - Host/Port prüfen');
+    }
+  }
+}
+
+test();
+```
+
+3. Datensätze hinzufügen
+
+
+Aufruf mit **insertDb.js**
+```js
+// insertDb.js
+require('dotenv').config();
+const { db } = require('./db');
+
+const originalItems = [
+  {
+    title: "Audio",
+    description: "Erstellen von Musikstücken", 
+    icon: "/uploads/icon-1759473920639-542278451.svg"
+  },
+  {
+    title: "Foto", 
+    description: "Digitale Fotografie",
+    icon: "/uploads/icon-1759473910957-54510130.svg"
+  },
+  {
+    title: "Metallbearbeitung",
+    description: "Kreatives Gestalten mit Metall",
+    icon: "/uploads/icon-1760006525514-978243190.svg"
+  },
+  {
+    title: "Produktdesign", 
+    description: "Konzept, Entwurf und 3D-Druck eines Produkts",
+    icon: "/uploads/icon-1759473901074-37705088.svg"
+  },
+  {
+    title: "Video",
+    description: "Idee, Drehbuch, Dreh und Schnitt eines Kurzfilms", 
+    icon: "/uploads/icon-1759474004292-461811549.svg"
+  },
+  {
+    title: "Animation",
+    description: "Erstellen von 2D/3D Animationen und Motion Graphics", 
+    icon: "/uploads/icon-1760006701694-865921878.svg"
+  }
+];
+
+async function restoreOriginalItems() {
+  try {
+    console.log('Stelle originale Kategorien wieder her...');
+    
+    // Erst alle vorhandenen Items löschen
+    await db('items').del();
+    console.log('Alte Items gelöscht');
+    
+    // Neue Items einfügen
+    for (const item of originalItems) {
+      await db('items').insert(item);
+      console.log(`"${item.title}" hinzugefügt`);
+    }
+    
+    console.log('Originale Kategorien erfolgreich wiederhergestellt!');
+    console.log('Insgesamt 5 Kategorien angelegt');
+    
+  } catch (error) {
+    console.error('Fehler:', error);
+  } finally {
+    process.exit();
+  }
+}
+
+restoreOriginalItems();
+```
+
+### Aktuelle Website:
+### Kategorien
+**Kategorien:**
+![Bild](img/website_neue_datenbank.png)
+
+**Neue Kategorie hinzufügen:**
+![Bild](img/neue_kategorie.png)
+
+**Kategorie bearbeiten:**
+![Bild](img/kategorie_bearbeiten.png)
+
+### Challenges
+
+**Challenges:**
+![Bild](img/Website_neue_datenbank_2.png)
+
+**Neue Challenge hinzufügen:**
+![Bild](img/neue_challenge.png)
+
+**Challenge bearbeiten:**
+![Bild](img/challenge_bearbeiten.png)
+
+
+## Dienstag, 28.10.2025
+
+### Neue Funktionen:
+
+- Filtern der Challenges nach Kategorien
+- Suchfunktion: Challenges finden
+
+#### Filtern der Challenges nach Kategorien
+
+![Bild](img/Challenges_filtern.png)
+
+
+Es ist möglich, dass man die Challenges nach Kategorien filtern kann. Es erzielt eine bessere Übersicht der einzelnen Challenges und verbessert die Benutzerfreundlichkeit.
+
+
+server.js:
+```js
+// ----- Challenge Filter nach Kategorie -----
+app.get('/challenges/filter/:kategorie', async (req, res) => {
+  try {
+    const kategorie = req.params.kategorie;
+    
+    // Alle Challenges der gewählten Kategorie
+    const challenges = await db('challenges')
+      .where({ kategorie: kategorie })
+      .orderBy('title', 'asc');
+    
+    // Alle Kategorien für das Dropdown
+    const kategorien = await db('items').select('*').orderBy('title', 'asc');
+    
+    res.render('challenges', { 
+      challenges: challenges,
+      kategorien: kategorien,
+      activeKategorie: kategorie,
+      activePage: 'challenges'
+      
+    });
+    
+  } catch (error) {
+    console.error("Fehler beim Filtern:", error);
+    req.flash('error', 'Fehler beim Filtern der Challenges');
+    res.redirect('/challenges');
+  }
+});
+```
+
+challenges.ejs:
+```html
+<!-- Filter Dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        <% if (locals.activeKategorie) { %>
+          Kategorie: <%= locals.activeKategorie %>
+        <% } else { %>
+          Alle Kategorien
+        <% } %>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/challenges">Alle Kategorien</a></li>
+        <li><hr class="dropdown-divider"></li>
+        
+        <!-- KATEGORIEN LISTE - VEREINFACHT -->
+        <% if (locals.kategorien && locals.kategorien.length > 0) { %>
+          <% locals.kategorien.forEach(kat => { %>
+            <li>
+              <a class="dropdown-item <%= locals.activeKategorie === kat.title ? 'active' : '' %>" 
+                 href="/challenges/filter/<%= encodeURIComponent(kat.title) %>">
+                 <%= kat.title %>
+              </a>
+            </li>
+          <% }) %>
+        <% } else { %>
+          <li><a class="dropdown-item text-muted" href="#">Keine Kategorien vorhanden</a></li>
+        <% } %>
+      </ul>
+    </div>
+    
+    <!-- Aktive Filter anzeigen -->
+    <% if (locals.activeKategorie) { %>
+      <span class="badge bg-primary d-flex align-items-center">
+        <%= locals.activeKategorie %>
+        <a href="/challenges" class="text-white ms-2 text-decoration-none">×</a>
+      </span>
+    <% } %>
+```
+
+
+#### Suchfunktion: Challenges finden
+
+Man kann ab jetzt nach Challenges suchen. 
+- Wenn man nach einer Challenge sucht, werden bereits schon zutreffende Ergebnisse vorgeschlagen. (Bild 1) 
+- Wenn man die Challenge auswählt, wird sie alleine auf der Challenge-Seite angezeigt.(Bild 2)
+- Man kann entweder nach Namen oder Beschreibung suchen. Kategorie kann man nicht suchen, da man dafür die Filterfunktion benutzt.
+
+Um die Funktion zu ermöglichen, habe ich nicht nur im server.js gearbeitet, sondern auch direkt im challenges.ejs mit Javascript-Code <"script">. 
+
+**1. Gesuchte Challenge wird bereits vorgeschlagen**
+
+![Bild](img/suchen_vorgang_challenges.png)
+
+```js
+// ----- Challenge Search API -----
+app.get('/api/challenges/search', async (req, res) => {
+  try {
+    const searchTerm = req.query.q;
+    
+    if (!searchTerm || searchTerm.length < 2) {
+      return res.json([]);
+    }
+
+    const challenges = await db('challenges')
+      .where('title', 'like', `%${searchTerm}%`)
+      .orWhere('description', 'like', `%${searchTerm}%`)
+      .orWhere('kategorie', 'like', `%${searchTerm}%`)
+      .select('*')
+      .limit(10);
+
+    res.json(challenges);
+    
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).json({ error: 'Search failed' });
+  }
+});
+```
+
+**2. Gesuchte Challenge wird angezeigt**
+
+![Bild](img/challenge_suche_gefunden.png)
+
+- Problem:
+  - Ich habe es für längere Zeit nicht geschafft, nur die gesuchte Challenge anzeigen zu lassen.
+
+- Lösung des Problems:
+  - server.js Code abgeändert
+
+```js
+// Challenge Detail Route (server.js)
+app.get('/challenges/:id', async (req, res) => {
+  try {
+    const challenge = await db('challenges').where({ id: req.params.id }).first();
+    
+    if (!challenge) {
+      req.flash('error', 'Challenge nicht gefunden.');
+      return res.redirect('/challenges');
+    }
+    
+    // Einfache Detailansicht - später ein eigenes Template erstellen (ev.)
+    const kategorien = await db('items').select('*').orderBy('title', 'asc');
+    
+    res.render('challenges', { 
+      challenges: [challenge], // Nur diese eine Challenge anzeigen
+      kategorien: kategorien,
+      activePage: 'challenges',
+      searchHighlight: true
+    });
+    
+  } catch (error) {
+    console.error("Fehler:", error);
+    req.flash('error', 'Fehler beim Laden der Challenge.');
+    res.redirect('/challenges');
+  }
+});
+
+```
+
+
+## Freitag, 31.10.2025
+
+### Detail-Seite erstellt
+- Um eine Gute Übersicht über eine Challenge zu bewahren, gibt es eine Detail-Ansicht. Dort steht noch einmal die Beschreibung und das Beispielbild wird dort angezeigt. Man kann es noch einmal bearbeiten, wenn man möchte, oder wieder zur Startseite zurückkehren. 
+
+
+![Bild](img/detail_ansicht_ohne_foto.png)
+
+- Man erkennt auf diesem Bild, dass das Beispielfoto zwar schon im Code integriert ist, es kann jedoch nicht angezeigt werden. Im nächsten Schritt wird erklärt, wie die Bilder verwaltet und angezeigt werden können.
+
+### Bilder werden angezeigt
+
+#### Ordner-Struktur geändert
+- Unter dem Ordner "uploads" gibt es jetzt einen **challenges** und einen **categories** Ordner, worin alle Bilder gespeichert werden, die beim Erstellen einer Challenges bzw. Kategorie hochgeladen werden. Diese werden wiederum, wenn man die Detail-Ansicht öffnet, auf der Seite angezeigt (bei Challenges).
+
+![Bild](img/Details_ansicht.jpg)
+
+```js
+// Storage für Challenges
+const challengeStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const dir = path.join(uploadDir, 'challenges');
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    cb(null, dir);
+  },
+  filename: (req, file, cb) => {
+    const ext = mime.extension(file.mimetype) || 'bin';
+    const unique = Date.now() + '-' + Math.round(Math.random()*1e9);
+    cb(null, `challenge-${unique}.${ext}`);
+  }
+});
+
+// Storage für Kategorien
+const categoryStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const dir = path.join(uploadDir, 'categories');
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    cb(null, dir);
+  },
+  filename: (req, file, cb) => {
+    const ext = mime.extension(file.mimetype) || 'bin';
+    const unique = Date.now() + '-' + Math.round(Math.random()*1e9);
+    cb(null, `category-${unique}.${ext}`);
+  }
+});
+
+const uploadChallenge = multer({ storage: challengeStorage });
+const uploadCategory = multer({ storage: categoryStorage });
+
+```
+
+Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem ob bei Challenge oder Kategorie), die Ordner erstellt. Die Bilder werden jeweils in den richtigen Ordnern gespeichert.
+- challenges
+- categories
+
+## Weitere/Mögliche Änderungen
+
+- Mehrere Beispielbilder pro Seite hochladen können
+- Genauere Beschreibung zusätzlich verfassen können für Detailseite (unter Bearbeiten bzw. Erstellen einer Challenges angeben)
+  - Wird nur auf Details-Seite angezeigt

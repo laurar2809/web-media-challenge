@@ -35,4 +35,20 @@
 |06.10.2025|2|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Löschen und Hinzufügen einer Kategorie ist schon möglich.|
 |09.10.2025|7|nein| Weiterarbeit an Prototypen.|
 |09.10.2025|5|ja| Neuer Prototyp weiterprogrammieren -> Kategorien und Challenges. Prototypen von Herr Hanl als Vorlage. Veruch: Erstellen eines neuen Repositorys --> hat nicht funktioniert.|
-|11.10.2025|1 - bis jetzt insg.: 85|ja|Forstsetzung Videokurs: Build your own API. Arbeit mit Postman.|
+|11.10.2025|1|ja|Forstsetzung Videokurs: Build your own API. Arbeit mit Postman.|
+|18.10.2025|1 |ja|Repository erstellt für Prototypen. Gemeinsames Arbeiten an Prototypen ermöglicht.|
+|19.10.2025|2 |ja|Challenge Tabelle in Datenbank hinzugefügt. Hinzufügen einer Challenge ist bereits möglich.|
+|22.10.2025|2|ja|Challenges können jetzt gelöscht werden. Das hinzufügen von Kategorien ist auch wieder möglich.|
+|23.10.2025|10|nein|MySQL: Versuch, Prototypen mit MySQL statt sqlite Datenbank zu verbinden. Hat leider nicht funkioniert. Zurück auf funktionierenden Prototypen: sqlite|
+|25.10.2025|5 - bis jetzt insg.: 95|ja|Fortsetzung des Udemykurses: SQL Datenbank. --- Weiterer Versuch: Prototypen mit MySQL Datenbank verbinden. Hat zuerst nicht funktioniert --> hatte noch nicht richtige Server-Daten. Herr Hanl gab mir richtige Server-Daten --> hat funkioniert! Datensätze hinzugefügt|
+|28.10.2025|4 - bis jetzt insg.: 99|ja|Folgende Funktionen umgesetzt: Filtern nach Kategorien der Challenges; Suchfunktion --> Challenges finden; Burgermenü bei Handyansicht|
+|31.10.2025|2 - bis jetzt insg.: 101|ja|Detail-Ansicht erstellt. Bilder hochladen ermöglicht, wird auf der Detailseite angezeigt.|
+
+
+
+
+---
+
+|Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
+|--|--|--|
+|101|40|-|
