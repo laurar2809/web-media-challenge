@@ -1022,3 +1022,51 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
 - Mehrere Beispielbilder pro Seite hochladen können
 - Genauere Beschreibung zusätzlich verfassen können für Detailseite (unter Bearbeiten bzw. Erstellen einer Challenge angeben)
   - Wird nur auf Details-Seite angezeigt
+
+
+## Donnerstag, 06.11.2025
+
+### Unklarheiten:
+#### mySQL - Datenbank Probleme:
+  - Wir dürfen die gleiche Datenbank nicht gleichzeitig verwenden
+
+#### mySQL - Datenbank Lösungen:
+  - Für funktionelle Änderungen reicht die sqlite Datenbank aus.
+  - Haupt Datenbank ist mySQL Datenbank
+  - Mit Hotspot trifft der Fall eher zu, dass die Verbindung zur mySQL Datenbank hergestellt werden kann.
+
+#### Schüler-Ansicht umsetzen:
+  - Wird die Schüleransicht im gleichem Projekt erstellt?
+  - Wie soll die Ordnerstruktur verändert werden?
+  - Vorschlag:
+
+  ```text
+  media-challenge-app/
+    ├── server.js
+    ├── db.js
+    ├── package.json
+    ├── .env
+    ├── public/
+    │   ├── uploads/
+    │   │   ├── challenges/
+    │   │   └── categories/
+    │   └── assets/
+    │       └── file-image.svg
+    └── views/
+        ├── layout.ejs                    # Basis Layout
+        │
+        ├── admin/                        # ADMIN BEREICH
+        │   ├── layout.ejs                # Admin Layout (mit Admin-Nav)
+        │   ├── challenges.ejs            # Challenges verwalten
+        │   ├── formChallenges.ejs        # Challenge Formular
+        │   ├── kategorien.ejs            # Kategorien verwalten  
+        │   └── formKategorien.ejs        # Kategorie Formular
+        │
+        └── schueler/                     # SCHÜLER BEREICH
+            ├── layout.ejs                # Schüler Layout (einfache Nav)
+            ├── challenges.ejs            # Challenges anzeigen
+            ├── challengeDetail.ejs       # Challenge Details
+            ├── kategorien.ejs            # Kategorien anzeigen
+            └── kategorieDetail.ejs       # Kategorie Details
+
+  ```
