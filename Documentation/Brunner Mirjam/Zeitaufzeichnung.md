@@ -43,7 +43,8 @@
 |25.10.2025|5|ja|Fortsetzung des Udemykurses: SQL Datenbank. --- Weiterer Versuch: Prototypen mit MySQL Datenbank verbinden. Hat zuerst nicht funktioniert --> hatte noch nicht richtige Server-Daten. Herr Hanl gab mir richtige Server-Daten --> hat funkioniert! Datensätze hinzugefügt|
 |28.10.2025|4|ja|Folgende Funktionen umgesetzt: Filtern nach Kategorien der Challenges; Suchfunktion --> Challenges finden; Burgermenü bei Handyansicht|
 |31.10.2025|2|ja|Detail-Ansicht erstellt. Bilder hochladen ermöglicht, wird auf der Detailseite angezeigt.|
-|05.11.2025|3 - bis jetzt insg.: 104|ja|MySQL Verbindung fixxen |
+|05.11.2025|3 - bis jetzt insg.: 104|ja|MySQL Verbindung fixxen|
+|06.11.2025|10|nein||
 
 
 
@@ -52,4 +53,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|104|40|-|
+|104|50|-|
