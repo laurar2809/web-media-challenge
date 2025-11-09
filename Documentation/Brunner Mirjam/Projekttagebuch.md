@@ -1033,7 +1033,7 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
 #### mySQL - Datenbank Lösungen:
   - Für funktionelle Änderungen reicht die sqlite Datenbank aus.
   - Haupt Datenbank ist mySQL Datenbank
-  - Mit Hotspot trifft der Fall eher zu, dass die Verbindung zur mySQL Datenbank hergestellt werden kann.
+  - Mit Hotspot (vom Handy) trifft der Fall eher zu, dass die Verbindung zur mySQL Datenbank hergestellt werden kann.
 
 #### Schüler-Ansicht umsetzen:
   - Wird die Schüleransicht im gleichem Projekt erstellt?
@@ -1070,3 +1070,51 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
             └── kategorieDetail.ejs       # Kategorie Details
 
   ```
+
+  ### Neue Funktionen
+
+  #### Datenbank:
+
+  Bis jetzt konnte man nur Challenges und Kategorien verwalten
+
+  Wir haben jetzt einige Aspkete umgeändert:
+  - Fehlerhafte Benennung der Kategorien (noch auf items benannt --> zu categories umgeändert --> Datenbank)
+  - Challenges zu Aufgabenpakete umgeändert
+  - Challenges (neu) hinzugefügt
+  - Schüler hinzugefügt
+
+  #### Funktionen:
+  
+  Mittlerweile kann man nur Challenges und Kategorien hinzufügen, löschen, bearbeiten, erstellen, etc. Um es mehr funktionsfähig zu machen haben wir 2 neue Seiten erstellt:
+  - Challenges
+  - Schüler
+
+  **Challenges:**
+  - Es werden die Aufgabenpakete und Schüer miteinander verknüpft (ID's)
+  - Neue Challenges können erstellt werden durch bzw. mit den Aufgabenpaketen, die bereits schon vorhanden sind. Den einzelnen Challenges werden Teams mit den Schülern zugeteilt. 
+  
+  Anforderungen: 
+
+  - Titel
+  - Beschreibung
+  - Zusätzliche Beschreibung
+  - Bilder
+  - Teams (Schüler)
+  - etc.
+
+  Grundsätzlich ist diese Seite gleich aufgebaut wie die Aufgabenpaketseite. Der einzige Unterschied ist, das mehrere Informationen zu finden sind. Es werden die schon bereits vorhandenen Aufgabenpakete und die hinzugefügten Schüler verwendet, um die Challenges zu erstellen, die dann sichtbar für die Schüler gemacht werden.
+
+  **Schüler**
+
+  Unter der Seite "Schüler" werden Schüler der Medienzweig-Klassen hinzugefügt.
+
+  Anforderungen:
+  - Vorname
+  - Nachname
+  - Klasse (1BHELS, 2BHELS, 3BHELS, 4BHELS oder 5BHELS)
+
+  Mit deren ID's können sie in den Aufgabenpaketen mit ein integriert werden.
+
+  ### Aktuelle Seite:
+
+  ![Bild](img/aktuelle_seite.png)
