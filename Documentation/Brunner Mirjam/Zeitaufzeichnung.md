@@ -44,7 +44,8 @@
 |28.10.2025|4|ja|Folgende Funktionen umgesetzt: Filtern nach Kategorien der Challenges; Suchfunktion --> Challenges finden; Burgermenü bei Handyansicht|
 |31.10.2025|2|ja|Detail-Ansicht erstellt. Bilder hochladen ermöglicht, wird auf der Detailseite angezeigt.|
 |05.11.2025|3 - bis jetzt insg.: 104|ja|MySQL Verbindung fixxen|
-|06.11.2025|10|nein||
+|06.11.2025|10|nein|Änderungen der Seitennamen und 2 neue Seiten erstellt --> Challenges und Schüler|
+|09.11.2025|3|ja|Challenges und Schüler funktionieren --> Teams werden erstellt, Schüler können Klassen zugewiesen werden.|
 
 
 
@@ -53,4 +54,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|104|50|-|
+|107|60|-|

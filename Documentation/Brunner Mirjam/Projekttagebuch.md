@@ -1118,3 +1118,17 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
   ### Aktuelle Seite:
 
   ![Bild](img/aktuelle_seite.png)
+
+
+  ## Donnerstag, 09.11.2025
+
+  ### Challenges und Schüler weiterbearbeitet
+
+  #### Challenges
+  - Aufgabenpakete und Schüler (Teams) können schon miteinander verknüpft werden. 
+  - Das Bearbeiten funktioniert von den Challenges.
+
+  #### Schüler
+  - Schüler können den Klassen zugewiesen werden
+  - Schüler können den Challenges mit Abteilungen zugewiesen werden
+  - Schüler können beim Challenge erstellen ausgewählt werden. Es wird dann automatisch eine Gruppe erstellt.
