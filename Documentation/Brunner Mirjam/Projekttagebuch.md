@@ -1132,3 +1132,63 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
   - Schüler können den Klassen zugewiesen werden
   - Schüler können den Challenges mit Abteilungen zugewiesen werden
   - Schüler können beim Challenge erstellen ausgewählt werden. Es wird dann automatisch eine Gruppe erstellt.
+
+
+  ## Donnerstag, 13.11.2025
+
+  ### Suchfunktionen
+
+  - Es wurde ermöglicht, dass Live gefiltert bzw. gesucht werden kann. 
+
+
+
+### Aktuelle Seiten:
+
+#### Kategorien:
+
+![Bild](img/aktuell_categorie.png)
+
+
+#### Aufgabenpakete:
+
+![Bild](img/aktuell_aufgabenpaket.png)
+
+#### Challenges:
+
+![Bild](img/aktuell_challenges.png)
+
+Challenge erstellen: Aufgabenpakete:
+
+![Bild](img/aufgabenpaket%20auswählen.png)
+
+Man kann beim Challenge erstellen ein Aufgabenpaket auswählen, das man davor schon erstellt hat. 
+
+Challenge erstellen: Teams
+
+![Bild](img/challenge%20teams.png)
+
+Es können die Schüler in das Feld gezogen werden. Wenn man auf "Team erstellen" drückt, wird ein Team mit den Schülern erstellt. Man kann so viele Teams erstellen, so viele man möcht, bis dass man auf Challenge erstellen drückt.
+
+#### Schüler:
+
+![Bild](img/aktuell_schüler.png)
+
+ 
+ Suchleiste:
+
+- Die Suchleiste ist bei Aufgabenpakete, Challenges und Schüler integriert
+- Wenn man etwas sucht werden die Ergebnisse live gefiltern
+
+![Bild](img/suchen.png)
+
+Bei diesem Bild erkennt man, dass nach dem Nachnamen "Müller" gesucht wird. Man kann ebenfalls nach Vorname und Klasse suchen. 
+
+
+ Filterfunktion:
+
+- Es können die Schüler nach Klassen sortiert werden
+  - 2BHELS
+  - 3BHELS
+  - 4BHELS
+
+![Bild](img/klassenfiltern.png)
