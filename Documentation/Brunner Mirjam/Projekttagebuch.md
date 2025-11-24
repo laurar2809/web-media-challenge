@@ -1192,3 +1192,250 @@ Bei diesem Bild erkennt man, dass nach dem Nachnamen "Müller" gesucht wird. Man
   - 4BHELS
 
 ![Bild](img/klassenfiltern.png)
+
+
+#### Nächste Schritte
+- Jahrgang - Filter einbauen (2020/21, 2024/25...)
+- Server.js umstrukturieren! --> schon zu viel Code
+
+## Mittwoch, 19.11.2025
+
+
+
+
+### Datenbank-Struktur: Media Challenge System
+
+### Überblick
+
+Die Datenbank `k312467_media-challenge` ist eine MySQL-Datenbank für ein Multimedia-Challenge-Management-System, das Schüler, Teams, Aufgabenpakete und Challenges verwaltet.
+
+### Tabellen-Struktur
+
+#### 1. **categories** - Kategorien
+
+```sql
+
+id (INT, PK)
+title (VARCHAR 255)        -- Kategoriename (z.B. "Fotografie")
+description (TEXT)         -- Beschreibung der Kategorie
+icon (VARCHAR 500)         -- Icon-Pfad oder URL
+```
+
+**Beispieldaten:**
+
+- Fotografie, Video, Audio, Produktdesign, Metallbearbeitung, Animation
+    
+
+#### 2. **aufgabenpakete** - Aufgabenpakete
+
+
+```sql
+
+id (INT, PK)
+title (VARCHAR 255)        -- Titel des Aufgabenpakets
+description (TEXT)         -- Beschreibung der Aufgabe
+icon (VARCHAR 500)         -- Icon/Bild für das Paket
+kategorie (VARCHAR 255)    -- Zugehörige Kategorie
+start_date, end_date (DATE)-- Optional: Zeitraum
+```
+**Beispieldaten:**
+
+- Video Challenge, Natur-Fotografie, Time-Lapse Projekt, etc.
+    
+
+#### 3. **klassen** - Schulklassen
+
+```sql
+
+id (INT, PK)
+name (VARCHAR 50)          -- Klassenname (z.B. "2BHELS")
+created_at, updated_at (TIMESTAMP)
+```
+
+**Beispieldaten:**
+
+- 2BHELS, 3BHELS, 4BHELS
+    
+
+#### 4. **schuljahre** - Schuljahre
+
+
+```sql
+
+id (INT, PK)
+name (VARCHAR 20)          -- Schuljahr (z.B. "2024/25")
+startjahr, endjahr (INT)   -- Start- und Endjahr
+aktiv (TINYINT)            -- Aktuelles Schuljahr
+```
+**Beispieldaten:**
+
+- 2023/24, 2024/25 (aktiv), 2025/26
+    
+
+#### 5. **schueler** - Schüler
+
+
+```sql
+
+id (INT, PK)
+vorname, nachname (VARCHAR 100)
+klasse_id (INT, FK)        -- Verweis auf Klassen
+schuljahr_id (INT, FK)     -- Verweis auf Schuljahre
+created_at, updated_at (TIMESTAMP)`
+```
+
+**Beispieldaten:**
+
+- 112 Schüler mit Namen wie "Mirjam Brunner", "Max Mustermann"
+    
+
+#### 6. **teams** - Schülergruppen
+
+
+```sql
+
+id (INT, PK)
+name (VARCHAR 255)         -- Teamname
+schuljahr_id (INT, FK)     -- Verweis auf Schuljahre
+created_at, updated_at (TIMESTAMP)`
+```
+
+**Beispieldaten:**
+
+- Team1, Team2, Team 5-8
+    
+
+#### 7. **team_mitglieder** - Team-Zuordnungen
+
+```sql
+
+id (INT, PK)
+team_id (INT, FK)          -- Verweis auf Teams
+schueler_id (INT, FK)      -- Verweis auf Schüler
+rolle (ENUM)               -- 'mitglied' oder 'teamleiter'
+```
+
+**Beispieldaten:**
+
+- Team-Zuordnungen mit Rollenverteilung
+    
+
+#### 8. **challenges** - Challenge-Instanzen
+
+```sql
+
+id (INT, PK)
+aufgabenpaket_id (INT)     -- Verweis auf Aufgabenpaket
+title, beschreibung (TEXT) -- Challenge-Details
+kategorie (VARCHAR 255)    -- Kategorie
+icon (VARCHAR 500)         -- Icon/Bild
+zusatzinfos (TEXT)         -- Zusätzliche Informationen
+abgabedatum (DATE)         -- Abgabefrist
+team_id (INT, FK)          -- Zugewiesenes Team
+schueler_id (INT)          -- Einzelschüler (optional)
+erreichte_punkte (INT)     -- Bewertung
+feedback (TEXT)            -- Lehrer-Feedback
+abgabe_url (TEXT)          -- Abgabe-Link
+schuljahr_id (INT, FK)     -- Schuljahr
+created_at, updated_at (TIMESTAMP)
+```
+
+**Beispieldaten:**
+
+- 7 aktive Challenges mit verschiedenen Aufgabenpaketen
+    
+
+#### 9. **challenge_bilder** - Challenge-Medien
+
+```sql
+
+id (INT, PK)
+challenge_id (INT, FK)     -- Verweis auf Challenge
+bild_url (VARCHAR 500)     -- Pfad/URL zum Bild
+beschreibung (TEXT)        -- Bildbeschreibung
+reihenfolge (INT)          -- Sortierreihenfolge
+```
+
+### Beziehungen (Foreign Keys)
+
+text
+
+categories
+    ↑
+aufgabenpakete (kategorie)
+    ↑
+challenges (aufgabenpaket_id) ← challenge_bilder
+    ↑
+teams ← team_mitglieder → schueler → klassen
+    ↑
+schuljahre
+
+### Schlüssel-Features
+
+1. **Mehrsprachige Struktur**: Unterstützt verschiedene Medienkategorien
+    
+2. **Team-Management**: Flexible Team-Zuordnungen mit Rollen
+    
+3. **Schuljahres-basiert**: Trennung nach Schuljahren
+    
+4. **Bewertungssystem**: Punktevergabe und Feedback
+    
+5. **Medien-Upload**: Unterstützung für Bilder und URLs
+    
+6. **Flexible Zuordnungen**: Einzel- oder Team-Challenges
+    
+
+### Verwendungszweck
+
+Die Datenbank verwaltet ein komplettes Challenge-System für Schulen, bei dem:
+
+- Lehrer Aufgabenpakete in verschiedenen Kategorien erstellen
+    
+- Schüler in Teams Challenges bearbeiten
+    
+- Abgaben und Bewertungen verwaltet werden
+    
+- Alle Daten schuljahresweise getrennt werden
+    
+
+Die Struktur ist skalierbar und unterstützt verschiedene Multimedia-Bereiche wie Fotografie, Video, Audio, Design und handwerkliche Arbeiten.
+
+## Donnerstag, 20.11.2025
+
+### Umstellung von Server.js
+
+- Bis jetzt war das Problem, dass der ganze Code zu allen Seiten in einem Javascript sich befunden hat. Das Problem wurde gelöst, indem dass neue Javascripts erstellt wurden.
+- Neue .js:
+  - aufgabenpakete.js
+  - challenges.js
+  - categories.js
+  - index.js
+  - schueler.js
+  - api
+    index.js
+
+#### server.js:
+
+Im Server.js werden alle anderen .js miteingebunden. Es wird mit app.use auf die anderen Seiten hingeleitet. Damit wird die Strukturierung um einiges verbessert.
+
+
+#### index.js:
+
+Bei index.js wird sofort auf die Startseite (Kategorien) hingeleitet. Weiters werden die Informationen von .env abgerufen. --> Datenbankinformationen
+
+#### api/index.js:
+Das index.js in api wird dafür verwendet, damit auf den einzelnen Seiten gesucht werden kann. Für weitere Zwecke wird das nicht genutzt.
+
+#### middleware/uploads.js
+In uploads.js befinden sich alle Middleware Codeausschnitte. Dies dient wiederum für eine bessere Strukturierung.
+
+
+### Teams verwalten
+
+- Das Problem war, dass beim Bearbeiten die davor bereits ausgewählten Teams nicht mehr angezeigt wurden. Dieses Problem wurde behoben.
+
+### Filtern nach Schuljahr
+
+#### Schüler
+
+#### Challenges

@@ -45,8 +45,9 @@
 |31.10.2025|2|ja|Detail-Ansicht erstellt. Bilder hochladen ermöglicht, wird auf der Detailseite angezeigt.|
 |05.11.2025|3 |ja|MySQL Verbindung fixxen|
 |06.11.2025|10|nein|Änderungen der Seitennamen und 2 neue Seiten erstellt --> Challenges und Schüler|
-|09.11.2025|3|ja - bis jetzt insg. 107|Challenges und Schüler funktionieren --> Teams werden erstellt, Schüler können Klassen zugewiesen werden.|
+|09.11.2025|3|ja|Challenges und Schüler funktionieren --> Teams werden erstellt, Schüler können Klassen zugewiesen werden.|
 |13.11.2025|10|nein|Suchfunktionen verbessert, Benutzerfreundlichkeit verbessert |
+|16.11.2025|2|ja - bis jetzt insg. 109|Server.js umgestellt --> auf mehrere .js aufgeteilt.|
 
 
 
@@ -55,4 +56,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|107|70|-|
+|109|70|-|
