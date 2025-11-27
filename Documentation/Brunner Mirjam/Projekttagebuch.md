@@ -1035,7 +1035,7 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
   - Haupt Datenbank ist mySQL Datenbank
   - Mit Hotspot (vom Handy) trifft der Fall eher zu, dass die Verbindung zur mySQL Datenbank hergestellt werden kann.
 
-#### Schüler-Ansicht umsetzen:
+#### mögliche Schüler-Ansicht umsetzen:
   - Wird die Schüleransicht im gleichem Projekt erstellt?
   - Wie soll die Ordnerstruktur verändert werden?
   - Vorschlag:
@@ -1436,6 +1436,280 @@ In uploads.js befinden sich alle Middleware Codeausschnitte. Dies dient wiederum
 
 ### Filtern nach Schuljahr
 
-#### Schüler
+Um die Strukturierung nicht nur im Moment zu ermöglichen und diese auch in Zukunft beizubehalten, wurde das Schuljahr in die Datenbank hinzugefügt. (neue Tabelle)
+- Damit kann man nach Challenges und Schüler von verschiedenen Jahrgängen suchen
+- Es werden die folgenden Tabellen mit der Schuljahr - ID von der Tabelle Schüler verbunden
 
-#### Challenges
+
+
+
+### Korrektur Sqlite Datenbank --> Schuljahr
+
+- Diese Datenbank muss auch immer wieder neben der mySQL Datenbank auf den aktuellen Stand gebracht werden. 
+- https://sqliteviz.com/app/#/workspace  --> Datenbankvisualisierung
+
+#### Schuljahr Tabelle erstellen
+
+```js
+// 1. Prüfe ob Schuljahre-Tabelle existiert
+    const schuljahreExists = await db.schema.hasTable('schuljahre');
+    if (!schuljahreExists) {
+      console.log(' Schuljahre-Tabelle existiert nicht! Bitte zuerst schemaDb.js ausführen.');
+      return;
+    }
+    console.log(' Schuljahre-Tabelle vorhanden');
+
+    // 2. Standard-Schuljahr erstellen falls keines existiert
+    const schuljahreCount = await db('schuljahre').count('* as count').first();
+    if (schuljahreCount.count === 0) {
+      console.log(' Erstelle Standard-Schuljahre...');
+      await db('schuljahre').insert([
+        { name: '2023/24', startjahr: 2023, endjahr: 2024, aktiv: 0 },
+        { name: '2024/25', startjahr: 2024, endjahr: 2025, aktiv: 1 },
+        { name: '2025/26', startjahr: 2025, endjahr: 2026, aktiv: 0 }
+      ]);
+      console.log(' Standard-Schuljahre erstellt');
+    }
+```
+#### Challenges-Tabelle
+
+Schuljahr in Tabelle "Challenges" hinzufügen: 
+
+```js
+  if (!challengesHasSchuljahr) {
+      // Spalte hinzufügen
+      await db.raw('ALTER TABLE challenges ADD COLUMN schuljahr_id INTEGER');
+      console.log(' schuljahr_id zu challenges hinzugefügt');
+      
+      // Bestehende Challenges mit aktivem Schuljahr updaten
+      const updateResult = await db('challenges')
+        .whereNull('schuljahr_id')
+        .update({ schuljahr_id: aktivesSchuljahr.id });
+      
+      console.log(` ${updateResult} Challenges mit Schuljahr ${aktivesSchuljahr.name} aktualisiert`);
+    } else {
+      console.log(' challenges hat bereits schuljahr_id Spalte');
+      
+      // Prüfe ob Challenges ohne Schuljahr existieren
+      const challengesWithoutSchuljahr = await db('challenges')
+        .whereNull('schuljahr_id')
+        .count('* as count')
+        .first();
+      
+      if (challengesWithoutSchuljahr.count > 0) {
+        const updateResult = await db('challenges')
+          .whereNull('schuljahr_id')
+          .update({ schuljahr_id: aktivesSchuljahr.id });
+        
+        console.log(` ${updateResult} Challenges mit Schuljahr aktualisiert`);
+      }
+    }
+```
+
+#### Schüler-Tabelle
+
+Schuljahr in Tabelle "Schüler" hinzufügen: 
+
+```js
+if (!schuelerHasSchuljahr) {
+      // Spalte hinzufügen
+      await db.raw('ALTER TABLE schueler ADD COLUMN schuljahr_id INTEGER');
+      console.log(' schuljahr_id zu schueler hinzugefügt');
+      
+      // Bestehende Schüler mit aktivem Schuljahr updaten
+      const updateResult = await db('schueler')
+        .whereNull('schuljahr_id')
+        .update({ schuljahr_id: aktivesSchuljahr.id });
+      
+      console.log(` ${updateResult} Schüler mit Schuljahr ${aktivesSchuljahr.name} aktualisiert`);
+    } else {
+      console.log('⏭ schueler hat bereits schuljahr_id Spalte');
+      
+      // Prüfe ob Schüler ohne Schuljahr existieren
+      const schuelerWithoutSchuljahr = await db('schueler')
+        .whereNull('schuljahr_id')
+        .count('* as count')
+        .first();
+      
+      if (schuelerWithoutSchuljahr.count > 0) {
+        const updateResult = await db('schueler')
+          .whereNull('schuljahr_id')
+          .update({ schuljahr_id: aktivesSchuljahr.id });
+        
+        console.log(` ${updateResult} Schüler mit Schuljahr aktualisiert`);
+      }
+    }
+
+```
+
+#### Schüler-Tabelle
+
+Schuljahr in Tabelle "Teams" hinzufügen:
+
+```js
+console.log(' Migriere teams Tabelle...');
+    const teamsHasSchuljahr = await db.schema.hasColumn('teams', 'schuljahr_id');
+    
+    if (!teamsHasSchuljahr) {
+      // Spalte hinzufügen
+      await db.raw('ALTER TABLE teams ADD COLUMN schuljahr_id INTEGER');
+      console.log(' schuljahr_id zu teams hinzugefügt');
+      
+      // Bestehende Teams mit aktivem Schuljahr updaten
+      const updateResult = await db('teams')
+        .whereNull('schuljahr_id')
+        .update({ schuljahr_id: aktivesSchuljahr.id });
+      
+      console.log(` ${updateResult} Teams mit Schuljahr ${aktivesSchuljahr.name} aktualisiert`);
+    } else {
+      console.log('⏭ teams hat bereits schuljahr_id Spalte');
+    }
+
+```
+
+#### Problem
+
+Wir müssen versuchen, sodass sich das Schuljahr immer wieder aktualisiert, damit es sich jedes Jahr automatisch anpasst. Bis jetzt wurde es mit mittels Datenbank per Hand zugeteilt. Bis jetzt sind die Jahre 2022/23, 2023/24, 2025/26 vorhanden.
+
+
+## Donnerstag, 27.11.2025
+
+### Error-Verhalten
+
+Um einen Fehler direkt zu erkennen, wurden zwei .ejs Seiten mit den Namen 404.ejs und 500.ejs erstellt.
+
+#### 404.ejs
+
+Diese Seite wird aufgerufen, wenn etwas nicht gefunden wird. Beispiele dafür:
+
+```txt
+Beispiele:
+
+      http://localhost:3000/gibtsnicht
+
+      http://localhost:3000/challenges/999999 (nicht existierende ID)
+
+      http://localhost:3000/alte-seite-die-es-nicht-mehr-gibt
+
+      http://localhost:3000/favicon.ico (wenn kein Handler da ist)
+```
+
+
+#### 500.ejs
+
+Diese Seite wird aufgerufen, wenn ein Server-Fehler auftritt. Beispiele dafür: 
+
+```txt
+Beispiele:
+
+      Datenbank-Fehler (Tabelle existiert nicht)
+
+      Syntax-Fehler im Code
+
+      Fehlende Variablen
+
+      Route-Code wirft einen Error
+```
+
+Es hilft, Fehler gut zu umgehen und zu erfahren, welche Fehler gemacht wurden. 
+
+
+### Weitere Überlegungen für die Schüler-Ansicht
+
+#### Aktuelle Strukturierung
+
+```text
+  media-challenge-app/
+      ├──  Datenbank/
+      │   ├──  schemaDb.js
+      │   └──  seedDb.js
+      ├──  middleware/
+      │   └──  uploads.js
+      ├──  node_modules/
+      ├──  public/...
+      ├──  routes/
+      │   ├──  api/
+      │   │   └──  index.js
+      │   ├──  aufgabenpakete.js
+      │   ├──  categories.js
+      │   ├──  challenges.js
+      │   ├──  index.js
+      │   └──  schueler.js
+      ├──  views/
+      │   ├──  error/
+      │   ├──  aufgabenpakete.ejs
+      │   ├──  aufgabenpaketeDetail.ejs
+      │   ├──  challenges.ejs
+      │   ├──  challengesDetail.ejs
+      │   ├──  formAufgabenpakete.ejs
+      │   ├──  formChallenges.ejs
+      │   ├──  formKategorien.ejs
+      │   ├──  formSchueler.ejs
+      │   ├──  index.ejs
+      │   ├──  layout.ejs
+      │   └──  schueler.ejs
+      ├──  .env
+      ├──  .env.example
+      ├──  .gitignore
+      ├──  data.sqlite
+      ├──  db.js
+      ├──  package-lock.json
+      ├──  package.json
+      ├──  README.md
+      ├──  reset-db.js
+      └──  server.js
+
+  ```
+
+  #### Mögliche Erweiterung: 
+
+  - Views:
+    - Es werden drei Ordner erstellt:
+      - admin
+      - schueler
+      - shared
+  
+  Damit werden die Schüler von der Admin Funktion getrennt. Grundsätzlich sind es die gleichen Funktionen, nur dass der Admin mehr Rechte hat als der:die Schüler:in. Das heißt, dass man die Codes 1:1 umkopieren kann, und man nur noch die Codes anpassen muss. 
+
+
+  ### Ziel für heute: 
+
+  Neue Datenbanktabelle hinzufügen und eine bereits Vorhandene anpassen.
+
+**Neue Datenbanktabelle:**
+
+  - user_role
+    - id | rolle
+
+  - Beispiel
+    - 2 | Lehrer
+    - 3 | Admin
+
+
+ *Tabelle generieren*
+
+```sql
+CREATE TABLE user_roles (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  rolle VARCHAR(50) NOT NULL UNIQUE
+);
+
+INSERT INTO user_roles (id, rolle) VALUES
+(1, 'Schüler'),
+(2, 'Lehrer'), 
+(3, 'Admin');
+```
+  **Bereits vorhandene Tabelle:**
+  
+  Schüler - > User
+
+  - user
+    - user_role_id | Vorname Nachname
+
+
+**Was jetzt gemacht werden soll:**
+- Es sollen die Rechte verteilt werden
+- Wir nehmen immer gleiches Programm her. 
+  - ABER: Es werden viele IF's verwendet:
+    - Damit können Gewisse Ausschnitte dem Schüler, gewisse Ausschnitte dem Lehrer und Gewisse Ausschnitte als Ansicht für die jeweiligen Rollen dargestellt werden. das macht man mit den jeweiligen user_role_id's!
+    - if user_role_id == 1 ...Schüler --> kann keine Challenges erstellen, etc.

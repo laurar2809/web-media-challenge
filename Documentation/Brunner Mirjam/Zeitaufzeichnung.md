@@ -47,7 +47,10 @@
 |06.11.2025|10|nein|Änderungen der Seitennamen und 2 neue Seiten erstellt --> Challenges und Schüler|
 |09.11.2025|3|ja|Challenges und Schüler funktionieren --> Teams werden erstellt, Schüler können Klassen zugewiesen werden.|
 |13.11.2025|10|nein|Suchfunktionen verbessert, Benutzerfreundlichkeit verbessert |
-|16.11.2025|2|ja - bis jetzt insg. 109|Server.js umgestellt --> auf mehrere .js aufgeteilt.|
+|16.11.2025|2|ja |Server.js umgestellt --> auf mehrere .js aufgeteilt.|
+|17.11.2025|3|ja|Datenbank erweitert um Schuljahr. --> bietet bessere Struktur über Jahre hinweg|
+|12.11.2025|4 --> bis jetzt 113h|Teams Funktionen weiter bearbeitet und Datenbanken aktualisiert --> sqlite, Challenges Funktion weiter ausgebaut mit Details|
+
 
 
 
@@ -56,4 +59,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|109|70|-|
+|113|70|-|
