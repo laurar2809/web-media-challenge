@@ -1022,3 +1022,694 @@ Mit diesem Code werden nach dem Hochladen von neuen Beispielfotos (je nach dem o
 - Mehrere Beispielbilder pro Seite hochladen können
 - Genauere Beschreibung zusätzlich verfassen können für Detailseite (unter Bearbeiten bzw. Erstellen einer Challenge angeben)
   - Wird nur auf Details-Seite angezeigt
+
+
+## Donnerstag, 06.11.2025
+
+### Unklarheiten:
+#### mySQL - Datenbank Probleme:
+  - Wir dürfen die gleiche Datenbank nicht gleichzeitig verwenden
+
+#### mySQL - Datenbank Lösungen:
+  - Für funktionelle Änderungen reicht die sqlite Datenbank aus.
+  - Haupt Datenbank ist mySQL Datenbank
+  - Mit Hotspot (vom Handy) trifft der Fall eher zu, dass die Verbindung zur mySQL Datenbank hergestellt werden kann.
+
+#### mögliche Schüler-Ansicht umsetzen:
+  - Wird die Schüleransicht im gleichem Projekt erstellt?
+  - Wie soll die Ordnerstruktur verändert werden?
+  - Vorschlag:
+
+  ```text
+  media-challenge-app/
+    ├── server.js
+    ├── db.js
+    ├── package.json
+    ├── .env
+    ├── public/
+    │   ├── uploads/
+    │   │   ├── challenges/
+    │   │   └── categories/
+    │   └── assets/
+    │       └── file-image.svg
+    └── views/
+        ├── layout.ejs                    # Basis Layout
+        │
+        ├── admin/                        # ADMIN BEREICH
+        │   ├── layout.ejs                # Admin Layout (mit Admin-Nav)
+        │   ├── challenges.ejs            # Challenges verwalten
+        │   ├── formChallenges.ejs        # Challenge Formular
+        │   ├── kategorien.ejs            # Kategorien verwalten  
+        │   └── formKategorien.ejs        # Kategorie Formular
+        │
+        └── schueler/                     # SCHÜLER BEREICH
+            ├── layout.ejs                # Schüler Layout (einfache Nav)
+            ├── challenges.ejs            # Challenges anzeigen
+            ├── challengeDetail.ejs       # Challenge Details
+            ├── kategorien.ejs            # Kategorien anzeigen
+            └── kategorieDetail.ejs       # Kategorie Details
+
+  ```
+
+  ### Neue Funktionen
+
+  #### Datenbank:
+
+  Bis jetzt konnte man nur Challenges und Kategorien verwalten
+
+  Wir haben jetzt einige Aspkete umgeändert:
+  - Fehlerhafte Benennung der Kategorien (noch auf items benannt --> zu categories umgeändert --> Datenbank)
+  - Challenges zu Aufgabenpakete umgeändert
+  - Challenges (neu) hinzugefügt
+  - Schüler hinzugefügt
+
+  #### Funktionen:
+  
+  Mittlerweile kann man nur Challenges und Kategorien hinzufügen, löschen, bearbeiten, erstellen, etc. Um es mehr funktionsfähig zu machen haben wir 2 neue Seiten erstellt:
+  - Challenges
+  - Schüler
+
+  **Challenges:**
+  - Es werden die Aufgabenpakete und Schüer miteinander verknüpft (ID's)
+  - Neue Challenges können erstellt werden durch bzw. mit den Aufgabenpaketen, die bereits schon vorhanden sind. Den einzelnen Challenges werden Teams mit den Schülern zugeteilt. 
+  
+  Anforderungen: 
+
+  - Titel
+  - Beschreibung
+  - Zusätzliche Beschreibung
+  - Bilder
+  - Teams (Schüler)
+  - etc.
+
+  Grundsätzlich ist diese Seite gleich aufgebaut wie die Aufgabenpaketseite. Der einzige Unterschied ist, das mehrere Informationen zu finden sind. Es werden die schon bereits vorhandenen Aufgabenpakete und die hinzugefügten Schüler verwendet, um die Challenges zu erstellen, die dann sichtbar für die Schüler gemacht werden.
+
+  **Schüler**
+
+  Unter der Seite "Schüler" werden Schüler der Medienzweig-Klassen hinzugefügt.
+
+  Anforderungen:
+  - Vorname
+  - Nachname
+  - Klasse (1BHELS, 2BHELS, 3BHELS, 4BHELS oder 5BHELS)
+
+  Mit deren ID's können sie in den Aufgabenpaketen mit ein integriert werden.
+
+  ### Aktuelle Seite:
+
+  ![Bild](img/aktuelle_seite.png)
+
+
+  ## Donnerstag, 09.11.2025
+
+  ### Challenges und Schüler weiterbearbeitet
+
+  #### Challenges
+  - Aufgabenpakete und Schüler (Teams) können schon miteinander verknüpft werden. 
+  - Das Bearbeiten funktioniert von den Challenges.
+
+  #### Schüler
+  - Schüler können den Klassen zugewiesen werden
+  - Schüler können den Challenges mit Abteilungen zugewiesen werden
+  - Schüler können beim Challenge erstellen ausgewählt werden. Es wird dann automatisch eine Gruppe erstellt.
+
+
+  ## Donnerstag, 13.11.2025
+
+  ### Suchfunktionen
+
+  - Es wurde ermöglicht, dass Live gefiltert bzw. gesucht werden kann. 
+
+
+
+### Aktuelle Seiten:
+
+#### Kategorien:
+
+![Bild](img/aktuell_categorie.png)
+
+
+#### Aufgabenpakete:
+
+![Bild](img/aktuell_aufgabenpaket.png)
+
+#### Challenges:
+
+![Bild](img/aktuell_challenges.png)
+
+Challenge erstellen: Aufgabenpakete:
+
+![Bild](img/aufgabenpaket%20auswählen.png)
+
+Man kann beim Challenge erstellen ein Aufgabenpaket auswählen, das man davor schon erstellt hat. 
+
+Challenge erstellen: Teams
+
+![Bild](img/challenge%20teams.png)
+
+Es können die Schüler in das Feld gezogen werden. Wenn man auf "Team erstellen" drückt, wird ein Team mit den Schülern erstellt. Man kann so viele Teams erstellen, so viele man möcht, bis dass man auf Challenge erstellen drückt.
+
+#### Schüler:
+
+![Bild](img/aktuell_schüler.png)
+
+ 
+ Suchleiste:
+
+- Die Suchleiste ist bei Aufgabenpakete, Challenges und Schüler integriert
+- Wenn man etwas sucht werden die Ergebnisse live gefiltern
+
+![Bild](img/suchen.png)
+
+Bei diesem Bild erkennt man, dass nach dem Nachnamen "Müller" gesucht wird. Man kann ebenfalls nach Vorname und Klasse suchen. 
+
+
+ Filterfunktion:
+
+- Es können die Schüler nach Klassen sortiert werden
+  - 2BHELS
+  - 3BHELS
+  - 4BHELS
+
+![Bild](img/klassenfiltern.png)
+
+
+#### Nächste Schritte
+- Jahrgang - Filter einbauen (2020/21, 2024/25...)
+- Server.js umstrukturieren! --> schon zu viel Code
+
+## Mittwoch, 19.11.2025
+
+
+
+
+### Datenbank-Struktur: Media Challenge System
+
+### Überblick
+
+Die Datenbank `k312467_media-challenge` ist eine MySQL-Datenbank für ein Multimedia-Challenge-Management-System, das Schüler, Teams, Aufgabenpakete und Challenges verwaltet.
+
+### Tabellen-Struktur
+
+#### 1. **categories** - Kategorien
+
+```sql
+
+id (INT, PK)
+title (VARCHAR 255)        -- Kategoriename (z.B. "Fotografie")
+description (TEXT)         -- Beschreibung der Kategorie
+icon (VARCHAR 500)         -- Icon-Pfad oder URL
+```
+
+**Beispieldaten:**
+
+- Fotografie, Video, Audio, Produktdesign, Metallbearbeitung, Animation
+    
+
+#### 2. **aufgabenpakete** - Aufgabenpakete
+
+
+```sql
+
+id (INT, PK)
+title (VARCHAR 255)        -- Titel des Aufgabenpakets
+description (TEXT)         -- Beschreibung der Aufgabe
+icon (VARCHAR 500)         -- Icon/Bild für das Paket
+kategorie (VARCHAR 255)    -- Zugehörige Kategorie
+start_date, end_date (DATE)-- Optional: Zeitraum
+```
+**Beispieldaten:**
+
+- Video Challenge, Natur-Fotografie, Time-Lapse Projekt, etc.
+    
+
+#### 3. **klassen** - Schulklassen
+
+```sql
+
+id (INT, PK)
+name (VARCHAR 50)          -- Klassenname (z.B. "2BHELS")
+created_at, updated_at (TIMESTAMP)
+```
+
+**Beispieldaten:**
+
+- 2BHELS, 3BHELS, 4BHELS
+    
+
+#### 4. **schuljahre** - Schuljahre
+
+
+```sql
+
+id (INT, PK)
+name (VARCHAR 20)          -- Schuljahr (z.B. "2024/25")
+startjahr, endjahr (INT)   -- Start- und Endjahr
+aktiv (TINYINT)            -- Aktuelles Schuljahr
+```
+**Beispieldaten:**
+
+- 2023/24, 2024/25 (aktiv), 2025/26
+    
+
+#### 5. **schueler** - Schüler
+
+
+```sql
+
+id (INT, PK)
+vorname, nachname (VARCHAR 100)
+klasse_id (INT, FK)        -- Verweis auf Klassen
+schuljahr_id (INT, FK)     -- Verweis auf Schuljahre
+created_at, updated_at (TIMESTAMP)`
+```
+
+**Beispieldaten:**
+
+- 112 Schüler mit Namen wie "Mirjam Brunner", "Max Mustermann"
+    
+
+#### 6. **teams** - Schülergruppen
+
+
+```sql
+
+id (INT, PK)
+name (VARCHAR 255)         -- Teamname
+schuljahr_id (INT, FK)     -- Verweis auf Schuljahre
+created_at, updated_at (TIMESTAMP)`
+```
+
+**Beispieldaten:**
+
+- Team1, Team2, Team 5-8
+    
+
+#### 7. **team_mitglieder** - Team-Zuordnungen
+
+```sql
+
+id (INT, PK)
+team_id (INT, FK)          -- Verweis auf Teams
+schueler_id (INT, FK)      -- Verweis auf Schüler
+rolle (ENUM)               -- 'mitglied' oder 'teamleiter'
+```
+
+**Beispieldaten:**
+
+- Team-Zuordnungen mit Rollenverteilung
+    
+
+#### 8. **challenges** - Challenge-Instanzen
+
+```sql
+
+id (INT, PK)
+aufgabenpaket_id (INT)     -- Verweis auf Aufgabenpaket
+title, beschreibung (TEXT) -- Challenge-Details
+kategorie (VARCHAR 255)    -- Kategorie
+icon (VARCHAR 500)         -- Icon/Bild
+zusatzinfos (TEXT)         -- Zusätzliche Informationen
+abgabedatum (DATE)         -- Abgabefrist
+team_id (INT, FK)          -- Zugewiesenes Team
+schueler_id (INT)          -- Einzelschüler (optional)
+erreichte_punkte (INT)     -- Bewertung
+feedback (TEXT)            -- Lehrer-Feedback
+abgabe_url (TEXT)          -- Abgabe-Link
+schuljahr_id (INT, FK)     -- Schuljahr
+created_at, updated_at (TIMESTAMP)
+```
+
+**Beispieldaten:**
+
+- 7 aktive Challenges mit verschiedenen Aufgabenpaketen
+    
+
+#### 9. **challenge_bilder** - Challenge-Medien
+
+```sql
+
+id (INT, PK)
+challenge_id (INT, FK)     -- Verweis auf Challenge
+bild_url (VARCHAR 500)     -- Pfad/URL zum Bild
+beschreibung (TEXT)        -- Bildbeschreibung
+reihenfolge (INT)          -- Sortierreihenfolge
+```
+
+### Beziehungen (Foreign Keys)
+
+text
+
+categories
+    ↑
+aufgabenpakete (kategorie)
+    ↑
+challenges (aufgabenpaket_id) ← challenge_bilder
+    ↑
+teams ← team_mitglieder → schueler → klassen
+    ↑
+schuljahre
+
+### Schlüssel-Features
+
+1. **Mehrsprachige Struktur**: Unterstützt verschiedene Medienkategorien
+    
+2. **Team-Management**: Flexible Team-Zuordnungen mit Rollen
+    
+3. **Schuljahres-basiert**: Trennung nach Schuljahren
+    
+4. **Bewertungssystem**: Punktevergabe und Feedback
+    
+5. **Medien-Upload**: Unterstützung für Bilder und URLs
+    
+6. **Flexible Zuordnungen**: Einzel- oder Team-Challenges
+    
+
+### Verwendungszweck
+
+Die Datenbank verwaltet ein komplettes Challenge-System für Schulen, bei dem:
+
+- Lehrer Aufgabenpakete in verschiedenen Kategorien erstellen
+    
+- Schüler in Teams Challenges bearbeiten
+    
+- Abgaben und Bewertungen verwaltet werden
+    
+- Alle Daten schuljahresweise getrennt werden
+    
+
+Die Struktur ist skalierbar und unterstützt verschiedene Multimedia-Bereiche wie Fotografie, Video, Audio, Design und handwerkliche Arbeiten.
+
+## Donnerstag, 20.11.2025
+
+### Umstellung von Server.js
+
+- Bis jetzt war das Problem, dass der ganze Code zu allen Seiten in einem Javascript sich befunden hat. Das Problem wurde gelöst, indem dass neue Javascripts erstellt wurden.
+- Neue .js:
+  - aufgabenpakete.js
+  - challenges.js
+  - categories.js
+  - index.js
+  - schueler.js
+  - api
+    index.js
+
+#### server.js:
+
+Im Server.js werden alle anderen .js miteingebunden. Es wird mit app.use auf die anderen Seiten hingeleitet. Damit wird die Strukturierung um einiges verbessert.
+
+
+#### index.js:
+
+Bei index.js wird sofort auf die Startseite (Kategorien) hingeleitet. Weiters werden die Informationen von .env abgerufen. --> Datenbankinformationen
+
+#### api/index.js:
+Das index.js in api wird dafür verwendet, damit auf den einzelnen Seiten gesucht werden kann. Für weitere Zwecke wird das nicht genutzt.
+
+#### middleware/uploads.js
+In uploads.js befinden sich alle Middleware Codeausschnitte. Dies dient wiederum für eine bessere Strukturierung.
+
+
+### Teams verwalten
+
+- Das Problem war, dass beim Bearbeiten die davor bereits ausgewählten Teams nicht mehr angezeigt wurden. Dieses Problem wurde behoben.
+
+### Filtern nach Schuljahr
+
+Um die Strukturierung nicht nur im Moment zu ermöglichen und diese auch in Zukunft beizubehalten, wurde das Schuljahr in die Datenbank hinzugefügt. (neue Tabelle)
+- Damit kann man nach Challenges und Schüler von verschiedenen Jahrgängen suchen
+- Es werden die folgenden Tabellen mit der Schuljahr - ID von der Tabelle Schüler verbunden
+
+
+
+
+### Korrektur Sqlite Datenbank --> Schuljahr
+
+- Diese Datenbank muss auch immer wieder neben der mySQL Datenbank auf den aktuellen Stand gebracht werden. 
+- https://sqliteviz.com/app/#/workspace  --> Datenbankvisualisierung
+
+#### Schuljahr Tabelle erstellen
+
+```js
+// 1. Prüfe ob Schuljahre-Tabelle existiert
+    const schuljahreExists = await db.schema.hasTable('schuljahre');
+    if (!schuljahreExists) {
+      console.log(' Schuljahre-Tabelle existiert nicht! Bitte zuerst schemaDb.js ausführen.');
+      return;
+    }
+    console.log(' Schuljahre-Tabelle vorhanden');
+
+    // 2. Standard-Schuljahr erstellen falls keines existiert
+    const schuljahreCount = await db('schuljahre').count('* as count').first();
+    if (schuljahreCount.count === 0) {
+      console.log(' Erstelle Standard-Schuljahre...');
+      await db('schuljahre').insert([
+        { name: '2023/24', startjahr: 2023, endjahr: 2024, aktiv: 0 },
+        { name: '2024/25', startjahr: 2024, endjahr: 2025, aktiv: 1 },
+        { name: '2025/26', startjahr: 2025, endjahr: 2026, aktiv: 0 }
+      ]);
+      console.log(' Standard-Schuljahre erstellt');
+    }
+```
+#### Challenges-Tabelle
+
+Schuljahr in Tabelle "Challenges" hinzufügen: 
+
+```js
+  if (!challengesHasSchuljahr) {
+      // Spalte hinzufügen
+      await db.raw('ALTER TABLE challenges ADD COLUMN schuljahr_id INTEGER');
+      console.log(' schuljahr_id zu challenges hinzugefügt');
+      
+      // Bestehende Challenges mit aktivem Schuljahr updaten
+      const updateResult = await db('challenges')
+        .whereNull('schuljahr_id')
+        .update({ schuljahr_id: aktivesSchuljahr.id });
+      
+      console.log(` ${updateResult} Challenges mit Schuljahr ${aktivesSchuljahr.name} aktualisiert`);
+    } else {
+      console.log(' challenges hat bereits schuljahr_id Spalte');
+      
+      // Prüfe ob Challenges ohne Schuljahr existieren
+      const challengesWithoutSchuljahr = await db('challenges')
+        .whereNull('schuljahr_id')
+        .count('* as count')
+        .first();
+      
+      if (challengesWithoutSchuljahr.count > 0) {
+        const updateResult = await db('challenges')
+          .whereNull('schuljahr_id')
+          .update({ schuljahr_id: aktivesSchuljahr.id });
+        
+        console.log(` ${updateResult} Challenges mit Schuljahr aktualisiert`);
+      }
+    }
+```
+
+#### Schüler-Tabelle
+
+Schuljahr in Tabelle "Schüler" hinzufügen: 
+
+```js
+if (!schuelerHasSchuljahr) {
+      // Spalte hinzufügen
+      await db.raw('ALTER TABLE schueler ADD COLUMN schuljahr_id INTEGER');
+      console.log(' schuljahr_id zu schueler hinzugefügt');
+      
+      // Bestehende Schüler mit aktivem Schuljahr updaten
+      const updateResult = await db('schueler')
+        .whereNull('schuljahr_id')
+        .update({ schuljahr_id: aktivesSchuljahr.id });
+      
+      console.log(` ${updateResult} Schüler mit Schuljahr ${aktivesSchuljahr.name} aktualisiert`);
+    } else {
+      console.log('⏭ schueler hat bereits schuljahr_id Spalte');
+      
+      // Prüfe ob Schüler ohne Schuljahr existieren
+      const schuelerWithoutSchuljahr = await db('schueler')
+        .whereNull('schuljahr_id')
+        .count('* as count')
+        .first();
+      
+      if (schuelerWithoutSchuljahr.count > 0) {
+        const updateResult = await db('schueler')
+          .whereNull('schuljahr_id')
+          .update({ schuljahr_id: aktivesSchuljahr.id });
+        
+        console.log(` ${updateResult} Schüler mit Schuljahr aktualisiert`);
+      }
+    }
+
+```
+
+#### Schüler-Tabelle
+
+Schuljahr in Tabelle "Teams" hinzufügen:
+
+```js
+console.log(' Migriere teams Tabelle...');
+    const teamsHasSchuljahr = await db.schema.hasColumn('teams', 'schuljahr_id');
+    
+    if (!teamsHasSchuljahr) {
+      // Spalte hinzufügen
+      await db.raw('ALTER TABLE teams ADD COLUMN schuljahr_id INTEGER');
+      console.log(' schuljahr_id zu teams hinzugefügt');
+      
+      // Bestehende Teams mit aktivem Schuljahr updaten
+      const updateResult = await db('teams')
+        .whereNull('schuljahr_id')
+        .update({ schuljahr_id: aktivesSchuljahr.id });
+      
+      console.log(` ${updateResult} Teams mit Schuljahr ${aktivesSchuljahr.name} aktualisiert`);
+    } else {
+      console.log('⏭ teams hat bereits schuljahr_id Spalte');
+    }
+
+```
+
+#### Problem
+
+Wir müssen versuchen, sodass sich das Schuljahr immer wieder aktualisiert, damit es sich jedes Jahr automatisch anpasst. Bis jetzt wurde es mit mittels Datenbank per Hand zugeteilt. Bis jetzt sind die Jahre 2022/23, 2023/24, 2025/26 vorhanden.
+
+
+## Donnerstag, 27.11.2025
+
+### Error-Verhalten
+
+Um einen Fehler direkt zu erkennen, wurden zwei .ejs Seiten mit den Namen 404.ejs und 500.ejs erstellt.
+
+#### 404.ejs
+
+Diese Seite wird aufgerufen, wenn etwas nicht gefunden wird. Beispiele dafür:
+
+```txt
+Beispiele:
+
+      http://localhost:3000/gibtsnicht
+
+      http://localhost:3000/challenges/999999 (nicht existierende ID)
+
+      http://localhost:3000/alte-seite-die-es-nicht-mehr-gibt
+
+      http://localhost:3000/favicon.ico (wenn kein Handler da ist)
+```
+
+
+#### 500.ejs
+
+Diese Seite wird aufgerufen, wenn ein Server-Fehler auftritt. Beispiele dafür: 
+
+```txt
+Beispiele:
+
+      Datenbank-Fehler (Tabelle existiert nicht)
+
+      Syntax-Fehler im Code
+
+      Fehlende Variablen
+
+      Route-Code wirft einen Error
+```
+
+Es hilft, Fehler gut zu umgehen und zu erfahren, welche Fehler gemacht wurden. 
+
+
+### Weitere Überlegungen für die Schüler-Ansicht
+
+#### Aktuelle Strukturierung
+
+```text
+  media-challenge-app/
+      ├──  Datenbank/
+      │   ├──  schemaDb.js
+      │   └──  seedDb.js
+      ├──  middleware/
+      │   └──  uploads.js
+      ├──  node_modules/
+      ├──  public/...
+      ├──  routes/
+      │   ├──  api/
+      │   │   └──  index.js
+      │   ├──  aufgabenpakete.js
+      │   ├──  categories.js
+      │   ├──  challenges.js
+      │   ├──  index.js
+      │   └──  schueler.js
+      ├──  views/
+      │   ├──  error/
+      │   ├──  aufgabenpakete.ejs
+      │   ├──  aufgabenpaketeDetail.ejs
+      │   ├──  challenges.ejs
+      │   ├──  challengesDetail.ejs
+      │   ├──  formAufgabenpakete.ejs
+      │   ├──  formChallenges.ejs
+      │   ├──  formKategorien.ejs
+      │   ├──  formSchueler.ejs
+      │   ├──  index.ejs
+      │   ├──  layout.ejs
+      │   └──  schueler.ejs
+      ├──  .env
+      ├──  .env.example
+      ├──  .gitignore
+      ├──  data.sqlite
+      ├──  db.js
+      ├──  package-lock.json
+      ├──  package.json
+      ├──  README.md
+      ├──  reset-db.js
+      └──  server.js
+
+  ```
+
+  #### Mögliche Erweiterung: 
+
+  - Views:
+    - Es werden drei Ordner erstellt:
+      - admin
+      - schueler
+      - shared
+  
+  Damit werden die Schüler von der Admin Funktion getrennt. Grundsätzlich sind es die gleichen Funktionen, nur dass der Admin mehr Rechte hat als der:die Schüler:in. Das heißt, dass man die Codes 1:1 umkopieren kann, und man nur noch die Codes anpassen muss. 
+
+
+  ### Ziel für heute: 
+
+  Neue Datenbanktabelle hinzufügen und eine bereits Vorhandene anpassen.
+
+**Neue Datenbanktabelle:**
+
+  - user_role
+    - id | rolle
+
+  - Beispiel
+    - 2 | Lehrer
+    - 3 | Admin
+
+
+ *Tabelle generieren*
+
+```sql
+CREATE TABLE user_roles (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  rolle VARCHAR(50) NOT NULL UNIQUE
+);
+
+INSERT INTO user_roles (id, rolle) VALUES
+(1, 'Schüler'),
+(2, 'Lehrer'), 
+(3, 'Admin');
+```
+  **Bereits vorhandene Tabelle:**
+  
+  Schüler - > User
+
+  - user
+    - user_role_id | Vorname Nachname
+
+
+**Was jetzt gemacht werden soll:**
+- Es sollen die Rechte verteilt werden
+- Wir nehmen immer gleiches Programm her. 
+  - ABER: Es werden viele IF's verwendet:
+    - Damit können Gewisse Ausschnitte dem Schüler, gewisse Ausschnitte dem Lehrer und Gewisse Ausschnitte als Ansicht für die jeweiligen Rollen dargestellt werden. das macht man mit den jeweiligen user_role_id's!
+    - if user_role_id == 1 ...Schüler --> kann keine Challenges erstellen, etc.
