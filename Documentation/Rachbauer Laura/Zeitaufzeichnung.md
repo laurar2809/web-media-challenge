@@ -32,7 +32,10 @@
 |31.10.2025|2|Ja|Protokolierungsarbeiten am Projekttagebuch und updaten der Exeltabellen und Zeitaufzeichnung.|
 |03.11.2025|2|Ja|Design Ideen auf der Website ausprobieren und gewisse in die Website implementieren.|
 |05.11.2025|4|Ja|Farben auf der Website ändern und Buttons anpassen. Fotos anzeigen und in der Datenbank speichern lassen.|
-|06.11.2025|10|Nein|
+|06.11.2025|10|Nein|Verbesserung der Challenge-Seite und der Aufgabenpakete. Anzeige Mithilfe von Cards aus Bootstrap.|
+|27.11.2025|10|Nein|Verbesserung vom Teams-Management. Modal Fenster und benutzerfreundlicheres Design (platzsparender).|
+|28.11.2025|5|Ja|Funktionalität vom Teams-Management. Buttons, Anzeige der Teams, graues Overlay weg.|
+|30.11.2025|4|Ja|Design Änderungen auf verschiedenen Seite. Loginfenster designen, Buttons mit Icons versehen. Aktualisierung des Projektmanagements (Zeitaufzeichnung,...)|
 
 
-#### (Freizeit: 59 h; ges. 120 h)
+#### (Freizeit: 68 h; ges. 149 h) - Stand: 30.11.2025
