@@ -49,8 +49,9 @@
 |13.11.2025|10|nein|Suchfunktionen verbessert, Benutzerfreundlichkeit verbessert |
 |16.11.2025|2|ja |Server.js umgestellt --> auf mehrere .js aufgeteilt.|
 |17.11.2025|3|ja|Datenbank erweitert um Schuljahr. --> bietet bessere Struktur über Jahre hinweg|
-|12.11.2025|4 --> bis jetzt 113h|Teams Funktionen weiter bearbeitet und Datenbanken aktualisiert --> sqlite, Challenges Funktion weiter ausgebaut mit Details|
-|29.11.2025|4 --> bis jetzt 117h|Einfacher Login ermöglicht. Erste Schritte zur Darstellung der einzelnen Seiten. Schüler - Lehrer - Admin|
+|12.11.2025|4 |ja|Teams Funktionen weiter bearbeitet und Datenbanken aktualisiert --> sqlite, Challenges Funktion weiter ausgebaut mit Details|
+|27.11.2025|10 |nein|Weitergearbeitet an Website. Erste Schritte für Login recherhiert.|
+|29.11.2025|4 --> bis jetzt 117h|ja|Einfacher Login ermöglicht. Erste Schritte zur Darstellung der einzelnen Seiten. Schüler - Lehrer - Admin|
 
 
 
@@ -58,4 +59,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|117|70|-|
+|117|80|-|
