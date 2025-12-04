@@ -1713,3 +1713,36 @@ INSERT INTO user_roles (id, rolle) VALUES
   - ABER: Es werden viele IF's verwendet:
     - Damit können Gewisse Ausschnitte dem Schüler, gewisse Ausschnitte dem Lehrer und Gewisse Ausschnitte als Ansicht für die jeweiligen Rollen dargestellt werden. das macht man mit den jeweiligen user_role_id's!
     - if user_role_id == 1 ...Schüler --> kann keine Challenges erstellen, etc.
+
+
+## Samstag, 29.11.2025
+
+### Ziel: Login
+
+- Es wurden die ersten Schritte für den Login erledigt
+- Mit 1, 2, 3 anmelden ODER mit Benutzernamen (Vor- und Nachname)
+- Es ist jetzt folgendes möglich:
+  - Man kann sich mit 1 (Schüler), 2 (Lehrer) und 3 (Admin) einloggen.
+    - Vorteil: man kann schnell und einfach die Ansichten testen, ohne dass man die ganze Zeit richtige Nutzerdaten eingeben muss (Bunutzername & Passwort)
+  - Man kann sich jetzt auch mit ganzem Namen einloggen
+    - Wir haben das jetzt auch schon ermöglicht, damit man der Website schon eine realistische Verwendung zuordnen kann (Zukunft: LDAP von Schule für Schüler - Lehrer - Admin)
+    - Wenn man einen Namen eingibt, der bereits schon in der Datenbank gespeichert ist in einer bestimmten Rolle, wird man sofort als die Rolle angemeldet (z.B. Mirjam Brunner --> login --> Schüler, Daniela Nobis --> Login --> Admin, Christian Hanl --> login --> Lehrer)
+
+
+![Bild](img/login.png)
+
+
+### Verschiedene Ansichten durch unterschiedliche Rollen
+
+Mit dem Login ist es möglich, die Rollen auseinander zu halten und dementsprechend die Ansichten anzupassen. Der Admin sieht ja zum Beispiel um einiges mehr als die Schüler, und hat auch mehr Rechte auf der Website.
+
+#### Schüler:
+- Sieht nur Challenges, wobei er:sie zugeordnet wurde, und Kategorien
+
+![Bild](img/schueler_challenges.png)
+
+#### Lehrer:
+- Sieht bis jetzt alles, was der Admin sieht (muss noch geändert werden)
+
+#### Admin:
+- Sieht alles!! Kann alle Änderungen vornehmen und hat alle Rechte.
