@@ -2136,3 +2136,35 @@ Medien, genau so wie die allgemeinen Abgaben, werden auch direkt in der Datenban
 
 
 Die Lehrer und Admin sehen direkt nach der Abgabe der Schüler, die Abgaben in derer eigenen Ansicht. Sie können diese auch ansehen und bewerten. Das ist eine Funktion, die bei der normalen Medienwoche nicht notwendig ist, jedoch könnte man es in Zukunft brauchen (Punktevergabe von 0 bis 100, etc.).
+
+
+
+## Mittwoch, 10.12.2025
+
+
+### Löschen ermöglicht
+
+#### Bei Schüler ergmöglicht
+```js
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // schaut in req.body nach dem versteckten Feld _method
+    const method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
+```
+
+#### Bei Challenges ermöglicht
+
+
+Lösung: Es wurde immer aufs Post hingeleitet und nicht aufs Delete. Das Module musste anders festgelegt werden, sodass es direkt aufs Delete zugreifen kann.
+
+### Ansicht verbessert (Login, etc.)
+
+
+### Teams bearbeiten ermöglicht
+
+
+### Bewertung wird bei Schüler angezeigt (Lehrer kann Bewertung abschicken)

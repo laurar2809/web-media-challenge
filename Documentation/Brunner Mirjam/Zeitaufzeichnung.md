@@ -51,14 +51,15 @@
 |17.11.2025|3|ja|Datenbank erweitert um Schuljahr. --> bietet bessere Struktur über Jahre hinweg|
 |12.11.2025|4 |ja|Teams Funktionen weiter bearbeitet und Datenbanken aktualisiert --> sqlite, Challenges Funktion weiter ausgebaut mit Details|
 |27.11.2025|10 |nein|Weitergearbeitet an Website. Erste Schritte für Login recherhiert.|
-|29.11.2025|4|ja|Einfacher Login ermöglicht. Erste Schritte zur Darstellung der einzelnen Seiten. Schüler - Lehrer - Admin|
+|29.11.2025|6|ja|Einfacher Login ermöglicht. Erste Schritte zur Darstellung der einzelnen Seiten. Schüler - Lehrer - Admin|
 |04.12.2025|10|nein|Erste Schritte, um den Upload für Medien von Schüler zu ermöglichen.|
 |05.12.2025|6|ja|Löschen-Problem lösen --> hat nicht funktioniert!|
-|06.12.2025|5 --> bis jetzt 117h|ja|Upload und Bewertung ermöglicht (Lehrer/Admin)|
+|06.12.2025|5|ja|Upload und Bewertung ermöglicht (Lehrer/Admin)|
+|10.12.2025|4 --> bis jetzt 133h|ja|Alle fehlerhaften Details repariert (löschen, Teams bearbeiten, Bewertung abschicken, Ansicht angepasst (Login, etc.), Teams werden angezeigt --> ÜBersicht für Admin und Lehrer)|
 
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|127|80|-|
+|133|80|-|
