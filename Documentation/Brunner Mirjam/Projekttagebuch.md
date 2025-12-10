@@ -1746,3 +1746,393 @@ Mit dem Login ist es möglich, die Rollen auseinander zu halten und dementsprech
 
 #### Admin:
 - Sieht alles!! Kann alle Änderungen vornehmen und hat alle Rechte.
+
+
+
+
+## Donnerstag, 04.12.2025
+
+### Aktuelle Struktur: 
+
+
+```text
+  media-challenge-app/
+      ├──  Datenbank/
+      │   ├──  schemaDb.js
+      │   └──  seedDb.js
+      ├──  middleware/
+      │   └──  uploads.js
+      │   └──  auth.js
+      ├──  node_modules/
+      ├──  public/...
+      ├──  routes/
+      │   ├──  api/
+      │   │   └──  index.js
+      │   ├──  aufgabenpakete.js
+      │   ├──  auth.js
+      │   ├──  categories.js
+      │   ├──  challenges.js
+      │   ├──  index.js
+      │   └──  schueler.js
+      ├──  views/
+      │   ├──  404.ejs/
+      │   ├──  550.ejs/
+      │   ├──  challenges/index.ejs
+      │   ├──  aufgabenpakete.ejs
+      │   ├──  aufgabenpaketeDetail.ejs
+      │   ├──  challenges.ejs
+      │   ├──  challengesDetail.ejs
+      │   ├──  formAufgabenpakete.ejs
+      │   ├──  formChallenges.ejs
+      │   ├──  formKategorien.ejs
+      │   ├──  formSchueler.ejs
+      │   ├──  index.ejs
+      │   ├──  layout.ejs
+      │   ├──  login.ejs
+      │   └──  schueler.ejs
+      ├──  .env
+      ├──  .env.example
+      ├──  .gitignore
+      ├──  data.sqlite
+      ├──  db.js
+      ├──  package-lock.json
+      ├──  package.json
+      ├──  README.md
+      ├──  reset-db.js
+      └──  server.js
+  ```
+
+  ### Challenges bearbeiten und speichern repariert
+
+  - Es wurde ein Fehler gefunden: Nach dem Bearbeiten einer Challenge in verwendung mit den Teams, war es nicht möglich, diese artsgerecht zu speichern, obwohl es beim normalen Challenge erstellen schon funktioniert. Der Fehler war, dass das PUT nicht korrekt codiert war. Es wurden die Teams nicht richtig gespeichert.
+
+
+  ### Upload von Medien der Schüler ermöglichen
+
+  ---
+
+  ### **ERSTE VORSTELLUNGEN VON KI:**
+
+  #### **📸 GALERIE-ANSICHT für hochgeladene Bilder:**
+
+#### **1. LIGHTBOX-GALERIE (wie Instagram/Facebook)**
+
+
+
+```text
+┌─────────────────────────────────────────┐
+│  ⬅️ [X] Bild 3/5  ➡️                    │
+│                                         │
+│            ┌─────────────┐              │
+│            │             │              │
+│            │   BILD      │              │
+│            │   GROSS     │              │
+│            │             │              │
+│            └─────────────┘              │
+│                                         │
+│  🔽 Download  ♥ Like  💬 Kommentar      │
+│  Titel: "Natur am See"                  │
+└─────────────────────────────────────────┘
+```
+
+#### **2. GRID-ANSICHT (Übersicht)**
+
+```text
+
+┌─────┬─────┬─────┬─────┐
+│ ███ │ ███ │ ███ │ +   │ ← Thumbnails
+│ ███ │ ███ │ ███ │(neu)│
+│ ███ │ ███ │ ███ │     │
+└─────┴─────┴─────┴─────┘
+Klick auf Thumbnail → Lightbox öffnet
+
+```
+
+### **DOWNLOAD-FUNKTIONALITÄT:**
+
+#### **1. EINZEL-DOWNLOAD pro Bild:**
+
+
+```html
+<!-- Unter jedem Bild in der Galerie -->
+<button class="btn btn-sm btn-outline-primary download-btn" 
+        data-url="/download/abgabe_12345.jpg"
+        data-filename="natur_see_max.jpg">
+  <i class="bi bi-download"></i> Original herunterladen
+</button>
+<!-- Rechtsklick auf Bild → "Bild speichern unter..." -->
+<!-- Oder Direkt-Link: -->
+<a href="/uploads/abgaben/.../foto.jpg" download="mein_foto.jpg">
+
+```
+
+
+
+#### **2. BATCH-DOWNLOAD (Alle Bilder als ZIP):**
+
+```html
+<button class="btn btn-primary" id="downloadAllBtn">
+  <i class="bi bi-file-zip"></i> Alle Bilder als ZIP (45 MB)
+</button>
+
+```
+
+
+<!-- Erstellt automatisch: "Abgabe_Challenge23_Team45.zip" -->
+
+### **SPEICHERN in lokalen Ordner (vom Browser):**
+
+#### **Browser-Funktionen:**
+
+1. **"Speichern unter..."** → Wählt selbst Ordner (100% Qualität)
+    
+2. **Drag & Drop** aus Browser in Explorer/Finder
+    
+3. **Download-Manager** des Browsers
+    
+
+#### **Dein Code ermöglicht:**
+
+
+```javascript
+// 1. Original-Auflösung BEIBEHALTEN:
+// Server sendet Datei 1:1 wie hochgeladen
+res.download(filePath, originalFileName);
+
+// 2. Metadaten erhalten:
+// EXIF-Daten (Kamera, Datum, GPS) bleiben erhalten
+// Keine Komprimierung
+
+// 3. Dateinamen sinnvoll:
+// Statt "abgabe_12345_xyz.jpg" → "Naturfoto_Max_Mustermann.jpg"
+const downloadName = `${abgabe.titel}_${user.vorname}_${user.nachname}.jpg`;
+
+```
+
+### **QUALITÄTS-ERHALT:**
+
+#### **Original bleibt ORIGINAL:**
+
+
+
+```text
+Hochgeladen:            Heruntergeladen:
+1920x1080 Pixel  →      1920x1080 Pixel
+5.2 MB           →      5.2 MB 
+JPEG Quality 95  →      JPEG Quality 95
+EXIF Daten       →      EXIF Daten erhalten
+```
+### **Keine automatische Komprimierung!**
+
+```javascript
+
+// ❌ NICHT tun (verlustbehaftet):
+sharp(filePath)
+  .resize(800)          ← Auflösung reduziert
+  .jpeg({ quality: 80 }) ← Qualität reduziert
+  .toFile(...)
+
+// ✅ SO tun (originalgetreu):
+fs.createReadStream(filePath).pipe(res); // 1:1 Stream
+
+```
+### **BENUTZERERLEBNIS:**
+
+#### **Für Schüler beim Hochladen:**
+
+
+
+[Datei auswählen] "natur_foto_hochaufloesend.jpg" (12 MB)
+✅ Upload erfolgreich!
+
+```text
+┌─────────────────────┐
+│  VORSCHAU:          │
+│                     │
+│  ████████████████   │ ← Sofortige Thumbnail-Vorschau
+│  ████████████████   │
+│                     │
+│  📏 1920x1080       │ ← Auflösung anzeigen
+│  💾 12.4 MB         │ ← Dateigröße
+│  📅 Original: Heute │ ← EXIF-Datum
+└─────────────────────┘
+```
+🔄 Mehr Bilder hinzufügen
+💾 Alle Originale behalten
+
+#### **Nach der Abgabe:**
+
+
+
+ABGABE ÜBERSICHT:
+```text
+┌──────────────────────────────────┐
+│ 📸 Meine Bilder (5)              │
+│                                  │
+│ [Thumb1][Thumb2][Thumb3]...      │ ← Klickbar
+│                                  │
+│ 📥 AKTIONEN:                     │
+│ • Einzelne Bilder herunterladen  │
+│ • Alle als ZIP (54 MB)           │
+│ • In Cloud speichern (optional)  │
+│ • Drucken (hochauflösend)        │
+└──────────────────────────────────┘
+```
+### **LOKALE SPEICHERUNG auf Nutzer-PC:**
+
+#### **Browser-APIs für "Save to folder":**
+
+
+```javascript
+// Neuere Browser (Chrome/Edge):
+async function saveToFolder(fileUrl, fileName) {
+  const response = await fetch(fileUrl);
+  const blob = await response.blob();
+  
+  // File System Access API (modern)
+  const handle = await window.showSaveFilePicker({
+    suggestedName: fileName,
+    types: [{
+      description: 'JPEG Image',
+      accept: {'image/jpeg': ['.jpg']}
+    }]
+  });
+  
+  const writable = await handle.createWritable();
+  await writable.write(blob);
+  await writable.close();
+}
+
+// Fallback für alle Browser:
+function downloadFile(fileUrl, fileName) {
+  const a = document.createElement('a');
+  a.href = fileUrl;
+  a.download = fileName; // Browser fragt nach Speicherort
+  a.click();
+}
+`
+```
+
+### ** ZUSAMMENFASSUNG der Features:**
+
+1. **Galerie-View** mit Lightbox (wie Social Media)
+    
+2. **Thumbnail-Übersicht** aller Uploads
+    
+3. **Einzel-Download** mit Rechtsklick/"Speichern unter"
+    
+4. **Batch-Download** als ZIP
+    
+5. **Original-Qualität** bleibt 100% erhalten
+    
+6. **Metadaten** (EXIF) bleiben erhalten
+    
+7. **Datei-Info** anzeigen (Größe, Auflösung, Datum)
+    
+8. **Drag & Drop** aus Browser in Ordner möglich
+    
+9. **Cloud-Speicherung** optional (Google Drive, etc.)
+    
+10. **Druck-Funktion** für hochauflösende Ausdrucke
+    
+
+*ENDE VON KI-INFOS*
+
+----
+
+### Upload von Fotos:
+
+#### Code-Einbindung:
+- Es soll grundlegend so wie bei den Aufgabenpaketen gestaltet werden. Die Bilder werden im Uploads Ordner gespeichert, wobei diese in Ordner-Struktur eingeteilt sind.  
+
+#### Funktionen bei der Webiste
+
+- Die Schüler können Bilder von Dokumenten oder Galerie auswählen. Diese werden dann hinzugefügt und bei der Übersicht angezeigt. Diese können dann abgegeben oder als Entwurf gespeichert werden. 
+
+
+#### **Aspekte, die noch ausgearbeitet werden müssen:**
+
+**Speichervorgang von Medien**
+
+- Wenn Bilder ausgwählt werden, werden sie direkt in Uploads gespeichert. Eventuell kann ma das so machen, dass die Bilder erst gespeichert werden, wenn man diese Abgibt oder auch als Entwurf speichert.
+
+**Auswahl von Medien aus Explorer:**
+- Wenn man die Bilder beim Upload auswählt und auf weiter drückt, werden diese noch nicht im Anzeigefeld angezeigt und das Auswahlfenster popt wieder auf, wobei man wieder Bilder auswählen muss. Wenn man das nochmal macht, werden sie auch fix ausgewählt. 
+  - Das Problem ist, obwohl man z.B. nur 3 Bilder ausgewählt hat, werden trotzdem 6 Bilder gespeichert, da man davor auch schon die 3 Bilder ausgewählt hat, wobei diese nicht im Anzeigefeld angezeigt wurden. Im Hintergund werden sie trotzdem gespeichert --> Das muss behoben werden!!
+
+**Strukturierung der Medien (Ordner, etc.)**
+- Bis jetzt werden alle Bilder unter einem Ordner gespeichert. Dies ist sehr unübersichtlich. Es soll eine gute Struktur noch gewartet werden in Zukunft
+- Ordner und Datein richtig Strukturieren und eventuell Ordnerstruktur für diese erstellen, damit man eine bessere Übersicht hat.
+
+**Bewertung der Abgaben und Sichtbarkeit für Lehrer und Admin**
+- Die Abgaben sind noch nicht sichtbar für die Lehrer. Sie werden zwar abgegeben, jedoch können sie noch nicht bewertet oder angesehen werden. 
+  - Sollen Lehrer UND Admin darauf Zugriff haben? Oder nur Admin? --> Beide wahrscheinlich
+
+
+**Grundverständnis für Code & Datenbank weiter aufbauen**
+- Genügend Zeit für besseres Verständnis nehmen
+- Besseres Wissen für Datenbank aneignen und den Code und die Codezusammenhänge besser verstehen. 
+
+
+
+## Freitag, 05.12.2025
+
+*Tag der offenen Tür*
+
+### Aufgabe des Tages:
+--> Verstehen, warum das Löschen von einem Schüler, einer Challenge oder einem Aufgabenpaket nicht mehr möglich ist. 
+
+### Problem:
+Wenn man zum Beispiel einen Schüler löschen möchte und auf den Löschen-Button drückt, wird man zum Schüler-erstellen-Formular hingewiesen, mit einer Fehlermeldung, dass gewisse Felder Pflichtfelder sind. Das sollte im Normalfall nicht so sein.
+
+
+### Versuchte Lösungsschritte:
+Es wurde der Zusammenhang der Schüler mit den Challenges genauer festgestellt. Ich hatte die Vermutung, dass das Problem daran liegen könnte: Es sind die Schüler den Challenges zugewiesen. Vielleicht kann genau deshalb kein Schüler gelöscht werden, da er:sie im Hintergrund noch mit einer Challenge verknüpft ist. 
+
+Da stellt sich herraus, dass das eigentlich kein Problem sein sollte. Unabhängig von der Verknüpfung sollte das Löschen z.B. von einem Schüler möglich sein. Der Schüler würde einfach von dem Team entfernt werden, in welchem er miteinbezogen ist, und der Rest würde nicht beeinflusst werden.
+
+### Doch wo lag/liegt dann das Problem?
+
+Mein Löschen-Code ist anscheinend richtig. Prinzipiell sollte es funktionieren. Es liegt aber allgemein an der Verlinkung, weshalb man zu dem Erstell-Formular kommt (Post). Da muss nochmal genau drüber geschaut werden
+
+
+
+## Samstag, 06.12.2025
+
+
+### Ziel des Tages:
+
+- Uploads ermöglichen (Schüler)
+- Abgaben verwalten und bewerten (Lehrer, Admin)
+
+### Uploads Schüler
+
+![Bild](img/upload_schueler.png)
+
+Der:die Schüler:in kann mittlerweile schon Bilder, PDF's, Videos und Audios hochladen. Diese werden strukturiert im uploads-ordner gespeichert. 
+
+Speicherung:
+
+1. Start: Abgabe!
+2. Jahr der Challenge wird kontrolliert
+3. Exestiert Ordner unter uploads mit dem Jahr als Name?
+4. Wenn Schuljahr ja: Exestiert Ordner mit den Namen des Teams, dass die Challenge abgibt?
+5. Wenn Team ja: Speichere die Medien in diesen Ordner
+6. Wenn Schuljahr nein: EErstellt einen neuen Ordner unter uploads mit den Namen des Jahres
+7. Wenn Team nein: Erstelle in dem Ordner des Jahres einen neuen Ordner mit den Namen des Teams, das die Challenge abgegeben hat.
+8. Medien werden in Ordner gespeichert
+
+
+![Bild](img/ordner_struktur.png)
+
+Medien, genau so wie die allgemeinen Abgaben, werden auch direkt in der Datenbank gespeichert. Sie können direkt aufgerufen werden, falls man das möchte. (z.B. bei der Bewertung bei den Lehrern)
+
+
+### Abgaben verwalten und bewerten (Lehrer, Admin)
+
+![Bild](img/abgaben_verwalten.png)
+
+![Bild](img/abgaben_verwalten2.png)
+
+
+Die Lehrer und Admin sehen direkt nach der Abgabe der Schüler, die Abgaben in derer eigenen Ansicht. Sie können diese auch ansehen und bewerten. Das ist eine Funktion, die bei der normalen Medienwoche nicht notwendig ist, jedoch könnte man es in Zukunft brauchen (Punktevergabe von 0 bis 100, etc.).
