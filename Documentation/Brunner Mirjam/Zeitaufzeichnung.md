@@ -55,7 +55,7 @@
 |04.12.2025|10|nein|Erste Schritte, um den Upload für Medien von Schüler zu ermöglichen.|
 |05.12.2025|6|ja|Löschen-Problem lösen --> hat nicht funktioniert!|
 |06.12.2025|5|ja|Upload und Bewertung ermöglicht (Lehrer/Admin)|
-|10.12.2025|4 --> bis jetzt 133h|ja|Alle fehlerhaften Details repariert (löschen, Teams bearbeiten, Bewertung abschicken, Ansicht angepasst (Login, etc.), Teams werden angezeigt --> ÜBersicht für Admin und Lehrer)|
+|10.12.2025|4 --> bis jetzt 133h|ja|Alle fehlerhaften Details repariert (löschen, Teams bearbeiten, Bewertung abschicken, Ansicht angepasst (Login, etc.), Teams werden angezeigt --> Übersicht für Admin und Lehrer)|
 
 
 ---

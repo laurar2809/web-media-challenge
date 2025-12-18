@@ -2144,6 +2144,7 @@ Die Lehrer und Admin sehen direkt nach der Abgabe der Schüler, die Abgaben in d
 
 ### Löschen ermöglicht
 
+
 #### Bei Schüler ergmöglicht
 ```js
 app.use(methodOverride(function (req, res) {
@@ -2163,8 +2164,149 @@ Lösung: Es wurde immer aufs Post hingeleitet und nicht aufs Delete. Das Module 
 
 ### Ansicht verbessert (Login, etc.)
 
+**Alle:**
+Das Problem war, dass wenn man localhost:3000 eingegeben hat, dass die Kategories bereits schon angezeigt worden sind, ohne dass man angemeldet ist. Das war nicht gut. Jetzt ist es so, dass man sich davor anmelden muss, bevor man etwas anderes sehen oder machen kann. 
+
+**Schüler:**
+Wenn man sich als Schüler angemeldet hat, kam man zuerst auf Kategorien. Das war nicht gut, da die Schüler eigentlich gar keinen Zugriff darauf haben dürfen. Das wurde geändert, sodass die Schüler direkt auf die Challenge Ansicht kommen, bei denen sie erwähnt worden sind. 
+
+
 
 ### Teams bearbeiten ermöglicht
 
+Das Problem war, dass man die Challenges zwar bearbeiten konnte, jedoch konnte man nur zusätzliche Teams hinzufügen oder bestehende Teams löschen. Es hat nicht funktioniert, dass man ein Team bearbeiten kann. Diese Funktion wurde jetzt ermögliciht. Man kann ab jetzt auch Teams bearbeiten, wenn man eine Challenge bearbeitet.
+
 
 ### Bewertung wird bei Schüler angezeigt (Lehrer kann Bewertung abschicken)
+
+Bis jetzt war nur möglich, dass der Lehrer/Admin die Abgabe sehen kann. Das Bewerten hat bis jetzt noch nicht funktioniert. Jetzt ist es möglich, dass der Lehrer/Admin eine Challenge bewertet (0-100 Punkte) und ein Feedback geben kann. Wenn er diese zurück schickt, wird diese Bewertung bei dem Schüler bei der Challenge angezeigt. 
+
+
+**Lehrer/Admin:**
+
+![Bild](img/bewertet_admin.png)
+
+
+
+**Schüler:**
+![Bild](img/bewertet.png)
+
+
+
+### Nächste Schritte:
+
+- Lehrer den Challenges zuweisen??
+- Sehen, wer Challenge erstellt hat?
+
+
+## Donnerstag, 11.12.2025
+
+### Akutelle Struktur
+
+```text
+  media-challenge-app/
+      ├──  Datenbank/
+      │   ├──  schemaDb.js
+      │   └──  seedDb.js
+      ├──  middleware/
+      │   └──  uploads.js
+      │   └──  auth.js
+      ├──  node_modules/
+      ├──  public/...
+      ├──  routes/
+      │   ├──  api/
+      │   │   └──  index.js
+      │   ├──  aufgabenpakete.js
+      │   ├──  bewertung.js
+      │   ├──  auth.js
+      │   ├──  categories.js
+      │   ├──  challenges.js
+      │   ├──  index.js
+      │   ├──  upload.js
+      │   ├──  teams.js
+      │   └──  schueler.js
+      ├──  utils/
+      │   ├──  fileHandler.js
+      ├──  views/
+      │   ├──  404.ejs/
+      │   ├──  550.ejs/
+      │   ├──  challenges/index.ejs
+      │   ├──  bewertungDetail.ejs
+      │   ├──  bewertungUebersicht.ejs
+      │   ├──  aufgabenpakete.ejs
+      │   ├──  aufgabenpaketeDetail.ejs
+      │   ├──  challenges.ejs
+      │   ├──  challengesDetail.ejs
+      │   ├──  formAufgabenpakete.ejs
+      │   ├──  formChallenges.ejs
+      │   ├──  formKategorien.ejs
+      │   ├──  formSchueler.ejs
+      │   ├──  formLehrer.ejs
+      │   ├──  index.ejs
+      │   ├──  layout.ejs
+      │   ├──  login.ejs
+      │   └──  schueler.ejs
+      ├──  .env
+      ├──  .env.example
+      ├──  .gitignore
+      ├──  data.sqlite
+      ├──  db.js
+      ├──  package-lock.json
+      ├──  package.json
+      ├──  README.md
+      ├──  reset-db.js
+      └──  server.js
+  ```
+
+
+### Neue Struktur:
+
+```txt
+/views
+|..
+│
+├── /admin/
+│   ├── /challenges/
+│   │   ├── challenges.ejs
+│   │   ├── challengesDetail.ejs  <-- (Alt: challenges.ejs) Übersicht aller Challenges
+│   │   └── formChallenges.ejs        <-- Formular (Neu/Edit)
+│   │
+│   ├── /bewertung/
+│   │   ├── bewertungUebersicht.ejs   <-- (Alt: bewertungUebersicht.ejs)
+│   │   └── bewertungDetail.ejs       <-- (Alt: bewertungDetail.ejs)
+│   │
+│   ├── /kategorien/
+│   │   ├── kategorien.ejs
+│   │   └── formKategorien.ejs
+│   │
+│   ├── /personen/
+│   │   ├── teams.ejs
+│   │   ├── lehrer.ejs
+│   │   ├── schueler.ejs
+│   │   ├── formLehrer.ejs
+│   │   └── formSchueler.ejs
+│   │
+│   └── /aufgabenpakete/
+│       ├── aufgabenpakete.ejs
+│       ├── aufgabenpaketeDetail.ejs
+│       └── formAufgabenpakete.ejs
+│
+└── /schueler/
+    ├── /challenges/
+        ├── challenges.ejs  <-- (Alt: challenges/index.ejs)
+        └── abgabe.ejs                <-- (Alt: abgabe.ejs)
+    
+```
+
+
+
+## Donnerstag, 18.12.2025
+
+
+### Ziel des Tages
+
+Das Projekt muss auf eine Version zurückgesetzt werden, dort wo der Code noch übersichtlich und verständlich war. Es können und werden dabei Funktionen verloren gehen. Das Ziel ist der Wiederaufbau des Projekts durch übersichtliche Codierungsschritte.
+
+
+### Vorgangsweise:
+
