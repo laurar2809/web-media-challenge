@@ -2310,3 +2310,6 @@ Das Projekt muss auf eine Version zur√ºckgesetzt werden, dort wo der Code noch √
 
 ### Vorgangsweise:
 
+- Eventuell Suchfilter Funktion einmal machen und dann immer anwenden.
+
+
