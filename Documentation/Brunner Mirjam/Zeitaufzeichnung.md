@@ -57,10 +57,13 @@
 |06.12.2025|5|ja|Upload und Bewertung ermöglicht (Lehrer/Admin)|
 |10.12.2025|4 --> bis jetzt 133h|ja|Alle fehlerhaften Details repariert (löschen, Teams bearbeiten, Bewertung abschicken, Ansicht angepasst (Login, etc.), Teams werden angezeigt --> Übersicht für Admin und Lehrer)|
 |11.12.2025|10|nein|Umstrukturierung des Codes|
+|18.12.2025|10|nein|Funktionen wieder übersichtlich darstellen und Prototypen entwerfen mit XD|
+|22.12.2025|2|ja|Funktionen zusammenfassen und auch in die Dokumentation miteinfließen lassen.|
+
 
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|133|80|-|
+|133|-|-|
