@@ -4,7 +4,7 @@
 
 |**Schritt**|**Befehl**|**Was passiert?**|
 |---|---|---|
-|**1. Hash finden**|`git log --oneline`|Du suchst die ID (z.B. `a1b2c3d`) der alten Version aus der Liste.|
+|**1. Hash finden**|`git log --oneline`|Du suchst die ID (z.B. `a1b2c3d`) der alten Version aus der Liste.  (drücke 'q' damit du wieder aus Ansicht kommst)|
 |**2. Abzweigen**|`git checkout -b fix-version a1b2c3d`|Du erstellst einen neuen Branch (`fix-version`) ab diesem alten Stand und wechselst sofort dorthin.|
 |**3. Sichern**|`git add .`<br><br>  <br><br>`git commit -m "Nachricht"`|Deine Änderungen werden **nur** auf diesem neuen Branch gespeichert. Der `main` bleibt unberührt.|
 |**4. Teilen**|`git push -u origin fix-version`|Du lädst den Branch auf den Server hoch, damit dein Team ihn sehen und mitarbeiten kann.|

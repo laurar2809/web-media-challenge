@@ -7,7 +7,8 @@
     ```
     git log --oneline
     ```
-    
+     (drücke 'q' damit du wieder aus Ansicht kommst)
+     
 2. **In die Vergangenheit springen:** Nutze den `checkout`-Befehl direkt auf den Hash:
     
    

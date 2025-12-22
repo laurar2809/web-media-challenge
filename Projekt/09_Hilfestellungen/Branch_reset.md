@@ -4,6 +4,9 @@
 
     `git log --oneline` (Hash kopieren).
     
+    (drücke 'q' damit du wieder aus Ansicht kommst)
+
+    
 2. **Reset ausführen:**
     
     
