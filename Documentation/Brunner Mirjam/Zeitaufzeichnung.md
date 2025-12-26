@@ -59,11 +59,11 @@
 |11.12.2025|10|nein|Umstrukturierung des Codes|
 |18.12.2025|10|nein|Funktionen wieder übersichtlich darstellen und Prototypen entwerfen mit XD|
 |22.12.2025|2|ja|Funktionen zusammenfassen und auch in die Dokumentation miteinfließen lassen.|
-
+|26.12.2025|2|ja|Dokumentation fortgesetzt von Funktionen|
 
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|133|-|-|
+|135|-|-|
