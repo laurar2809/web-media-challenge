@@ -66,4 +66,4 @@
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|135|-|-|
+|137|-|-|
