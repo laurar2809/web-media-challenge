@@ -60,7 +60,7 @@
 |18.12.2025|10|nein|Funktionen wieder übersichtlich darstellen und Prototypen entwerfen mit XD|
 |22.12.2025|2|ja|Funktionen zusammenfassen und auch in die Dokumentation miteinfließen lassen.|
 |26.12.2025|2|ja|Dokumentation fortgesetzt von Funktionen|
-
+|27.12.2025|4|ja|Erste Schritte für die Umstrukturierung unseres Projekts. ```<script>``` Dateien von unseren .ejs Dateien getrennt, damit man in Zukunft Partials erstellen kann (gleiche Logik)|
 
 ---
 

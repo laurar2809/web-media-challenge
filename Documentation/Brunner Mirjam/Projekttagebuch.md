@@ -2262,10 +2262,32 @@ Bis jetzt war nur möglich, dass der Lehrer/Admin die Abgabe sehen kann. Das Bew
 ### Neue Struktur:
 
 ```txt
-/views
-|..
-│
-├── /admin/
+ media-challenge-app/
+├──  Datenbank/
+│   ├──  schemaDb.js
+│   └──  seedDb.js
+├──  middleware/
+│   └──  uploads.js
+│   └──  auth.js
+├──  node_modules/
+├──  public/...
+├──  routes/
+│   ├──  api/
+│   │   └──  index.js
+│   ├──  ansichten.js
+│   ├──  aufgabenpakete.js
+│   ├──  bewertung.js
+│   ├──  auth.js
+│   ├──  categories.js
+│   ├──  challenges.js
+│   ├──  upload.js
+│   ├──  teams.js
+│   ├──  lehrer.js
+│   └──  schueler.js
+├──  utils/
+│   ├──  fileHandler.js
+├──/views
+|   ├── /admin/
 │   ├── /challenges/
 │   │   ├── challenges.ejs
 │   │   ├── challengesDetail.ejs  <-- (Alt: challenges.ejs) Übersicht aller Challenges
@@ -2286,16 +2308,25 @@ Bis jetzt war nur möglich, dass der Lehrer/Admin die Abgabe sehen kann. Das Bew
 │   │   ├── formLehrer.ejs
 │   │   └── formSchueler.ejs
 │   │
-│   └── /aufgabenpakete/
-│       ├── aufgabenpakete.ejs
-│       ├── aufgabenpaketeDetail.ejs
-│       └── formAufgabenpakete.ejs
+│   ├── /aufgabenpakete/
+│   │    ├── aufgabenpakete.ejs
+│   │    ├── aufgabenpaketeDetail.ejs
+│   │    └── formAufgabenpakete.ejs
+│   └── /schueler/
+│       ├── /challenges/
+│           ├── challenges.ejs  <-- (Alt: challenges/index.ejs)
+│           └── abgabe.ejs                <-- (Alt: abgabe.ejs)
 │
-└── /schueler/
-    ├── /challenges/
-        ├── challenges.ejs  <-- (Alt: challenges/index.ejs)
-        └── abgabe.ejs                <-- (Alt: abgabe.ejs)
-    
+├──  .env
+├──  .env.example
+├──  .gitignore
+├──  data.sqlite
+├──  db.js
+├──  package-lock.json
+├──  package.json
+├──  README.md
+├──  reset-db.js
+└──  server.js   
 ```
 
 
@@ -2332,3 +2363,94 @@ Die nächste Herrausvorderung ist, die **komplette Übersicht** von der ganzen W
 ![Bild](img/xd.png)
 
 
+
+## Samstag, 27.12.2025
+
+### Neue Struktur:
+
+media-challenge-app/
+├── Datenbank/                  # Skripte für Tabellen-Setup und Testdaten
+│   ├── schemaDb.js
+│   └── seedDb.js
+├── middleware/                 # Prüfungen (Login, Rollen, Upload-Validierung)
+│   ├── auth.js
+│   └── uploads.js
+├── public/                     # Statische Dateien (CSS, Bilder, JS-Logik)
+│   ├── css/
+│   │   └── custom/             # Deine ausgelagerten Styles (z.B. abgabeStyles.css)
+│   ├── js/
+│   │   └── app/                # Deine ausgelagerte Logik (z.B. abgabeLogic.js)
+│   └── uploads/                # Speicherort für hochgeladene Schüler-Dateien
+├── routes/                     # Die "Verkehrspolizei" (Routen-Logik)
+│   ├── api/
+│   │   └── index.js            # API-Endpunkte für Fetch-Requests
+│   ├── ansichten.js            # Haupt-Router (ehemals index.js)
+│   ├── aufgabenpakete.js
+│   ├── auth.js
+│   ├── bewertung.js
+│   ├── categories.js
+│   ├── challenges.js
+│   ├── lehrer.js
+│   ├── schueler.js
+│   ├── teams.js
+│   └── upload.js
+├── utils/                      # Hilfsfunktionen
+│   └── fileHandler.js          # Logik zum Löschen/Verschieben von Dateien
+├── views/                      # EJS-Templates (UI)
+│   ├── admin/                  # LEHRER- & ADMIN-BEREICH
+│   │   ├── aufgabenpakete/
+│   │   │   ├── aufgabenpakete.ejs
+│   │   │   ├── aufgabenpaketeDetail.ejs
+│   │   │   └── formAufgabenpakete.ejs
+│   │   ├── bewertung/
+│   │   │   ├── bewertungDetail.ejs
+│   │   │   └── bewertungUebersicht.ejs
+│   │   ├── challenges/
+│   │   │   ├── challenges.ejs
+│   │   │   ├── challengesDetail.ejs
+│   │   │   └── formChallenges.ejs
+│   │   ├── kategorien/
+│   │   │   ├── formKategorien.ejs
+│   │   │   └── kategorien.ejs
+│   │   └── personen/
+│   │       ├── formLehrer.ejs
+│   │       ├── formSchueler.ejs
+│   │       ├── lehrer.ejs
+│   │       ├── schueler.ejs
+│   │       └── teams.ejs
+│   ├── schueler/               # SCHÜLER-BEREICH
+│   │   └── challenges/
+│   │       ├── abgabe.ejs
+│   │       └── challenges.ejs
+│   ├── layout.ejs              # Das Grundgerüst (Navbar, Footer, Bootstrap)
+│   └── login.ejs               # Login-Seite
+├── .env                        # Geheimnisse (Datenbank-Pfad, LDAP-Konfig)
+├── .gitignore                  # Was nicht zu GitHub soll (node_modules, uploads)
+├── db.js                       # Knex-Konfiguration / DB-Verbindung
+├── package.json                # Liste aller installierten Pakete
+├── server.js                   # Das Herzstück (App-Start)
+└── data.sqlite                 # Deine tatsächliche Datenbank-Datei
+
+
+### Änderungen
+
+- Ich habe einen neuen Branch am aktuellsten Stand erstellt, da alles funktioniert und ich da weiter arbeiten möchte. 
+- Ich habe angefangt, den Code zusammenzuräumen. 
+- Der erste Schritt war, dass ich ein paar kleine Änderungen als Verbesserung vornehmen musste (löschen von Dateien der Schüler). 
+- Der nächste Schritt war, dass ich alle ``<script>``'s aus den .ejs Dateien entferne und in ein extra .js File einpacke. 
+- Diese befinden sich in public/js/app/*hier befinden sich die Files*. 
+- Das Ziel ist es, dass nachdem man die scripts, etc von einander getrennt hat, dass man ein gemeinsames Partial erstellen kann, dass für mehrere Seiten verwendet werden kann (Suchfunktionen, Filterfunktionen, etc.)
+
+Warum haben wir nicht auf eine ganz alte Version gewechselt?
+- Eigentlich war der Plan, dass wir einge Versionen zurück gehen. Da aber alles grundsätzlich funktioneirt und wir nur die Strukturierung, das Wissen und die Organisation wieder in einen guten Zustand bringen müssen, arbeiten wir mit der aktuellen Version in einem eigenen Branch weiter, damit wir mit der jetzigen Datenbankstruktur und mit den bereits vorhandenen Funktionen weiterarbeiten können. Wenn unser Branch in einer finalen Verfassung ist, werden wir diesen dann wieder zu unserem neuen 'Main' machen.
+
+
+Bis jetzt wurden folgende ```<scripts>``` 's schon bearbeitet:
+- aufgabenpaketeLogic.js
+- challengesLogic.js
+- LehrerList.js
+- schuelerList.js
+
+Was auch noch gemacht werden muss (auser scripts):
+- formChallenges.ejs, etc. zu challengeForm.ejs umbenennen (für bessere Übersicht)
+  - kommt öfter vor --> überall ändern!!
