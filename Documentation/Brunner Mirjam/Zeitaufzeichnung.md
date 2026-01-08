@@ -49,14 +49,23 @@
 |13.11.2025|10|nein|Suchfunktionen verbessert, Benutzerfreundlichkeit verbessert |
 |16.11.2025|2|ja |Server.js umgestellt --> auf mehrere .js aufgeteilt.|
 |17.11.2025|3|ja|Datenbank erweitert um Schuljahr. --> bietet bessere Struktur über Jahre hinweg|
-|12.11.2025|4 --> bis jetzt 113h|Teams Funktionen weiter bearbeitet und Datenbanken aktualisiert --> sqlite, Challenges Funktion weiter ausgebaut mit Details|
-
-
-
-
+|12.11.2025|4 |ja|Teams Funktionen weiter bearbeitet und Datenbanken aktualisiert --> sqlite, Challenges Funktion weiter ausgebaut mit Details|
+|27.11.2025|10 |nein|Weitergearbeitet an Website. Erste Schritte für Login recherhiert.|
+|29.11.2025|6|ja|Einfacher Login ermöglicht. Erste Schritte zur Darstellung der einzelnen Seiten. Schüler - Lehrer - Admin|
+|04.12.2025|10|nein|Erste Schritte, um den Upload für Medien von Schüler zu ermöglichen.|
+|05.12.2025|6|ja|Löschen-Problem lösen --> hat nicht funktioniert!|
+|06.12.2025|5|ja|Upload und Bewertung ermöglicht (Lehrer/Admin)|
+|10.12.2025|4 --> bis jetzt 133h|ja|Alle fehlerhaften Details repariert (löschen, Teams bearbeiten, Bewertung abschicken, Ansicht angepasst (Login, etc.), Teams werden angezeigt --> Übersicht für Admin und Lehrer)|
+|11.12.2025|10|nein|Umstrukturierung des Codes|
+|18.12.2025|10|nein|Funktionen wieder übersichtlich darstellen und Prototypen entwerfen mit XD|
+|22.12.2025|2|ja|Funktionen zusammenfassen und auch in die Dokumentation miteinfließen lassen.|
+|26.12.2025|2|ja|Dokumentation fortgesetzt von Funktionen|
+|27.12.2025|4|ja|Erste Schritte für die Umstrukturierung unseres Projekts. ```<script>``` Dateien von unseren .ejs Dateien getrennt, damit man in Zukunft Partials erstellen kann (gleiche Logik)|
+|04.01.2026|7|ja|Partials erstellt (Suchen, Filtern, Anzeigen, Löschen,...), und mit Laura besprechen|
+|05.01.2026|2|ja|Partials erstellt für Layout und die Formulare für die einzelnen Seiten umbenannt (formChallenges --> challengesForm, formAufgabenpakete --> aufgabenpaketeForm, ...)|
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|113|70|-|
+|146|-|-|
