@@ -33,9 +33,19 @@
 |03.11.2025|2|Ja|Design Ideen auf der Website ausprobieren und gewisse in die Website implementieren.|
 |05.11.2025|4|Ja|Farben auf der Website ändern und Buttons anpassen. Fotos anzeigen und in der Datenbank speichern lassen.|
 |06.11.2025|10|Nein|Verbesserung der Challenge-Seite und der Aufgabenpakete. Anzeige Mithilfe von Cards aus Bootstrap.|
+|20.11.2025|Fahrschule - Perfektionsfahrt|
 |27.11.2025|10|Nein|Verbesserung vom Teams-Management. Modal Fenster und benutzerfreundlicheres Design (platzsparender).|
 |28.11.2025|5|Ja|Funktionalität vom Teams-Management. Buttons, Anzeige der Teams, graues Overlay weg.|
 |30.11.2025|4|Ja|Design Änderungen auf verschiedenen Seite. Loginfenster designen, Buttons mit Icons versehen. Aktualisierung des Projektmanagements (Zeitaufzeichnung,...)|
+|04.12.2025|10|Nein|Desingänerungen und kleine Funktionalitäten der Challengeseite.|
+|05.12.2025|6|Ja|Designänderugen der Teamsseite und Challenge Seite.|
+|11.12.2025|10|Nein|Funktionalitäten und Design der Teams-erstellen-Seite.|
+|18.12.2025|FREIER TAG|
+|25.12.2025|FERIEN|
+|01.01.2026|FERIEN|
+|04.01.2026|2|Ja|Besprechung mit Mirjam über weitere vorgehensweise. (Paritals, Code Strukturierung, ältere Version??)|
+|05.01.2026|4|Ja|Code strukturien, Inlinestyles von Layout und Login komplett in Css File schreiben. Kommentare schreiben. Doppelte Code Teile und sinnlose Sachen löschen.|
+|08.01.2026|10|
 
 
-#### (Freizeit: 68 h; ges. 149 h) - Stand: 30.11.2025
+#### (Freizeit: 86 h; ges. 191 h) - Stand: 08.01.2026
