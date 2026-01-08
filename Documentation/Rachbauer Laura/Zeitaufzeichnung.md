@@ -8,9 +8,9 @@
 |15.07.2025|3|Ja|Beginn Online Kurs von Udemy. Ersten beiden Lektionen fertiggestellt. (Einführung und HTML)|
 |30.07.2025|2|Ja|Meeting mit Mirjam. Besprechen der Meilensteine und Ausfüllen des ABA Portals.|
 |04.08.2025|4|Ja|Fortsetzung Online Kurs Udemy: 3., 4., und 5. Lektion. (HTML, Multi-Page Websites, Introduction CSS)|
-|09.08.2025|4|Ja|Fortsetzung Online Kurs Udemy: 6., 7. und 8. Lektion. (CSS)|
+|09.08.2025|5|Ja|Fortsetzung Online Kurs Udemy: 6., 7. und 8. Lektion. (CSS)|
 |18.08.2025|2|Ja|Fortsetzung Online Kurs Udemy: 11. Lektion. (Web Design School)|
-|30.08.2025|2|Ja|Recherchieren und Durchlesen der Möglichkeiten von Tabler.io.|
+|30.08.2025|3|Ja|Recherchieren und Durchlesen der Möglichkeiten von Tabler.io.|
 |11.09.2025|5|Nein|Ersten beiden Einheiten: Projektmanagement mit Frau Fuchs, Besprechen der Anforderungen. 3., 4. und 5. Einheit: Besprechen der Aufteilung, Fertigstellung des ABA Portals (nach Zurückweisung) und zeitliche Planung.
 |13.09.2025|2|Ja|Herunterladen der ersten Tabler.io Datein und durchlesen/verstehen der ersten Codes.|
 |14.09.2025|3|Ja|Erste Designideen auf Adobe XD anfertigen.|
@@ -38,14 +38,14 @@
 |28.11.2025|5|Ja|Funktionalität vom Teams-Management. Buttons, Anzeige der Teams, graues Overlay weg.|
 |30.11.2025|4|Ja|Design Änderungen auf verschiedenen Seite. Loginfenster designen, Buttons mit Icons versehen. Aktualisierung des Projektmanagements (Zeitaufzeichnung,...)|
 |04.12.2025|10|Nein|Desingänerungen und kleine Funktionalitäten der Challengeseite.|
-|05.12.2025|6|Ja|Designänderugen der Teamsseite und Challenge Seite.|
+|05.12.2025|7|Ja|Designänderugen der Teamsseite und Challenge Seite.|
 |11.12.2025|10|Nein|Funktionalitäten und Design der Teams-erstellen-Seite.|
 |18.12.2025|FREIER TAG|
 |25.12.2025|FERIEN|
 |01.01.2026|FERIEN|
 |04.01.2026|2|Ja|Besprechung mit Mirjam über weitere vorgehensweise. (Paritals, Code Strukturierung, ältere Version??)|
-|05.01.2026|4|Ja|Code strukturien, Inlinestyles von Layout und Login komplett in Css File schreiben. Kommentare schreiben. Doppelte Code Teile und sinnlose Sachen löschen.|
+|05.01.2026|5|Ja|Code strukturien, Inlinestyles von Layout und Login komplett in Css File schreiben. Kommentare schreiben. Doppelte Code Teile und sinnlose Sachen löschen.|
 |08.01.2026|10|
 
 
-#### (Freizeit: 86 h; ges. 191 h) - Stand: 08.01.2026
+#### (Freizeit: 90 h; ges. 195 h) - Stand: 08.01.2026

@@ -14,7 +14,6 @@
   - Erste visuelle Umsetzung des geplanten Designs
 
 ### Eigene Designs:
- > ![alt text](Images/image.png)
 
  > ![alt text](Images/image-1.png)
 
@@ -258,7 +257,7 @@
 
 
 ## KW 49 (01.12. – 07.12.2025)
-**Stunden gesamt: 16 h**
+**Stunden gesamt: 17 h**
 
 ### Designänderungen der Challenge-Seite
 - Designüberarbeitung der Challenge-Seite  
@@ -301,7 +300,7 @@
 
 
 ## KW 02 (05.01. – 11.01.2026)
-**Stunden gesamt: 14 h**
+**Stunden gesamt: 15 h**
 
 ### Code-Strukturierung
 - Umstrukturierung des Codes  
