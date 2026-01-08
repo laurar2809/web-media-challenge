@@ -2651,3 +2651,11 @@ Partials für Logic-.js Files:
         onChange: () => applyFilters()
     });
   ```
+
+
+
+  ### LDAP Daten
+
+  IM HTL WLAN:
+
+  - media-challenge.htl-braunau.at
