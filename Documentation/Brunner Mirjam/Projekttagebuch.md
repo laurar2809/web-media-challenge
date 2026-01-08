@@ -2519,16 +2519,6 @@ Anzeige der Challenges und Aufgabenpakete in ein eigenes Partial unter der jewei
 
 ## Montag, 05.01.2025
 
-abgabeLogic.js
-JS aufgabenpaketeFormLogic.js
-JS aufgabenpaketeLogic.js
-JS bewertungDetailLogic.js
-JS bewertungUebersichtLogic.js
-JS categoriesLogic.js
-JS challengesFormLogic.js
-JS challengesLogic.js
-JS lehrerList.js
-JS schuelerList.js
 
 
 ### Neue Struktur:
