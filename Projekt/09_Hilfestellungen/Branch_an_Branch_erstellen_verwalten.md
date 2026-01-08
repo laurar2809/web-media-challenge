@@ -38,6 +38,9 @@ git push -u origin fix-version-dein-name-partials
 # Zuerst in den Ziel-Branch wechseln 
 git checkout fix-version 
 
+# Änderung von Partnerin holen!
+git pull origin fix-version 
+
 # Eigenen Feature-Branch in fix-version mergen 
 git merge fix-version-dein-name-partials 
 

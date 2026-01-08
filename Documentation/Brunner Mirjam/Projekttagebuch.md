@@ -2602,3 +2602,52 @@ media-challenge-app/
 ├── package.json                # Liste aller installierten Pakete
 ├── server.js                   # Das Herzstück (App-Start)
 └── data.sqlite                 # Deine tatsächliche Datenbank-Datei
+
+```
+
+## Donnerstag, 08.01.2026
+
+
+### Ziel für heute:
+
+Partials für Logic-.js Files:
+- Filtern
+  - Kategorie
+  - Schuljahr
+  - Suche
+  - "keine Ergebnisse"
+  - Delete-Modal
+
+
+
+
+  Wenn man Challenge löscht, werden angebundene Teams auch gelöscht!
+
+  Muss noch geändert werden.
+
+
+
+### Delete-Util --> Aufruf in Logik
+
+  ```js
+   // Delete Modal -> PARTIAL
+    initDeleteModal({
+    modal: deleteModal,
+    form: deleteForm,
+    submitBtn: confirmDeleteSubmit,
+    buildAction: (id) => `/challenges/${id}?_method=DELETE`
+    });
+  ```
+
+
+  ### Live-Suche-Util --> Aufruf in Logik
+
+  ```js
+   // NEU: Suche über FilterUtils
+    FilterUtils.initSearchWithBadge({
+        input: searchInput,
+        badge: searchBadge,
+        textSpan: searchTermText,
+        onChange: () => applyFilters()
+    });
+  ```
