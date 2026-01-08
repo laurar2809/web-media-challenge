@@ -2368,6 +2368,7 @@ Die nächste Herrausvorderung ist, die **komplette Übersicht** von der ganzen W
 
 ### Neue Struktur:
 
+```txt
 media-challenge-app/
 ├── Datenbank/                  # Skripte für Tabellen-Setup und Testdaten
 │   ├── schemaDb.js
@@ -2431,6 +2432,7 @@ media-challenge-app/
 ├── server.js                   # Das Herzstück (App-Start)
 └── data.sqlite                 # Deine tatsächliche Datenbank-Datei
 
+```
 
 ### Änderungen
 
@@ -2454,3 +2456,159 @@ Bis jetzt wurden folgende ```<scripts>``` 's schon bearbeitet:
 Was auch noch gemacht werden muss (auser scripts):
 - formChallenges.ejs, etc. zu challengeForm.ejs umbenennen (für bessere Übersicht)
   - kommt öfter vor --> überall ändern!!
+
+
+## Sonntag, 04.01.2026
+
+### Ziel für heute:
+
+- Die zuletzt angefangte Version fertigstellen und die restliche Logik trennen von den .ejs Dateien
+- Partial entwickeln, damit man Codes mehrfach nutzen kann (suchen, filtern,...)
+
+
+#### Partials:
+
+- Für welche Bereiche sind sie besonders gut geeignet?
+  - Karten/Zeilen-Layouts
+  - Modale & Bestätigungs-Dialoge
+  - Filterleisten/Suchzeilen
+
+  --
+
+  --
+
+- **1.Partial für Löschmodal**
+```js
+ <%- include('../../partials/deleteModal', {
+        modalId: 'confirmDeleteModal',
+        formId: 'deleteConfirmFormChallenge',
+        submitButtonId: 'confirmDeleteSubmitChallenge',
+        title: 'Löschen bestätigen',
+        bodyText: 'Bist du sicher, dass du diese Challenge löschen möchtest?'
+      }) %>
+```
+Diesen Code integriert man in jedes .ejs File, wo man die Löschfunktion benötigt.
+Der richtige Lösch-EJS Code befindet sich ab sofort in einem partial "deleteModal.ejs"
+
+
+- **2.Partial für Kategorie Ansichten: Challenges und Aufgabenpakete (intern)**
+
+Anzeige der Challenges und Aufgabenpakete in ein eigenes Partial unter der jeweiligen Ordner verschoben.
+
+
+- **3.Partial für Kategorie (Filter) + Suche**
+
+
+
+
+
+
+--- 
+- Challenge erstellen geht nicht!!! (Teams hinzufügen --> danach kann man nichts mehr machen!!)
+
+
+---
+
+
+
+#### Mit Laura zusammen reden:
+- Alte Versoin zum weiterarbeiten finden. 
+- Funktionen von Grund auf wieder aufbauen, damit ich zuerst die Funktionen und sie das Frontend machen kann. 
+
+
+
+## Montag, 05.01.2025
+
+abgabeLogic.js
+JS aufgabenpaketeFormLogic.js
+JS aufgabenpaketeLogic.js
+JS bewertungDetailLogic.js
+JS bewertungUebersichtLogic.js
+JS categoriesLogic.js
+JS challengesFormLogic.js
+JS challengesLogic.js
+JS lehrerList.js
+JS schuelerList.js
+
+
+### Neue Struktur:
+
+```txt
+media-challenge-app/
+├── Datenbank/                  # Skripte für Tabellen-Setup und Testdaten
+│   ├── schemaDb.js
+│   └── seedDb.js
+├── middleware/                 # Prüfungen (Login, Rollen, Upload-Validierung)
+│   ├── auth.js
+│   └── uploads.js
+├── public/                     # Statische Dateien (CSS, Bilder, JS-Logik)
+│   ├── css/
+│   │   └── custom/             # Deine ausgelagerten Styles (z.B. abgabeStyles.css)
+│   ├── js/
+│   │   └── app/                # Deine ausgelagerte Logik (z.B. abgabeLogic.js)
+│   │         ├── abgabeLogic.js
+│   │         ├── aufgabenpaketeFormLogic.js
+│   │         ├── aufgabenpaketeLogic.js
+│   │         ├── bewertungDetailLogic.js
+│   │         ├── bewertungUebersichtLogic.js
+│   │         ├── categoriesLogic.js
+│   │         ├── challengesFormLogic.js
+│   │         ├── challengesLogic.js
+│   │         ├── lehrerList.js
+│   │         └── schuelerList.js 
+│   │      
+│   └── uploads/                # Speicherort für hochgeladene Schüler-Dateien
+├── routes/                     # Die "Verkehrspolizei" (Routen-Logik)
+│   ├── api/
+│   │   └── index.js            # API-Endpunkte für Fetch-Requests
+│   ├── ansichten.js            # Haupt-Router (ehemals index.js)
+│   ├── aufgabenpakete.js
+│   ├── auth.js
+│   ├── bewertung.js
+│   ├── categories.js
+│   ├── challenges.js
+│   ├── lehrer.js
+│   ├── schueler.js
+│   ├── teams.js
+│   └── upload.js
+├── utils/                      # Hilfsfunktionen
+│   └── fileHandler.js          # Logik zum Löschen/Verschieben von Dateien
+├── views/                      # EJS-Templates (UI)
+│   ├── admin/                  # LEHRER- & ADMIN-BEREICH
+│   │   ├── aufgabenpakete/
+│   │   │   ├── card.ejs
+│   │   │   ├── aufgabenpakete.ejs
+│   │   │   ├── aufgabenpaketeDetail.ejs
+│   │   │   └── formAufgabenpakete.ejs
+│   │   ├── bewertung/
+│   │   │   ├── bewertungDetail.ejs
+│   │   │   └── bewertungUebersicht.ejs
+│   │   ├── challenges/
+│   │   │   ├── card.ejs
+│   │   │   ├── challenges.ejs
+│   │   │   ├── challengesDetail.ejs
+│   │   │   └── formChallenges.ejs
+│   │   ├── kategorien/
+│   │   │   ├── formKategorien.ejs
+│   │   │   └── kategorien.ejs
+│   │   └── personen/
+│   │       ├── formLehrer.ejs
+│   │       ├── formSchueler.ejs
+│   │       ├── lehrer.ejs
+│   │       ├── schueler.ejs
+│   │       └── teams.ejs
+│   ├── schueler/               # SCHÜLER-BEREICH
+│   │   └── challenges/
+│   │       ├── abgabe.ejs
+│   │       └── challenges.ejs
+│   ├── partials/               # PARTIALS-BEREICH
+│   │       ├── deleteModal.ejs
+│   │       └── filter_search.ejs
+│   ├── layout.ejs              # Das Grundgerüst (Navbar, Footer, Bootstrap)
+│   └── login.ejs               # Login-Seite
+├── .env                        # Geheimnisse (Datenbank-Pfad, LDAP-Konfig)
+├── .gitignore                  # Was nicht zu GitHub soll (node_modules, uploads)
+├── db.js                       # Knex-Konfiguration / DB-Verbindung
+├── package.json                # Liste aller installierten Pakete
+├── server.js                   # Das Herzstück (App-Start)
+└── data.sqlite                 # Deine tatsächliche Datenbank-Datei

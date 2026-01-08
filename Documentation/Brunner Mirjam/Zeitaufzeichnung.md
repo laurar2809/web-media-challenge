@@ -61,9 +61,11 @@
 |22.12.2025|2|ja|Funktionen zusammenfassen und auch in die Dokumentation miteinfließen lassen.|
 |26.12.2025|2|ja|Dokumentation fortgesetzt von Funktionen|
 |27.12.2025|4|ja|Erste Schritte für die Umstrukturierung unseres Projekts. ```<script>``` Dateien von unseren .ejs Dateien getrennt, damit man in Zukunft Partials erstellen kann (gleiche Logik)|
+|04.01.2026|7|ja|Partials erstellt (Suchen, Filtern, Anzeigen, Löschen,...), und mit Laura besprechen|
+|05.01.2026|2|ja|Partials erstellt für Layout und die Formulare für die einzelnen Seiten umbenannt (formChallenges --> challengesForm, formAufgabenpakete --> aufgabenpaketeForm, ...)|
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|137|-|-|
+|146|-|-|
