@@ -291,3 +291,9 @@ Es müssen folgende Funktionen vorhanden sein:
 
 
 ![Bild](img/schueler_chall_abgeben.png)
+
+
+
+### Schüler - Abgaben (Übersicht)
+
+![Bild](img/schueler_abgaben.png)

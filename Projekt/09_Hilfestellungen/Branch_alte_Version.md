@@ -38,6 +38,8 @@ Wenn du und dein Partner am selben Branch (`fix-version`) arbeitet, sieht euer A
 3. **`git add .`** (Änderungen vormerken)
     
 4. **`git commit -m "Beschreibung"`** (Änderungen lokal verpacken)
+
+5. **`git pull`** (Änderungen von Partner holen)
     
 5. **`git push`** (Änderungen für den Partner sichtbar machen)
     
