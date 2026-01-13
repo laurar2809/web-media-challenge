@@ -45,7 +45,8 @@
 |01.01.2026|FERIEN|
 |04.01.2026|2|Ja|Besprechung mit Mirjam über weitere vorgehensweise. (Paritals, Code Strukturierung, ältere Version??)|
 |05.01.2026|5|Ja|Code strukturien, Inlinestyles von Layout und Login komplett in Css File schreiben. Kommentare schreiben. Doppelte Code Teile und sinnlose Sachen löschen.|
-|08.01.2026|10|
+|08.01.2026|10|Nein|Code strukturieren und weiter Zeitplannung der nächsten Wochen.|
+|09.01.2026|3|Ja|Strukturieren vom Code (HTML-Code ohne Styles - alles in CSS); Seiten: Arbeitespakete und ArbeitspaketeDetails|
 
 
-#### (Freizeit: 90 h; ges. 195 h) - Stand: 08.01.2026
+#### (Freizeit: 93 h; ges. 198h) - Stand: 09.01.2026
