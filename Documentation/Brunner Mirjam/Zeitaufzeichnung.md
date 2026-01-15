@@ -63,10 +63,14 @@
 |27.12.2025|4|ja|Erste Schritte für die Umstrukturierung unseres Projekts. ```<script>``` Dateien von unseren .ejs Dateien getrennt, damit man in Zukunft Partials erstellen kann (gleiche Logik)|
 |04.01.2026|7|ja|Partials erstellt (Suchen, Filtern, Anzeigen, Löschen,...), und mit Laura besprechen|
 |05.01.2026|2|ja|Partials erstellt für Layout und die Formulare für die einzelnen Seiten umbenannt (formChallenges --> challengesForm, formAufgabenpakete --> aufgabenpaketeForm, ...)|
-|08.01.2025|1|nein|Erste Schritte, um den Upload für Medien von Schüler zu ermöglichen.|
-|08.01.2025|10|nein|Erste Schritte, um den Upload für Medien von Schüler zu ermöglichen.|
+|08.01.2026|1|Ja|Strukturierung des Codes und Branch Übersicht erstellt (Hilfestellung)|
+|08.01.2026|10|nein|Ziele für die nächsten zwölf Wochen besprechen und weiter strukturieren (Logiken, etc.) --> JS Partial für Live Suche|
+|12.01.2026|4|Ja|Upload - Ansichten erweitert (Details,...)|
+|13.01.2026|1|Ja|Code durchgehen und verstehen, Verbesserungen vornehmen|
+
+
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|146|-|-|
+|152|-|-|

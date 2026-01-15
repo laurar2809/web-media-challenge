@@ -2536,6 +2536,9 @@ media-challenge-app/
 │   │   └── custom/             # Deine ausgelagerten Styles (z.B. abgabeStyles.css)
 │   ├── js/
 │   │   └── app/                # Deine ausgelagerte Logik (z.B. abgabeLogic.js)
+│   │         ├── utils/
+│   │         │     ├── deleteModalUtils.js
+│   │         │     └── filterUtils.js
 │   │         ├── abgabeLogic.js
 │   │         ├── aufgabenpaketeFormLogic.js
 │   │         ├── aufgabenpaketeLogic.js
@@ -2659,3 +2662,40 @@ Partials für Logic-.js Files:
   IM HTL WLAN:
 
   - media-challenge.htl-braunau.at
+
+
+
+  ## Montag, 12.01.2026
+
+
+  ### Ziele:
+
+  - Upload/Bewerten weiterbearbeiten
+  - Besser strukturieren und Versuche Durchführen
+
+
+
+  Laura muss umbedingt Challenges erstellen Problem fixen!! weil sonst kann man keine neuen Challenges erstellen. 
+
+
+  ### Damit komme ich zu "Abgabe einreichen" Seite:
+
+  ```js
+  <!-- Nur für Lehrer/Admin: Bearbeiten -->
+              <% if (currentUser && currentUser.user_role_id !== 1) { %>
+                <div class="btn-group">
+                  <a href="/challenges/<%= challenge.id %>/edit" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
+                  <form action="/challenges/<%= challenge.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Löschen</button>
+                  </form>
+                </div>
+              <% } %>
+  ```
+
+  ## Dienstag, 13.01.2025
+
+  ### Überlegungen:
+
+  Javascript - Files (zb Challenges), wo auch Codes für die Schüler-.ejs Files vorkommen, trennen unte rSchüler und Lehrer/Admin. ---> bessere Wartbarkeit 
+
+  
