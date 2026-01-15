@@ -47,6 +47,7 @@
 |05.01.2026|5|Ja|Code strukturien, Inlinestyles von Layout und Login komplett in Css File schreiben. Kommentare schreiben. Doppelte Code Teile und sinnlose Sachen löschen.|
 |08.01.2026|10|Nein|Code strukturieren und weiter Zeitplannung der nächsten Wochen.|
 |09.01.2026|3|Ja|Strukturieren vom Code (HTML-Code ohne Styles - alles in CSS); Seiten: Arbeitespakete und ArbeitspaketeDetails|
+|13.01.2026|3|Ja|Weitere Umstrukturierung vom Code (Entfernen der Inlinestyles, Strukturierung vom Css File, ...)|
 
 
-#### (Freizeit: 93 h; ges. 198h) - Stand: 09.01.2026
+#### (Freizeit: 96 h; ges. 204h) - Stand: 13.01.2026
