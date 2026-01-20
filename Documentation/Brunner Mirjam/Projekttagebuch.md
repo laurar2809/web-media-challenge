@@ -2611,7 +2611,15 @@ media-challenge-app/
 ## Donnerstag, 08.01.2026
 
 
+
+![Bild](img/zeitstrahl.jpg)
+
+
 ### Ziel für heute:
+
+Zeitstrahl entwerfen!
+- für die nächsten 12 Wochen
+- Diplomarbeit schreiben miteinplanen (siehe Bild oben)
 
 Partials für Logic-.js Files:
 - Filtern
@@ -2696,6 +2704,26 @@ Partials für Logic-.js Files:
 
   ### Überlegungen:
 
-  Javascript - Files (zb Challenges), wo auch Codes für die Schüler-.ejs Files vorkommen, trennen unte rSchüler und Lehrer/Admin. ---> bessere Wartbarkeit 
+  Javascript - Files (zb Challenges), wo auch Codes für die Schüler-.ejs Files vorkommen, trennen unter Schüler und Lehrer/Admin. ---> bessere Wartbarkeit 
+
+
+  ## Donnerstag, 15.01.2025
+
+### Ziel: 
+  - Wenn man Challenge löscht, werden angebundene Teams auch gelöscht! Muss noch geändert werden.
+
+  - Challenges erstellen Problem fixen!! weil sonst kann man keine neuen Challenges erstellen. 
+
+
+
+### Noch machen
+
+- Infos von Schüler - Bewertung bei Lehrer anzeigen lassen
+
+- Challenges löschen funktioniert nicht ( Challenges Details)
+
+- Benachrichtigungen für Schüler
+
+
 
   

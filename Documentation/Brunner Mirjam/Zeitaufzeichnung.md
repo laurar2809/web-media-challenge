@@ -67,10 +67,11 @@
 |08.01.2026|10|nein|Ziele für die nächsten zwölf Wochen besprechen und weiter strukturieren (Logiken, etc.) --> JS Partial für Live Suche|
 |12.01.2026|4|Ja|Upload - Ansichten erweitert (Details,...)|
 |13.01.2026|1|Ja|Code durchgehen und verstehen, Verbesserungen vornehmen|
+|15.01.2026|1|Ja|---|
 
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|152|-|-|
+|153|-|-|
