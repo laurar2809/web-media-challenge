@@ -2703,14 +2703,14 @@ Partials für Logic-.js Files:
               <% } %>
   ```
 
-  ## Dienstag, 13.01.2025
+  ## Dienstag, 13.01.2026
 
   ### Überlegungen:
 
   Javascript - Files (zb Challenges), wo auch Codes für die Schüler-.ejs Files vorkommen, trennen unter Schüler und Lehrer/Admin. ---> bessere Wartbarkeit 
 
 
-  ## Donnerstag, 15.01.2025
+  ## Donnerstag, 15.01.2026
 
 ### Ziel: 
   - Wenn man Challenge löscht, werden angebundene Teams auch gelöscht! Muss noch geändert werden.
@@ -2726,6 +2726,35 @@ Partials für Logic-.js Files:
 - Challenges löschen funktioniert nicht ( Challenges Details)
 
 - Benachrichtigungen für Schüler
+
+
+## NOCH EINIGE TAGE NACHSCHREIBEN
+
+## Montag, 26.01.2026
+
+### Ziel für heute:
+- Teams bearbeiten
+- Teams erstellen
+- Teams Live-Suchen
+- Teams in ChallengesForm miteinbinden, damit schon bereits vorhandene Teams ausgewählt werden können.
+  - Das muss noch ausgearbeitet werden!! Das funktioniert noch nicht.
+
+
+### Problem:
+
+Ich habe jetzt zwei Modals für Team erstellen
+- 1. In teamModal.ejs und teamModalLogic.js
+- 2. challengesFormLogic.js und challengesForm.ejs GLAUBE ICH
+
+Ich muss aufpassen, dass ich das berücksichtige und schnellstmöglich ändere, bevor ein Chaos entsteht und Daten falsch gespeichert werden. 
+
+### Lösung:
+
+Ein Team-Modal für beide Anwendungen --> Die best-mögliche Lösung und eigentlich auch die einzige Lösung ist, dass man das gleiche Modal immer wieder verwendet.
+
+Ich habe auch schon ein Modal erstellt. Ich muss jetzt nur noch schauen, wie und ob ich es in ChallengesForm ohne große Probleme integrieren kann. Das ist das Ziel fürs nächste mal.
+
+
 
 
 

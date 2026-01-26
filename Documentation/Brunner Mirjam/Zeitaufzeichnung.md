@@ -71,9 +71,9 @@
 |21.01.2026|4|Ja|Teams im "Teams.ejs" File erstellen und verwalten|
 |21.01.2026|5|Nein|Teams im "Teams.ejs" File erstellen und verwalten|
 |24.01.2026|2 --> bis jetzt 163h|Ja|Projektmanagement: Plichtenheft Endversion und Jahresüberblick-Aktualisierung|
-
+|26.01.2026|3|Ja|Bearbeiten und Löschen von Teams unter "Teams.ejs" + Live-Suche Korrektur|
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|163|-|-|
+|166|-|-|
