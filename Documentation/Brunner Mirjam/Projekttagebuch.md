@@ -2533,7 +2533,7 @@ media-challenge-app/
 │   └── uploads.js
 ├── public/                     # Statische Dateien (CSS, Bilder, JS-Logik)
 │   ├── css/
-│   │   └── custom/             # Deine ausgelagerten Styles (z.B. abgabeStyles.css)
+│   │   └── custom/             # Ausgelagerten Styles (z.B. abgabeStyles.css)
 │   ├── js/
 │   │   └── app/                # Deine ausgelagerte Logik (z.B. abgabeLogic.js)
 │   │         ├── utils/
@@ -2547,6 +2547,8 @@ media-challenge-app/
 │   │         ├── categoriesLogic.js
 │   │         ├── challengesFormLogic.js
 │   │         ├── challengesLogic.js
+│   │         ├── teamsLogic.js
+│   │         ├── teamModalLogic.js
 │   │         ├── lehrerList.js
 │   │         └── schuelerList.js 
 │   │      
@@ -2596,6 +2598,7 @@ media-challenge-app/
 │   │       └── challenges.ejs
 │   ├── partials/               # PARTIALS-BEREICH
 │   │       ├── deleteModal.ejs
+│   │       ├── teamModal.ejs
 │   │       └── filter_search.ejs
 │   ├── layout.ejs              # Das Grundgerüst (Navbar, Footer, Bootstrap)
 │   └── login.ejs               # Login-Seite
@@ -2603,8 +2606,8 @@ media-challenge-app/
 ├── .gitignore                  # Was nicht zu GitHub soll (node_modules, uploads)
 ├── db.js                       # Knex-Konfiguration / DB-Verbindung
 ├── package.json                # Liste aller installierten Pakete
-├── server.js                   # Das Herzstück (App-Start)
-└── data.sqlite                 # Deine tatsächliche Datenbank-Datei
+├── server.js                   # App-Start
+└── data.sqlite                 # Test-Datenbank
 
 ```
 

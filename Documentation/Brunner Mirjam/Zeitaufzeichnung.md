@@ -67,11 +67,13 @@
 |08.01.2026|10|nein|Ziele für die nächsten zwölf Wochen besprechen und weiter strukturieren (Logiken, etc.) --> JS Partial für Live Suche|
 |12.01.2026|4|Ja|Upload - Ansichten erweitert (Details,...)|
 |13.01.2026|1|Ja|Code durchgehen und verstehen, Verbesserungen vornehmen|
-|15.01.2026|1|Ja|---|
-
+|15.01.2026|1|Ja|Verbesserung des Codes|
+|21.01.2026|4|Ja|Teams im "Teams.ejs" File erstellen und verwalten|
+|21.01.2026|5|Nein|Teams im "Teams.ejs" File erstellen und verwalten|
+|24.01.2026|2 --> bis jetzt 163h|Ja|Projektmanagement: Plichtenheft Endversion und Jahresüberblick-Aktualisierung|
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|153|-|-|
+|163|-|-|
