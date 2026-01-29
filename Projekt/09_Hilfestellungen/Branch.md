@@ -30,6 +30,15 @@ Diplomarbeit im Schuljahr 2025/26
 ### 8. Gehe auf GitHub und erstelle einen Pull Request
 ```
 (Das machst du im Browser auf github.com)
+
+
+oder
+
+
+Lokal mit:
+
+git merge fix/activepage-error  (du musst dich im main befinden)
+
 ```
 
 ### 9. Nachdem der Pull Request gemerged wurde:

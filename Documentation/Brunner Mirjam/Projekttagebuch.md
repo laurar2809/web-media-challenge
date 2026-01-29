@@ -2533,7 +2533,7 @@ media-challenge-app/
 │   └── uploads.js
 ├── public/                     # Statische Dateien (CSS, Bilder, JS-Logik)
 │   ├── css/
-│   │   └── custom/             # Deine ausgelagerten Styles (z.B. abgabeStyles.css)
+│   │   └── custom/             # Ausgelagerten Styles (z.B. abgabeStyles.css)
 │   ├── js/
 │   │   └── app/                # Deine ausgelagerte Logik (z.B. abgabeLogic.js)
 │   │         ├── utils/
@@ -2547,6 +2547,8 @@ media-challenge-app/
 │   │         ├── categoriesLogic.js
 │   │         ├── challengesFormLogic.js
 │   │         ├── challengesLogic.js
+│   │         ├── teamsLogic.js
+│   │         ├── teamModalLogic.js
 │   │         ├── lehrerList.js
 │   │         └── schuelerList.js 
 │   │      
@@ -2596,6 +2598,7 @@ media-challenge-app/
 │   │       └── challenges.ejs
 │   ├── partials/               # PARTIALS-BEREICH
 │   │       ├── deleteModal.ejs
+│   │       ├── teamModal.ejs
 │   │       └── filter_search.ejs
 │   ├── layout.ejs              # Das Grundgerüst (Navbar, Footer, Bootstrap)
 │   └── login.ejs               # Login-Seite
@@ -2603,15 +2606,23 @@ media-challenge-app/
 ├── .gitignore                  # Was nicht zu GitHub soll (node_modules, uploads)
 ├── db.js                       # Knex-Konfiguration / DB-Verbindung
 ├── package.json                # Liste aller installierten Pakete
-├── server.js                   # Das Herzstück (App-Start)
-└── data.sqlite                 # Deine tatsächliche Datenbank-Datei
+├── server.js                   # App-Start
+└── data.sqlite                 # Test-Datenbank
 
 ```
 
 ## Donnerstag, 08.01.2026
 
 
+
+![Bild](img/zeitstrahl.jpg)
+
+
 ### Ziel für heute:
+
+Zeitstrahl entwerfen!
+- für die nächsten 12 Wochen
+- Diplomarbeit schreiben miteinplanen (siehe Bild oben)
 
 Partials für Logic-.js Files:
 - Filtern
@@ -2692,10 +2703,59 @@ Partials für Logic-.js Files:
               <% } %>
   ```
 
-  ## Dienstag, 13.01.2025
+  ## Dienstag, 13.01.2026
 
   ### Überlegungen:
 
-  Javascript - Files (zb Challenges), wo auch Codes für die Schüler-.ejs Files vorkommen, trennen unte rSchüler und Lehrer/Admin. ---> bessere Wartbarkeit 
+  Javascript - Files (zb Challenges), wo auch Codes für die Schüler-.ejs Files vorkommen, trennen unter Schüler und Lehrer/Admin. ---> bessere Wartbarkeit 
+
+
+  ## Donnerstag, 15.01.2026
+
+### Ziel: 
+  - Wenn man Challenge löscht, werden angebundene Teams auch gelöscht! Muss noch geändert werden.
+
+  - Challenges erstellen Problem fixen!! weil sonst kann man keine neuen Challenges erstellen. 
+
+
+
+### Noch machen
+
+- Infos von Schüler - Bewertung bei Lehrer anzeigen lassen
+
+- Challenges löschen funktioniert nicht ( Challenges Details)
+
+- Benachrichtigungen für Schüler
+
+
+## NOCH EINIGE TAGE NACHSCHREIBEN
+
+## Montag, 26.01.2026
+
+### Ziel für heute:
+- Teams bearbeiten
+- Teams erstellen
+- Teams Live-Suchen
+- Teams in ChallengesForm miteinbinden, damit schon bereits vorhandene Teams ausgewählt werden können.
+  - Das muss noch ausgearbeitet werden!! Das funktioniert noch nicht.
+
+
+### Problem:
+
+Ich habe jetzt zwei Modals für Team erstellen
+- 1. In teamModal.ejs und teamModalLogic.js
+- 2. challengesFormLogic.js und challengesForm.ejs GLAUBE ICH
+
+Ich muss aufpassen, dass ich das berücksichtige und schnellstmöglich ändere, bevor ein Chaos entsteht und Daten falsch gespeichert werden. 
+
+### Lösung:
+
+Ein Team-Modal für beide Anwendungen --> Die best-mögliche Lösung und eigentlich auch die einzige Lösung ist, dass man das gleiche Modal immer wieder verwendet.
+
+Ich habe auch schon ein Modal erstellt. Ich muss jetzt nur noch schauen, wie und ob ich es in ChallengesForm ohne große Probleme integrieren kann. Das ist das Ziel fürs nächste mal.
+
+
+
+
 
   
