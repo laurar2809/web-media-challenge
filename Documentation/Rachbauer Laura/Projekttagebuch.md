@@ -317,3 +317,42 @@
 - Unnötigen Code gelöscht  
 
 > ![alt text](Images/Kommentare.png)
+
+
+## KW 03 (12.01. - 18.01.2026)
+**Stunden gesamt: 15 h**
+
+### Code-Umstrukturierung
+- Weitere Umstrukturierung des Codes (Entfernen der Inlinestyles, Strukturierung des CSS-Files)  
+- Einheitliche Styles und bessere Lesbarkeit  
+- Letzte Anpassungen vor Design-Feinschliff 
+
+> ![alt text](Images/cssButton.png) 
+
+> ![alt text](Images/cssNavigation.png)
+
+### Design-Feinschliff
+- Kleine Designänderungen auf der Website  
+- Anpassungen bei Cards, Navbar, Abständen  
+- Vereinheitlichung der Buttons für gleiche Funktionen 
+
+> ![alt text](Images/Aufgabenpakete.png)
+
+
+## KW 04 (19.01. - 25.01.2026)
+**Stunden gesamt: 8 h**
+
+### Design-Abgabeseiten (Lehreransicht)
+- Bearbeiten des Designs der Abgabeseiten (Lehreransicht)
+- Veränderungen an Abständen, Buttons und Statusanzeigen 
+
+> ![alt text](Images/AbgabeseiteStatus.png) 
+
+> ![alt text](Images/AbgabeDetailLehrer.png)
+
+### Fertigstellung der Designänderungen
+- Abschluss der Designänderungen der Abgabenseiten (Lehreransicht)
+- Statusansichten klar und übersichtlich gestaltet  
+- Übereinstimmung der Designs mit restlichem Website-Layout 
+  
+  

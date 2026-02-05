@@ -50,6 +50,8 @@
 |13.01.2026|3|Ja|Weitere Umstrukturierung vom Code (Entfernen der Inlinestyles, Strukturierung vom Css File, ...)|
 |14.01.2026|2|Ja|Letze Umstrukturierung vom Code (Entfernen der Inlinestyles, Strukturierung vom Css File, ...)|
 |15.01.2026|10|Nein|Kleine Designänderung (Feinschliff) - Cards, Navbar, Abstände, Buttons (gleiche Buttons für gleiche Funktionen)|
+|22.01.2026|5|Nein|Bearbeiten des Designs der Abgabeseiten (Lehreransicht)|
+|25.01.2026|3|Ja|Fertigstellung der Designänderungen der Abgabenseiten (Lehreransicht) - Statusansichten|
 
 
-#### (Freizeit: 98 h; ges. 216 h) - Stand: 15.01.2026
+#### (Freizeit: 101 h; ges. 224 h) - Stand: 25.01.2026
