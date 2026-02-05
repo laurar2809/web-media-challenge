@@ -2728,7 +2728,15 @@ Partials für Logic-.js Files:
 - Benachrichtigungen für Schüler
 
 
-## NOCH EINIGE TAGE NACHSCHREIBEN
+## ------NOCH EINIGE TAGE NACHSCHREIBEN
+
+## Mittwoch, 21.01.2026
+
+- Teams im Teams.ejs Fille erstellen und verwalten
+
+## Samstag, 24.01.2026
+
+Projektmanagement: Plichtenheft Endversion und Jahresüberblick-Aktualisierung
 
 ## Montag, 26.01.2026
 
@@ -2755,7 +2763,239 @@ Ein Team-Modal für beide Anwendungen --> Die best-mögliche Lösung und eigentl
 Ich habe auch schon ein Modal erstellt. Ich muss jetzt nur noch schauen, wie und ob ich es in ChallengesForm ohne große Probleme integrieren kann. Das ist das Ziel fürs nächste mal.
 
 
+## Donnerstag, 29.01.2026
+
+### Wichtig
+- Daten bis nur 100 MB sollen hochgeladen werden können.
+- Große Videos gegebenfalls mit Link von Youtube hochladen
 
 
+### Ziel von heute:
+- Modal anpassen und Partials bilden. Wie geht man am besten vor?
+- Wenn ich beim Challenge erstellen drin bind und ein bereits vorhandenes Team auswähle. Was passiert, wenn ich auf bearbeiten drücke? --> **WELCHES MODAL WIRD AUFGERUFEN?**
+- ZWEI MODALS? --> Nicht gut !!! müssen wir noch ändern
+  - Wenn man unter TEAMS Team Modal benutzt und auf Team erstellen drückt, wird Team direkt gepseichert
+    - Wenn man das im Challenge-Team Bereich so macht und auf Team erstellen drückt, wird es erst noch nicht gespeichert. Es wird erst gespeichert, wenn man auf Challenge speichern drückt!!
 
+DAS IST DER UNTERSCHIED !! Muss noch geregelt werden
+
+Ziel ist, dass nur ein Modal exisitiert zum Team erstellen. Und nicht zwei. das wäre wichtig. --> dabei muss das team modal von der challengesForm Seite komplett gelöscht oder halt mit include eingebunden werden. !! das wäre mal der grundlegende Plan
+
+
+Weiteres Problem
+- challengesForm.js ist noch VIEEEL zu lange!! Es müssen entweder Partials gemacht werden oder wir verwenden da ebenso die teamsModalLogic.js, die wir beim Teams-part auch hernehmen !!! Da müssen wir aber auch wieder auf den Part mit dem Speichern achten. Wichtig!
+
+- Wenn man eine Challenge löscht, wird auch direkt das dazugehörige Team auch gelöscht. --> nicht gut!
+  - muss geändert werden
+
+### Erreicht: 
+  - Teams-Modal-Partial erstellt. Das wird für alle Anwendungen hergenommen. Verwalten und Wiederverwendunge der Daten versichert.
+
+
+  ![alt text](image.png)
+
+- Neues Team-Modal
+- Es werden wieder Schüler von Datenbank angezeigt. Filtern,etc. ist noch nicht möglich/ nicht mehr.
+  - Muss wieder deklariert werden
+- Kein Drap and Drop mehr - Nur noch ganz einfach mit ankicken.
+
+
+--> ERFOLG:
+- Das gleiche Partial wird für Challenges-Team erstellen und für normal Team erstellen hergenommen.
+
+
+### Probleme: 
+
+Das größte Problem war, dass das Modal nicht komplett geschlossen hat, wenn man unter "Challenge erstellen" ein Team erstellen wollte.
+
+Es wurde alles grau und der Bildschirm ist "eingestarrt" 
+
+Woran liegt das?
+- Das Modal hat geschlossen, während die erstellen Teams in einer Liste gespeichert wurden. Diese zwei Aktivitäten "hetzten" sich gegenseitig auf und kollidierten. Das Team wurde zwar in der Liste gespeichert und auch aufgelistet, jedoch hat sich das Modal wie gesagt nicht komplett geschlossen
+
+### Lösung:
+
+Es lag an einigen Programmschnippseln am Programm!
+
+1. Der handler im teamModalLogic.js:
+
+```js
+handleSave() {
+        const members = Array.from(this.dropZone.querySelectorAll('[data-id]')).map(el => ({
+            id: el.dataset.id,
+            vorname: el.dataset.vorname,
+            nachname: el.dataset.nachname,
+            klasse: el.dataset.klasse
+        }));
+        const name = this.nameInput.value.trim();
+
+        if (!name || members.length === 0) {
+            alert("Bitte Name und Mitglieder eingeben!");
+            return;
+        }
+
+        // 1. Modal-Instanz holen und schließen
+        const modalInstance = bootstrap.Modal.getOrCreateInstance(this.modalElement);
+        modalInstance.hide();
+
+        // 2. DER STARRE-BRECHER (Timeout)
+        // Wir warten, bis die Animation fast fertig ist
+        setTimeout(() => {
+            // Daten erst JETZT speichern, um DOM-Konflikte zu vermeiden
+            this.onSave({ name, members });
+
+            // RADIKAL-REINIGUNG: Wir löschen alles, was das Scrollen blockiert
+            document.body.classList.remove('modal-open');
+            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+
+            // CSS-Eigenschaften manuell zurücksetzen
+            document.body.style.overflow = 'auto';
+            document.body.style.paddingRight = '0px';
+
+            console.log("Scroll-Sperre manuell aufgehoben.");
+        }, 350);
+    }
+```
+
+2. Init:
+
+```js
+ init() {
+        // Event Listener für Filter (Suchen & Klasse)
+        this.nameFilter?.addEventListener('input', () => this.renderAvailable());
+        this.classFilter?.addEventListener('change', () => this.renderAvailable());
+
+        // Speichern-Button
+        this.submitBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.handleSave();
+        });
+
+        // Cleanup-Logik wenn das Modal geschlossen wird
+        this.modalElement.addEventListener('hidden.bs.modal', () => {
+            this.cleanup();
+        });
+    }
+```
+
+UND DAS ENTSCHEIDENDE:
+- Im Style wurde das Problem bekämpft - Dort wurden die Eigenschaften auf *important* gesetzt. Das hilft dabei, dass das Modal wieder ordnungsgerecht geschlossen wird.  
+
+```css
+<style>
+    /* Die Lebensversicherung: Scrollen immer erlauben und Starre verhindern */
+    body.modal-open {
+        overflow-y: auto !important;
+        padding-right: 0 !important;
+    }
+    body {
+        overflow-y: scroll !important;
+    }
+    .cursor-pointer { cursor: pointer; }
+</style>
+```
+
+
+## Freitag, 30.01.2026
+
+### LDAP Daten:
+
+- Ich habe die ENV Daten zu meinen bisherigen Daten hinzugefügt. (Ins .env und ins .env.example)
+
+- Ich habe ein Beispiel-.js erstellt, damit ich testen kann, ob ich die Daten von dieser Datenbank holen kann. Es funktioniert!!!
   
+
+### Ziel von heute:
+
+Team erstellen und verwalten finalisieren.:
+
+
+#### Challenges - Teams verwalten
+
+- Team NEU erstellen unter Challenges:
+
+  - Wenn man eins neu erstellt, wird es zwar gut gespeichert, aber die Mitglieder werden bei der Challenges-Übersicht nicht angezeigt. Der Team - Name aber schon.
+
+
+- VORHANDENES Team hinzufgügen zu Challenges:
+
+  - Wenn man ein vorhandenes Team auswählt, kann man es zwar auswählen, aber wenn man auf speichern drückt und auf die Challenges Ansicht geht, wird angezeigt, das kein Team zugewiesen ist. Quasi es wird nichts angezeigt.
+  - Es wird auch nicht in der Datenbank gespeichert also es wird das Team nicht mit der Challenge noch nicht verknüpft. muss noch geändert werden.
+
+
+- Teams speichern bzw Mitglieder mitspeichern
+
+  - Wenn man ein Team erstellt wird zwar der Name gespeichert, aber nicht die Mitglieder, die ich mit ausgewählt habe beim Team Modal im Challenges Bereich. Bei der offiziellen Teams-Übersicht wird dann auch nur der Team-Name angezeigt, aber nicht die Mitglieder. Das ist nicht gut
+  - Beim Teams-Bereich also quasi im Offiziellen beim Modal passiert das nicht. Da funktioniert eigentlich alles ziemilch gut. 
+
+
+- Wenn man ein Team im Challenges -Bereich erstellt also quasi neu:
+  - Wenn man auf "Team hinzufügen" drückt wird das Team zwar auch zur Liste quasi hinzugefügt, aber leider sogar zweimal!! also Im Challenges.-Erstellbereich wird dann zwei mal das gerade eben erstellte Team angezeigt. Das ist nicht gut. Und eben Mitglieder werden nicht mitgespeichert, wenn man auf gesamte Challenge speichern drückt wie gehabt. 
+
+### Weiteres (Probleme)
+
+- Weiteres PROBLEM - Overlay (grau) nach "Abbrechen":
+
+  - Wenn man auf das team Modal geht und auf abbrechen drückt, kommt wieder das graue overlay. Es geht aber erst wieder weg, wenn man oben auf die Leiste drückt und auf Enter. Quasi man "lädt" die Seite "neu". Dann gehts weg. Woran liegt das?
+
+
+- Filtern von Schülern bei Teams Modal (beide)
+
+  - Filtern funktioniert noch nicht richtig bei beiden Anwendungen der Modale. Das muss noch gefixt werden.
+
+
+### Heute geschafft:
+
+- Team Modal:
+  - Graues Overlay funktioniert jetzt! Mit der CSS Logik ist es jetzt möglich, dass sich das TeamModal ordnungsgerecht schließt und öffnet (mit grauen Overlay)
+
+
+- Es geht jetzt alles, was heute davor noch nicht funktioniert hat! 
+
+### Ziel für Zukunft:
+
+- LDAP Daten gut eintragen (Schüler, Lehrer ev.)
+- Login für Schüler (echte Schüler) ermöglichen
+- **Fragen, wie ich zuhause mit den LDAP Daten arbeiten soll, wenn das nur über das Schüler Wlan geht.**
+- Datenbankänderungen eventuell vornehmen und Website daran anpassen. 
+
+
+ ## Mittwoch, 04.02.2026:
+
+ LDAP-Brücke steht: Der Login mit echten Schulkürzeln funktioniert.
+
+Datenbank-Sync: Deine users-Tabelle füllt sich automatisch mit echten Klassen.
+
+Schnell-Login repariert: Kein "Zufalls-Login" mehr, sondern gezielte Test-User für Schüler (1) und Admin (3).
+
+Statistik-Aura: Dein Lehrer-Dashboard zeigt jetzt minimalistisch und übersichtlich die importierten Klassen an.
+
+### Heute geschafft: 
+
+1. Server-Infrastruktur & LDAP-Integration
+    - LDAP-Anbindung: Erfolgreiche Konfiguration des LDAP-Services zur Authentifizierung von Schülern und Lehrern über den schulinternen Server.
+
+    - Fehlertoleranz im Home-Office: Implementierung einer Weiche im Login-Prozess, die bei fehlender VPN-Verbindung zum Schulnetzwerk automatisch auf lokale Test-User umschaltet, um die Entwicklung zu Hause zu ermöglichen.
+
+    - Daten-Synchronisation: Programmierung einer Logik, die beim ersten Login via LDAP die Benutzerdaten (Vorname, Nachname, Kürzel) automatisch in die lokale MariaDB-Datenbank übernimmt.
+
+2. Datenbank-Optimierung & User-Management
+    - Klassen-Zuordnung: Umstellung der Datenbank-Abfragen auf ein dynamisches Modell, bei dem die Klasse eines Schülers direkt über die klasse_id aus der klassen-Tabelle aufgelöst wird.
+
+    - Statistik-Modul: Entwicklung einer SQL-Abfrage, die importierte Schüler nach Klassen gruppiert zählt, um dem Admin eine Übersicht über den Importstatus zu geben.
+
+    - Quick-Login System: Erweiterung der auth.js um eine robuste LIKE-Suche, damit Test-Accounts auch bei unvollständigen Namenseingaben sofort eingeloggt werden können.
+
+3. Challenge- & Abgabe-System (Backend & Logic)
+    - Upload-Infrastruktur: Erstellung einer dynamischen Ordnerstruktur für Abgaben, die Dateien nach Schuljahr und Team-ID sortiert (z.B. /uploads/abgaben/2025-26/team-15/).
+
+    - Abgabe-Bugfix: Behebung eines JavaScript-Fehlers in der abgabeLogic.js, der das Absenden von Challenges verhinderte (Zugriff auf ein nicht existierendes Titelfeld wurde entfernt).
+
+    - Fortschritts-Algorithmus: Implementierung einer Logik in EJS, die den Team-Fortschritt in Prozent berechnet, basierend auf dem Status der zugewiesenen Challenges (offen, eingereicht, bewertet).
+
+4. Frontend-Design & User Experience (UX)
+    - Admin-Dashboard: Umzug der Klassen-Statistiken von der Kategorien-Seite zur Schüler-Übersicht für eine bessere kontextuelle Trennung.
+
+    - Team-Detailansicht: Neugestaltung der Detailseite mit einem modernen Header, einem dedizierten "Zurück"-Button und einer übersichtlichen Aufteilung in Teammitglieder (links) und Challenge-Status (rechts).
+
+    - Editor-Setup: Korrektur der VS Code Sprachzuordnungen für .ejs-Dateien, um korrektes Syntax-Highlighting im HTML-Stil ohne Fehlermeldungen zu gewährleisten.
