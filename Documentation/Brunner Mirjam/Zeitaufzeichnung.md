@@ -72,8 +72,15 @@
 |21.01.2026|5|Nein|Teams im "Teams.ejs" File erstellen und verwalten|
 |24.01.2026|2 --> bis jetzt 163h|Ja|Projektmanagement: Plichtenheft Endversion und Jahresüberblick-Aktualisierung|
 |26.01.2026|3|Ja|Bearbeiten und Löschen von Teams unter "Teams.ejs" + Live-Suche Korrektur|
+|29.01.2026|10|Nein|Teams-Modal-Partial erstellt. Das wird für alle Anwendungen hergenommen. Verwalten und Wiederverwendunge der Daten versichert.|
+|30.01.2026|2|Ja|LDAP Daten zugänglich von unserer Website aus gemacht.|
+|03.02.2026|4|Ja|Teams finalisieren, Modal verbessern, Speichern von Teams und Anzeigen, LDAP Vorbereitungen (Auf Schüler konnte bereits zugegriffen werden)|
+|04.02.2026|6|Ja|LDAP Anbindung finalilsieren und Schüler und Lehrer synchronisieren. Daten in Website anbinden. Anpassungen von Upload, Team Detailansicht, etc.|
+|05.02.2026|10|Nein|---|
+
+
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|166|-|-|
+|178|-|-|
