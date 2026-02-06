@@ -353,6 +353,48 @@
 ### Fertigstellung der Designänderungen
 - Abschluss der Designänderungen der Abgabenseiten (Lehreransicht)
 - Statusansichten klar und übersichtlich gestaltet  
-- Übereinstimmung der Designs mit restlichem Website-Layout 
+- Übereinstimmung der Designs mit restlichem Website-Layout
+
+
+## KW 05 (26.01. – 01.02.2026)
+**Stunden gesamt: 10 h**
+
+### Designänderungen Abgabeseiten (Schüleransicht)
+- Designanpassungen der Abgabeseiten für die Schüleransicht  
+- Verbesserung der Übersichtlichkeit und Benutzerführung 
+- Anpassung von Abständen, Cards und Buttons  
+
+> ![alt text](Images/AbgabeseiteSchueler1.png)
+
+> ![alt text](Images/AbgabeseiteSchueler2.png)
+### Teamsseite
+- Designänderungen an der Teamsseite  
+- Einheitlicher Stil im Vergleich zu anderen Seiten
+
+### Burgermenü
+- Erstellung eines Burgermenüs für kleinere Bildschirmgrößen  
+- Verbesserung der Responsivität der Website 
+
+> ![alt text](Images/Burgermenue.png)
+
+
+## KW 06 (02.02. – 08.02.2026)
+**Stunden gesamt: 9 h**
+
+### Problembehebungen GitHub
+- Probleme beim Pushen auf GitHub analysiert und behoben    
+
+### Designänderungen
+- Designänderungen auf verschiedenen Seiten  
+- Feinschliff an Layout, Abständen und Buttons
+
+### Teams- & Challenge-Form-Seiten
+- Designänderungen an der Teamsseite (blauen Rand weg, Buttons, Dropzone Felder (Farbe ändern)) 
+- Anpassungen an den Challenge-Formularen  
+
+> ![alt text](Images/BlauerRandweg.png)
+
+> ![alt text](Images/DropzoneFarbe.png)
+
   
   
