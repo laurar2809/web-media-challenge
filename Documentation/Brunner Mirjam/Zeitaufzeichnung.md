@@ -75,12 +75,13 @@
 |29.01.2026|10|Nein|Teams-Modal-Partial erstellt. Das wird für alle Anwendungen hergenommen. Verwalten und Wiederverwendunge der Daten versichert.|
 |30.01.2026|2|Ja|LDAP Daten zugänglich von unserer Website aus gemacht.|
 |03.02.2026|4|Ja|Teams finalisieren, Modal verbessern, Speichern von Teams und Anzeigen, LDAP Vorbereitungen (Auf Schüler konnte bereits zugegriffen werden)|
-|04.02.2026|6|Ja|LDAP Anbindung finalilsieren und Schüler und Lehrer synchronisieren. Daten in Website anbinden. Anpassungen von Upload, Team Detailansicht, etc.|
-|05.02.2026|10|Nein|---|
+|04.02.2026|6|Ja|LDAP Anbindung finalisieren und Schüler und Lehrer synchronisieren. Daten in Website anbinden. Anpassungen von Upload, Team Detailansicht, etc.|
+|05.02.2026|10|Nein|Diplomarbeit schreiben/verfassen -> erste Schritte mit Herr Hanl|
+|11.02.2026|3 -> ab jetzt: 181 h!!|Ja|Challenges (Status), VideoLink, sqlite Datenbank repariert (login 1,2,3), etc.|
 
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|178|-|-|
+|181|-|-|

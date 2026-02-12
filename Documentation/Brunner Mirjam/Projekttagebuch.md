@@ -2999,3 +2999,113 @@ Statistik-Aura: Dein Lehrer-Dashboard zeigt jetzt minimalistisch und übersichtl
     - Team-Detailansicht: Neugestaltung der Detailseite mit einem modernen Header, einem dedizierten "Zurück"-Button und einer übersichtlichen Aufteilung in Teammitglieder (links) und Challenge-Status (rechts).
 
     - Editor-Setup: Korrektur der VS Code Sprachzuordnungen für .ejs-Dateien, um korrektes Syntax-Highlighting im HTML-Stil ohne Fehlermeldungen zu gewährleisten.
+
+
+## Donnerstag, 05.02.2026
+
+    Erklärung: /routes/api/index.js:
+      - Unterscheidung zwischen clientseitigem Filtern (filterUtils.js) für schnelle UI-Interaktionen und serverseitiger API-Suche (api/index.js) für umfassende Datenbankabfragen implementiert.
+
+
+### VPN installieren: 
+      https://www.fortinet.com/support/product-downloads
+
+      --> müssen wir noch machen, macht Herr Hanl mit uns. 
+
+
+## Mittwoch, 11.02.2026
+
+Die Schüler sollen die Filme (falls Kategorie Filmproduktion) auch als Link abgeben können (Youtube). Durch diese Lösung kann eine große Menge an Speicherplatz gespart werden und dabei werden auch nicht die vorgegebenen 100 MB überschritten. Das ist eine effiziente neue Lösung für die Zunkunft. Explizit auch für die Medienwoche! (Schüler laden deren Film direkt privat auf Youtube hoch)
+
+Was noch zu machen ist:
+- Ein Zeichen bei den Challenges der Schüler, ob Challenge bereits bewertet wurde oder nicht
+- Bei der Team-Detail Seite den Ansicht-Button funktionabel machen.
+- Link-Funktion hinzufügen (Video-Abgabe)
+
+
+Nice to have:
+- Sqlite: 1, 2, 3 Login bei sqlite machen
+  - (geht bis jetzt nur 1 und 2)
+- Sqlite: Lehrerdaten und Schülerdaten trennen --> Lehrer zur Lehrerseite
+
+
+### Challenges -> Status
+- funktioniert!
+
+### Video-Link speichern
+
+- Dateien (Bilder/Uploads): Landen im Ordner (Uploads) + Pfad in der DB (abgabe_medien).
+  - Dateien für alles, was ihr selbst erstellt habt (Bilder, Dokumente).
+
+- Video-Link: Landet nur als Text in der Spalte video_link der Tabelle challenge_abgaben.
+  - Links für alles, was zu groß ist (YouTube-Videos), damit euer Server nicht voll wird.
+
+  Es funktioniert! Das Video kann per Link vom Schüler hochgeldaden werden. Bei der Lehreransicht (bewerten) wird das Video direkt auf der eigenen Website angezeigt! Der Vorgang ist so:
+
+
+  ```html
+  <% if (abgabe.video_link) { %>
+  <div class="col-12 mb-4">
+    <div class="card shadow-sm border-primary">
+      <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <span><i class="bi bi-youtube me-2"></i> Eingebettetes Video</span>
+        <a href="<%= abgabe.video_link %>" target="_blank" class="btn btn-light btn-sm">
+          <i class="bi bi-box-arrow-up-right"></i> Im neuen Tab öffnen
+        </a>
+      </div>
+      <div class="card-body p-0">
+        <% 
+          // Logik um YouTube ID zu extrahieren
+          let videoSrc = abgabe.video_link;
+          let isYouTube = false;
+          const ytMatch = abgabe.video_link.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&]+)/);
+          
+          if (ytMatch) {
+            videoSrc = `https://www.youtube.com/embed/${ytMatch[1]}`;
+            isYouTube = true;
+          }
+        %>
+
+        <% if (isYouTube) { %>
+          <div class="ratio ratio-16x9">
+            <iframe src="<%= videoSrc %>" title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+          </div>
+        <% } else { %>
+          <div class="p-4 text-center">
+            <i class="bi bi-link-45deg fs-2"></i>
+            <p>Externer Link erkannt: <a href="<%= abgabe.video_link %>" target="_blank"><%= abgabe.video_link %></a></p>
+            <p class="small text-muted">Vorschau für diesen Anbieter nicht verfügbar.</p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+Um das Video direkt anzeigen lassen zu können bei der Bewertung, muss der Link verändert werden! (embed)
+
+```js
+<% 
+          // Logik um YouTube ID zu extrahieren
+          let videoSrc = abgabe.video_link;
+          let isYouTube = false;
+          const ytMatch = abgabe.video_link.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&]+)/);
+          
+          if (ytMatch) {
+            videoSrc = `https://www.youtube.com/embed/${ytMatch[1]}`;
+            isYouTube = true;
+          }
+ %>
+```
+
+Wenn man auf "im neuen Tab öffnen" drückt, wird es direkt in Youtube geöffnet. Da wird der normale Youtube-Link aufgerufen.
+
+![alt text](image-2.png)
+  
+
+
+
+Eventuell für Zukunft:
+- Lehrer für Kategorien zuteilen! (Damit nicht jeder alle Challenges von allen Lehrern sieht)
