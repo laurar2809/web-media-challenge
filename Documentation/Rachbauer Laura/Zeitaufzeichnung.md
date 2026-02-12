@@ -55,5 +55,6 @@
 |29.01.2026|10|Nein|Designänderungen der Abgabenseiten (Schueleransicht) und der Teamsseite. Erstellen von Burgermenue.|
 |06.02.2026|7|Nein|Problembehebungen bei GitHub (Probleme beim Pushen) - Designänderungen an verschiedenen Seiten|
 |06.02.2026|2|Ja|Designänderungen der Teamsseite und Challenges Forms Seite.|
+|12.02.2026|5|Nein|Vorbereitungen zum Schreiben der Diplomarbeit. Festlegen von Inhaltsverzeichnis. Gliederung der einzelnen Komponenten in Frontent und Backend.|
 
-#### (Freizeit: 103 h; ges. 244 h) - Stand: 06.02.2026
+#### (Freizeit: 103 h; ges. 249 h) - Stand: 12.02.2026
