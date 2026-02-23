@@ -56,5 +56,7 @@
 |06.02.2026|7|Nein|Problembehebungen bei GitHub (Probleme beim Pushen) - Designänderungen an verschiedenen Seiten|
 |06.02.2026|2|Ja|Designänderungen der Teamsseite und Challenges Forms Seite.|
 |12.02.2026|5|Nein|Vorbereitungen zum Schreiben der Diplomarbeit. Festlegen von Inhaltsverzeichnis. Gliederung der einzelnen Komponenten in Frontent und Backend.|
+|13.02.2026|4|Ja|Beginn Schreiben der schriftlichen Diplomarbeit. 1. Kapitel -> Konzept.|
+|18.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
 
-#### (Freizeit: 103 h; ges. 249 h) - Stand: 12.02.2026
+#### (Freizeit: 109 h; ges. 258 h) - Stand: 18.02.2026
