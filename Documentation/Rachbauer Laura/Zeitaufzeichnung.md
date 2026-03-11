@@ -62,5 +62,6 @@
 |23.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
 |25.02.2026|1|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
 |26.02.2026|4|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|11.03.2026|3|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
 
-#### (Freizeit: 114 h; ges. 267 h) - Stand: 26.02.2026
+#### (Freizeit: 117 h; ges. 270 h) - Stand: 11.03.2026
