@@ -64,6 +64,8 @@
 |26.02.2026|4|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
 |11.03.2026|3|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
 |12.03.2026|10|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept: soweit fertig (Es fehlen noch Quellen und Bild müssen noch ersetzt werden.) Beginn 2. Kapitel -> Implementierung|
-|18.03.2026|3|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
+|17.03.2026|3|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
+|18.03.2026|2|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
+|19.03.2026|10|Nein|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
 
-#### (Freizeit: 120 h; ges. 283 h) - Stand: 18.03.2026
+#### (Freizeit: 122 h; ges. 295 h) - Stand: 19.03.2026
