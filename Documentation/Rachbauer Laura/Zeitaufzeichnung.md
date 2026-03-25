@@ -55,5 +55,17 @@
 |29.01.2026|10|Nein|Designänderungen der Abgabenseiten (Schueleransicht) und der Teamsseite. Erstellen von Burgermenue.|
 |06.02.2026|7|Nein|Problembehebungen bei GitHub (Probleme beim Pushen) - Designänderungen an verschiedenen Seiten|
 |06.02.2026|2|Ja|Designänderungen der Teamsseite und Challenges Forms Seite.|
+|12.02.2026|5|Nein|Vorbereitungen zum Schreiben der Diplomarbeit. Festlegen von Inhaltsverzeichnis. Gliederung der einzelnen Komponenten in Frontent und Backend.|
+|13.02.2026|4|Ja|Beginn Schreiben der schriftlichen Diplomarbeit. 1. Kapitel -> Konzept.|
+|18.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|20.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|23.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|25.02.2026|1|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|26.02.2026|4|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|11.03.2026|3|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
+|12.03.2026|10|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept: soweit fertig (Es fehlen noch Quellen und Bild müssen noch ersetzt werden.) Beginn 2. Kapitel -> Implementierung|
+|17.03.2026|3|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
+|18.03.2026|2|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
+|19.03.2026|10|Nein|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
 
-#### (Freizeit: 103 h; ges. 244 h) - Stand: 06.02.2026
+#### (Freizeit: 122 h; ges. 295 h) - Stand: 19.03.2026
