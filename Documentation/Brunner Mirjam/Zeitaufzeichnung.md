@@ -78,10 +78,21 @@
 |04.02.2026|6|Ja|LDAP Anbindung finalisieren und Schüler und Lehrer synchronisieren. Daten in Website anbinden. Anpassungen von Upload, Team Detailansicht, etc.|
 |05.02.2026|10|Nein|Diplomarbeit schreiben/verfassen -> erste Schritte mit Herr Hanl|
 |11.02.2026|3 -> ab jetzt: 181 h!!|Ja|Challenges (Status), VideoLink, sqlite Datenbank repariert (login 1,2,3), etc.|
-
+|14.02.2026|2|Ja|Schrieben an der Diplomarbeit (Konzepte)|
+|15.02.2026|3|Ja|Informieren: Wie bekomme ich Website auf Server? --> Coolify. Mit Hanl besprechen!--> Schrieben an der Diplomarbeit (Konzepte)|
+|16.02.2026|3|Ja|Schrieben an der Diplomarbeit (Konzepte)|
+|21.02.2026|3|Ja|Schrieben an der Diplomarbeit (Konzepte)|
+|26.02.2026|10|Nein|------|
+|07.03.2026|3|Ja|Schrieben an der Diplomarbeit (Implementierung)|
+|08.03.2026|3|Ja|Schrieben an der Diplomarbeit (Implementierung)|
+|12.03.2026|10|Nein|Diplomarbeit schreiben - Konzepte|
+|17.03.2026|2|Ja|Konzepte weitergeschrieben|
+|19.03.2026|10|Nein|Diplomarbeit schreiben - Implementierung|
+|22.03.2026|7|Ja|Implementierung fertig gestellt (Datenbank); Berechtigungen für Lehrer eingeschränkt (Löschen von Schülern, etc.)|
+|25.03.2026|7|Ja|Grundlagen anfangen schreiben -> Begriffserklärung und verwendete Technologien|
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|181|-|-|
+|216|-|-|

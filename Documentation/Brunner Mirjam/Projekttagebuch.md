@@ -3109,3 +3109,50 @@ Wenn man auf "im neuen Tab öffnen" drückt, wird es direkt in Youtube geöffnet
 
 Eventuell für Zukunft:
 - Lehrer für Kategorien zuteilen! (Damit nicht jeder alle Challenges von allen Lehrern sieht)
+
+
+## Freitag, 13.02.2026
+
+--> WICHTIG: Kann ich die Website schon direkt in Google öffnen? Wie ist das mit dem Server? Nur in der Schule, oder auch von Zuhause?  Server? Habe ich die Daten dazu schon? 
+
+
+## Sonntag, 15.02.2026
+
+Website auf Server bringen!!:
+
+https://filezilla-project.org/
+
+
+Wird in Zukunft damit gemacht.
+
+Gemini: 
+
+```text
+
+So sieht dein Workflow aus:
+Der Import (Sync): Du startest dein Skript sync-ldap-to-db.js. Es "saugt" die aktuellen Schülerdaten aus dem Schul-LDAP und füllt deine users-Tabelle in der MySQL-Datenbank. Dabei werden alte Testdaten gelöscht, damit alles sauber bleibt.
+
+Die Datenhaltung: In deiner Datenbank liegen jetzt die echten Namen und Kürzel (z. B. testuser). Dort verknüpfst du sie mit Teams, Klassen und Challenges.
+
+Der Login: Wenn ein Schüler sich einloggt, nutzt er sein Kürzel und sein echtes Schul-Passwort. Deine App schickt dieses Passwort an den LDAP-Server. Wenn der Server es bestätigt, lässt dein Backend den User rein.
+
+Was das für dich bedeutet:
+Kein Passwort-Stress: Du musst dich nicht um vergessene Passwörter kümmern – das macht die IT der Schule.
+
+Sicherheit: Da du keine Passwörter in deiner DB speicherst, kann auch nichts "gehackt" werden.
+
+Professionalität: Du zeigst, dass du ein System gebaut hast, das sich nahtlos in eine bestehende Firmen- oder Schulinfrastruktur integriert.
+
+Nächster Schritt für dich:
+Du kannst jetzt ganz beruhigt lokal weiterprogrammieren. Sobald du das Projekt mit deinem Lehrer auf den Coolify-Server der Schule schiebst, musst du nur noch die .env anpassen (die IP der Schul-DB eintragen), und der "echte" Sync kann losgehen.
+```
+
+
+
+
+## Donnerstag
+
+### Ziel für heute:
+- 
+- 
+- 
