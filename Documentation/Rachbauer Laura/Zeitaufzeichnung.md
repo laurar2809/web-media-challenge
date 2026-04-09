@@ -13,18 +13,18 @@
 |30.08.2025|3|Ja|Recherchieren und Durchlesen der Möglichkeiten von Tabler.io.|
 |11.09.2025|5|Nein|Ersten beiden Einheiten: Projektmanagement mit Frau Fuchs, Besprechen der Anforderungen. 3., 4. und 5. Einheit: Besprechen der Aufteilung, Fertigstellung des ABA Portals (nach Zurückweisung) und zeitliche Planung.
 |13.09.2025|2|Ja|Herunterladen der ersten Tabler.io Datein und durchlesen/verstehen der ersten Codes.|
-|14.09.2025|3|Ja|Erste Designideen auf Adobe XD anfertigen.|
+|14.09.2025|4|Ja|Erste Designideen auf Adobe XD anfertigen.|
 |16.09.2025|5|Ja|Weiterführen und Fertigstellung des ersten Website-Prototypen auf XD (Schülerversion).|
 |18.09.2025|10|Nein|Einreichen des ABA Portals. Beginn zweiter Website-Prototyp, nach Absprache mit Herrn Hanl. Inspirationen bei TablerIO einholen.|
-|26.09.2025|3|Ja|Weiterführen des zweiten Website-Prototypen. Design detailierter machen.|
+|26.09.2025|4|Ja|Weiterführen des zweiten Website-Prototypen. Design detailierter machen.|
 |30.09.2025|1|Ja|Updaten der Exeltabelle für die Jahresplanung für Frau Fuchs auf Teams.|
-|01.10.2025|3|Ja|Weiterführen des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
+|01.10.2025|4|Ja|Weiterführen des zweiten Website Prototypen auf XD - inspiriert durch TablerIO|
 |02.10.2025|10|Nein|Weiterführen und Fertigstellung des zweiten Website Prototypen auf XD. Brainstorming über Designideen und besprechen mit Herrn Hanl. Rechereche auf Bootstrap und TablerIO. Scribbles erstellen (für Challenges und Kategorien) und Start mit Website Prototype 03.|
-|08.10.2025|2|Ja|Weiterführen des dritten Website Prototypen auf XD.|
+|08.10.2025|3|Ja|Weiterführen des dritten Website Prototypen auf XD.|
 |09.10.2025|6|Nein|Weiterarbeit am dritten Website-Prototypen. Vorbereitung für den Start des Frontend-Programmierens und Einarbeitung in den vorhandenen Code von Herrn Hanl, Anpassung der Icons.|
-|10.10.2025|3|Ja|Fortsetzung der Frontend-Arbeiten: Erstellung der Challenge-Seite und Anpassung der Navigationsleiste. (HTML u. CSS)|
+|10.10.2025|4|Ja|Fortsetzung der Frontend-Arbeiten: Erstellung der Challenge-Seite und Anpassung der Navigationsleiste. (HTML u. CSS)|
 |11.10.2025|2|Ja|Protokolierungsarbeiten für die Diplomarbeit. (Jahresplanung, Projekttagebuch, Zeitaufzeichnung, etc., ...)|
-|13.10.2025|2|Ja|Weiterführen der Frontend-Arbeiten: Funktionalität der Challenge-Seite und erstellen einer neuen Challenge. (Dropdown Fenster)|
+|13.10.2025|3|Ja|Weiterführen der Frontend-Arbeiten: Funktionalität der Challenge-Seite und erstellen einer neuen Challenge. (Dropdown Fenster)|
 |16.10.2025|10|Nein|Weiterführen der Frontend-Arbeiten: Funktionalität der Speichern und Abbrechen Button auf der Challenge Seite. Hardcodierung des Dropdownbuttons "Kategorien" entfernen, und die verschiedenen Kategorien aus der Datenbank entnehmen. Größe des Dropdowns fixieren. Details und Bearbeiten Links hinzufügen.|
 |23.10.2025|10|Nein|Arbeiten an der Details-Seite und versuchen zum laufen zu bringen - noch nicht funktionell, Probleme bei der Programmierung.|
 |29.10.2025|3|Ja|Erstellen von eigenem Branch. Beginnen die Challenge-Seite zu designen.|
@@ -48,7 +48,7 @@
 |08.01.2026|10|Nein|Code strukturieren und weiter Zeitplannung der nächsten Wochen.|
 |09.01.2026|3|Ja|Strukturieren vom Code (HTML-Code ohne Styles - alles in CSS); Seiten: Arbeitespakete und ArbeitspaketeDetails|
 |13.01.2026|3|Ja|Weitere Umstrukturierung vom Code (Entfernen der Inlinestyles, Strukturierung vom Css File, ...)|
-|14.01.2026|2|Ja|Letze Umstrukturierung vom Code (Entfernen der Inlinestyles, Strukturierung vom Css File, ...)|
+|14.01.2026|3|Ja|Letze Umstrukturierung vom Code (Entfernen der Inlinestyles, Strukturierung vom Css File, ...)|
 |15.01.2026|10|Nein|Kleine Designänderung (Feinschliff) - Cards, Navbar, Abstände, Buttons (gleiche Buttons für gleiche Funktionen)|
 |22.01.2026|5|Nein|Bearbeiten des Designs der Abgabeseiten (Lehreransicht)|
 |25.01.2026|3|Ja|Fertigstellung der Designänderungen der Abgabenseiten (Lehreransicht) - Statusansichten|
@@ -56,16 +56,20 @@
 |06.02.2026|7|Nein|Problembehebungen bei GitHub (Probleme beim Pushen) - Designänderungen an verschiedenen Seiten|
 |06.02.2026|2|Ja|Designänderungen der Teamsseite und Challenges Forms Seite.|
 |12.02.2026|5|Nein|Vorbereitungen zum Schreiben der Diplomarbeit. Festlegen von Inhaltsverzeichnis. Gliederung der einzelnen Komponenten in Frontent und Backend.|
-|13.02.2026|4|Ja|Beginn Schreiben der schriftlichen Diplomarbeit. 1. Kapitel -> Konzept.|
-|18.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
-|20.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
-|23.02.2026|2|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
-|25.02.2026|1|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
-|26.02.2026|4|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
-|11.03.2026|3|Ja|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept|
-|12.03.2026|10|Nein|Schreiben an der Diplomarbeit. 1. Kapitel -> Konzept: soweit fertig (Es fehlen noch Quellen und Bild müssen noch ersetzt werden.) Beginn 2. Kapitel -> Implementierung|
-|17.03.2026|3|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
-|18.03.2026|2|Ja|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
-|19.03.2026|10|Nein|Schreiben an der Diplomarbeit. 2. Kapitel -> Implementierung|
+|13.02.2026|4|Ja|Beginn Schreiben der schriftlichen Diplomarbeit. -> Konzept.|
+|18.02.2026|2|Ja|Schreiben an der Diplomarbeit. -> Konzept|
+|20.02.2026|3|Ja|Schreiben an der Diplomarbeit. -> Konzept|
+|23.02.2026|3|Ja|Schreiben an der Diplomarbeit. -> Konzept|
+|25.02.2026|3|Ja|Schreiben an der Diplomarbeit. -> Konzept|
+|26.02.2026|4|Nein|Schreiben an der Diplomarbeit. -> Konzept|
+|11.03.2026|3|Ja|Schreiben an der Diplomarbeit. -> Konzept|
+|12.03.2026|10|Nein|Schreiben an der Diplomarbeit. -> Konzept: soweit fertig (Es fehlen noch Quellen und Bild müssen noch ersetzt werden.) Beginn -> Implementierung|
+|17.03.2026|3|Ja|Schreiben an der Diplomarbeit. -> Implementierung|
+|18.03.2026|3|Ja|Schreiben an der Diplomarbeit. -> Implementierung|
+|19.03.2026|10|Nein|Schreiben an der Diplomarbeit.  -> Implementierung|
+|24.03.2026|5|Ja|Schreiben an der Diplomarbeit. -> Implementierung|
+|25.03.2026|4|Ja|Schreiben an der Diplomarbeit. -> Grundlagen|
+|26.03.2026|5|Nein|Schreiben an der Diplomarbeit. -> Grundlagen|
+|28.03.2026|5|Ja|Schreiben an der Diplomarbeit. -> Grundlagen, Implementierung|
 
-#### (Freizeit: 122 h; ges. 295 h) - Stand: 19.03.2026
+#### (Freizeit: 147 h; ges. 326 h) - Stand: 28.03.2026
