@@ -90,9 +90,20 @@
 |19.03.2026|10|Nein|Diplomarbeit schreiben - Implementierung|
 |22.03.2026|7|Ja|Implementierung fertig gestellt (Datenbank); Berechtigungen für Lehrer eingeschränkt (Löschen von Schülern, etc.)|
 |25.03.2026|7|Ja|Grundlagen anfangen schreiben -> Begriffserklärung und verwendete Technologien|
+|12.03.2026|10|Nein|Diplomarbeit schreiben - Grundlagen|
+|26.03.2026|4|Ja|XD Entwurf: Änderung des allgemeinen Konzepts es Projekts|
+|27.03.2026|3|Ja|XD Entwurf: Änderung des allgemeinen Konzepts es Projekts - erneut|
+|29.03.2026|4 -MUSS NOCH HINZUGEFÜGT WERDEN!!!|Ja|Schreiben an der Diplomarbeit: Zusammenfassung und Fazit.; Prototypen herzeigen! |
+|30.03.2026|5 -MUSS NOCH HINZUGEFÜGT WERDEN!!!|Ja|Diplomarbeit fertig geschrieben und XD Prototypen erweitert|
+|01.04.2026|4 -MUSS NOCH HINZUGEFÜGT WERDEN!!!|Ja|Diplomarbeit korrekturgelesen (Backend und Datenbank-Teil)|
+|02.04.2026|4 |Ja|Diplomarbeit korrekturgelesen und bei LDAP noch Codes hinzugefügt|
+|03.04.2026| 6|Ja|Diplomarbeit korrekturgelesen|
+
+
+
 
 ---
 
 |Freizeitstunden (h)|Keine Freizeitstunden (h)|Gesamtstunden (h)|
 |--|--|--|
-|216|-|-|
+|244|-|-|
